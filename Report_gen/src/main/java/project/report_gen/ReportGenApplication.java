@@ -11,7 +11,7 @@ public class ReportGenApplication {
 
 		SpringApplication.run(ReportGenApplication.class, args);
 
-		System.out.println("Hello World from Bootstrapping class!");
+		//System.out.println("Hello World from Bootstrapping class!");
 	}
 
 }
