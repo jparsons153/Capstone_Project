@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e2ee0b2-d9c3-4301-951c-b6e19c8040d5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/report_gen/src/main/java/project/report_gen/ReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/report_gen/src/main/java/project/report_gen/ReportController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/controllers/ReportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/ReportController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/ReportGenApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/ReportGenApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/report_gen/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/report_gen/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +37,9 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../labs/Spring/Advanced-Java-Spring-Labs" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -46,7 +53,7 @@
       <module name="report_gen" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="project.report_gen.*" />
+          <option name="PATTERN" value="project.report_gen.controllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>

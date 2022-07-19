@@ -10,7 +10,7 @@ public class ReportGenApplication {
 	public static void main(String[] args) {
 
 		SpringApplication.run(ReportGenApplication.class, args);
-		
+
 	}
 
 }

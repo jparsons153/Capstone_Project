@@ -1,4 +1,4 @@
-package project.report_gen;
+package project.report_gen.controllers;
 
 
 import org.springframework.stereotype.Controller;
