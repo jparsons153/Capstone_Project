@@ -41,12 +41,16 @@ public class ReportController {
     }
 
     // add word template file
-    String template;
+    String temp = "C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/report_gen/src/main/java/project/report_gen/VALIDATION_TEMPLATE.dotx";
+    String template = "\"src/main/java/project/report_gen/char_data.txt";
 
     @GetMapping("/template")
     public WordprocessingMLPackage returnTemplate(String temp) throws FileNotFoundException, Docx4JException {
-        return reportService.getTemplate(template);
+        return reportService.getTemplate(temp);
     }
+
+    // Get method to return input stream of char_data.txt
+
 
 
 }
