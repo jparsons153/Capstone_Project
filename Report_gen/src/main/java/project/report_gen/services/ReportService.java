@@ -11,8 +11,8 @@ import java.io.FileNotFoundException;
 @Service
 public class ReportService {
 
-    public WordprocessingMLPackage getTemplate(String filePath) throws Docx4JException, FileNotFoundException {
-        WordprocessingMLPackage template = WordprocessingMLPackage.load(new FileInputStream(new File(filePath)));
-        return template;
-    }
+//        public WordprocessingMLPackage getTemplate(String filePath) throws Docx4JException, FileNotFoundException {
+//        WordprocessingMLPackage template = WordprocessingMLPackage.load(new FileInputStream(new File(filePath)));
+//        return template;
+//    }
 }

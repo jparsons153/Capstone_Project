@@ -16,14 +16,5 @@ public class ReportGenApplication {
 	public static void main(String[] args) {
 
 		SpringApplication.run(ReportGenApplication.class, args);
-
-		String name = "C:\\Users\\User\\OneDrive\\Documents\\CodingNomads\\projects\\Capstone_Project\\report_gen\\src\\main\\java\\project\\report_gen\\VALIDATION_TEMPLATE.dotx";
-
-//		public WordprocessingMLPackage getTemplate(String name) throws Docx4JException, FileNotFoundException {
-//			WordprocessingMLPackage template = WordprocessingMLPackage.load(new FileInputStream(new File(name)));
-//			return template;
-//		}
-
 	}
-
 }
