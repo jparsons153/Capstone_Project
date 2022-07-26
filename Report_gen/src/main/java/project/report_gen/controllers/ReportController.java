@@ -67,6 +67,18 @@ public class ReportController {
         }
     }
 
+    @GetMapping("/newDoc")
+    public void createNewDoc() {
+        try {
+            WordprocessingMLPackage wordprocessingMLPackage = WordprocessingMLPackage.createPackage();
+            wordprocessingMLPackage.save(new FileOutputStream(new File("C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/report_gen/src/main/java/project/report_gen/helloWord.docx")));
+        } catch (Docx4JException | FileNotFoundException exc) {
+            throw new RuntimeException(exc);
+        }
+    }
+
+
+
 
     // Get method to return input stream of char_data.txt
     @GetMapping("/char")
