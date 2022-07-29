@@ -2,16 +2,8 @@ package project.report_gen.controllers;
 
 
 import lombok.RequiredArgsConstructor;
-import org.docx4j.XmlUtils;
-import org.docx4j.jaxb.Context;
-import org.docx4j.model.datastorage.migration.VariablePrepare;
 import org.docx4j.openpackaging.exceptions.Docx4JException;
-import org.docx4j.openpackaging.exceptions.InvalidFormatException;
 import org.docx4j.openpackaging.packages.WordprocessingMLPackage;
-import org.docx4j.openpackaging.parts.WordprocessingML.DocumentSettingsPart;
-import org.docx4j.openpackaging.parts.WordprocessingML.MainDocumentPart;
-import org.docx4j.wml.CTCompat;
-import org.docx4j.wml.ObjectFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -71,19 +63,20 @@ public class ReportController {
     }
 
     @PostMapping(value = "/mapToReport/{fileName}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> printObj(@PathVariable String fileName,@RequestBody Report report) throws Docx4JException, FileNotFoundException {
+    public ResponseEntity<?> printObj(@PathVariable String fileName,@RequestBody Report report) throws Exception {
         if(StringUtils.isEmpty(report.getProduct())){
             return ResponseEntity.badRequest().body(report);
         }
 
-        reportService.createText(report,fileName);
+        reportService.createReport(report,fileName);
 
         return ResponseEntity.ok().body(report);
     }
-    
+
     @GetMapping("/parts/{fileName}")
     public void printParts(@PathVariable String fileName) throws Exception {
-        reportService.getMainDocumentPart(fileName);
+        String filePath = "C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/report_gen/src/main/java/project/report_gen/" + fileName + ".docx";
+        reportService.getMainDocumentPart(filePath);
     }
 
 }
