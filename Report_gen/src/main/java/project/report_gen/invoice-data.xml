@@ -2,7 +2,7 @@
     
     <date>2022-01-08</date>
         <customer>
-          <name>Joe Bloggs</name>
+          <name>J Bloggs</name>
         </customer>
         <items>
           <item>
@@ -19,7 +19,7 @@
           </item>
         </items>
         <misc>
-          <includeBankDetails>true</includeBankDetails>
+          <includeBankDetails>false</includeBankDetails>
           <wantspam>false</wantspam>
         </misc>
       </invoice>
