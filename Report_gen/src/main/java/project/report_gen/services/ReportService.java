@@ -2,16 +2,23 @@ package project.report_gen.services;
 
 import jakarta.xml.bind.JAXBElement;
 import org.docx4j.XmlUtils;
+import org.docx4j.customXmlProperties.DatastoreItem;
 import org.docx4j.dml.wordprocessingDrawing.Inline;
 import org.docx4j.jaxb.Context;
+import org.docx4j.model.datastorage.CustomXmlDataStorage;
+import org.docx4j.model.datastorage.CustomXmlDataStorageImpl;
 import org.docx4j.model.datastorage.migration.VariablePrepare;
 import org.docx4j.model.table.TblFactory;
 import org.docx4j.openpackaging.exceptions.Docx4JException;
 import org.docx4j.openpackaging.exceptions.InvalidFormatException;
 import org.docx4j.openpackaging.packages.WordprocessingMLPackage;
+import org.docx4j.openpackaging.parts.CustomXmlDataStoragePart;
+import org.docx4j.openpackaging.parts.CustomXmlDataStoragePropertiesPart;
+import org.docx4j.openpackaging.parts.Part;
 import org.docx4j.openpackaging.parts.WordprocessingML.BinaryPartAbstractImage;
 import org.docx4j.openpackaging.parts.WordprocessingML.DocumentSettingsPart;
 import org.docx4j.openpackaging.parts.WordprocessingML.MainDocumentPart;
+import org.docx4j.openpackaging.parts.relationships.RelationshipsPart;
 import org.docx4j.utils.XPathFactoryUtil;
 import org.docx4j.wml.*;
 import org.springframework.stereotype.Service;
@@ -22,6 +29,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class ReportService {
@@ -65,6 +73,10 @@ public class ReportService {
         addImage(wordprocessingMLPackage);
         mainDocumentPart.addParagraphOfText("Table added");
         addTable(wordprocessingMLPackage,mainDocumentPart);
+
+        // add tag "some content" content control
+        contentControl(mainDocumentPart);
+
 
         // set compatibility and save file
         setCompat(mainDocumentPart);
@@ -167,5 +179,54 @@ public class ReportService {
         CTCompat compat = Context.getWmlObjectFactory().createCTCompat();
         dsp.getContents().setCompat(compat);
         compat.setCompatSetting("compatibilityMode", "http://schemas.microsoft.com/office/word", "15");
+    }
+
+    public void contentControl(MainDocumentPart mainDocumentPart) throws Exception {
+        CustomXmlDataStoragePart customXmlDataStoragePart = injectCustomXmlDataStoragePart(mainDocumentPart);
+
+        addProperties(customXmlDataStoragePart);
+
+    }
+
+    public static CustomXmlDataStoragePart injectCustomXmlDataStoragePart(Part parent) throws Exception {
+
+        org.docx4j.openpackaging.parts.CustomXmlDataStoragePart customXmlDataStoragePart =
+                new org.docx4j.openpackaging.parts.CustomXmlDataStoragePart();
+        // Defaults to /customXml/item1.xml
+
+        CustomXmlDataStorage data = new CustomXmlDataStorageImpl();
+        data.setDocument(createCustomXmlDocument());
+
+        customXmlDataStoragePart.setData(data);
+        parent.addTargetPart(customXmlDataStoragePart, RelationshipsPart.AddPartBehaviour.RENAME_IF_NAME_EXISTS);
+
+        return customXmlDataStoragePart;
+    }
+
+    public static void addProperties(CustomXmlDataStoragePart customXmlDataStoragePart) throws InvalidFormatException {
+
+        CustomXmlDataStoragePropertiesPart part = new CustomXmlDataStoragePropertiesPart();
+
+        org.docx4j.customXmlProperties.ObjectFactory of = new org.docx4j.customXmlProperties.ObjectFactory();
+
+        DatastoreItem dsi = of.createDatastoreItem();
+        String newItemId = "{" + UUID.randomUUID().toString() + "}";
+        dsi.setItemID(newItemId);
+
+        part.setJaxbElement(dsi );
+
+        customXmlDataStoragePart.addTargetPart(part);
+    }
+
+    /**
+     * Generate or load the XML you want in your CustomXML part.
+     */
+    public static org.w3c.dom.Document createCustomXmlDocument() {
+
+        org.w3c.dom.Document domDoc = XmlUtils.neww3cDomDocument();
+        domDoc.appendChild(domDoc.createElement("someContent"));
+
+        return domDoc;
+
     }
 }
