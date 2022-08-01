@@ -93,7 +93,7 @@ public class ReportController {
 //        boolean USE_SAXON = true; // set this to true; add Saxon to your classpath, and uncomment below
 
 //        String input_DOCX = System.getProperty("user.dir") + "/sample-docs/databinding/invoice.docx";
-		String input_DOCX = "C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/report_gen/src/main/java/project/report_gen/JP_Example.docx";
+		String input_DOCX = "C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/report_gen/src/main/java/project/report_gen/invoice_Saxon_XPath2.docx";
 
         String input_XML = "C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/report_gen/src/main/java/project/report_gen/invoice-data.xml";
 
