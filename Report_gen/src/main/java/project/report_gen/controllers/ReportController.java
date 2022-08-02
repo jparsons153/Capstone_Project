@@ -83,6 +83,12 @@ public class ReportController {
         reportService.getMainDocumentPart(filePath);
     }
 
+    @GetMapping("/parts/bind")
+    public void printParts() throws Exception {
+            String filePath = "C:/Users/User/OneDrive/Documents/CodingNomads/projects/Docx4J_demo/sample-docs/databinding/binding-simple.docx";
+            reportService.getMainDocumentPart(filePath);
+        }
+
     public static JAXBContext context = org.docx4j.jaxb.Context.jc;
     static String filepathprefix;
 
@@ -157,7 +163,7 @@ public class ReportController {
     @ResponseBody
     public void bindReportToXML() throws Docx4JException, FileNotFoundException {
 
-        String input_DOCX = "C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/report_gen/src/main/java/project/report_gen/report.docx";
+        String input_DOCX = "C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/report_gen/src/main/java/project/report_gen/document3.docx";
 
         String input_XML = "C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/report_gen/src/main/java/project/report_gen/report-data.xml";
 

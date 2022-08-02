@@ -48,7 +48,7 @@ public class ReportService {
         MainDocumentPart documentPart = template.getMainDocumentPart();
 
         // Pretty print the main document part
-        VariablePrepare.prepare(template);
+        //VariablePrepare.prepare(template);
         System.out.println(
                 XmlUtils.marshaltoString(documentPart.getJaxbElement(), true, true));
     }
