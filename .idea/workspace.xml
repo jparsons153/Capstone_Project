@@ -5,7 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e2ee0b2-d9c3-4301-951c-b6e19c8040d5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/controllers/DemoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/docs-demoController/VALIDATION_TEMPLATE-fields.dotx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/docs-demoController/VALIDATION_TEMPLATE.dotx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/docs-demoController/char_data.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/docs-demoController/invoice-data.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/docs-demoController/invoice_Saxon_XPath2.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/docs-demoController/report.docx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/OUT_ContentControlsMergeXML.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/VALIDATION_TEMPLATE-fields.dotx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/VALIDATION_TEMPLATE.dotx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/char_data.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/controllers/ReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/controllers/ReportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/invoice-data.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/invoice_Saxon_XPath2.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/report.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/~$T_ContentControlsMergeXML.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/~$voice_Saxon_XPath2.docx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +70,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/report_gen/src/main/java/project/report_gen" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.47122863" />
