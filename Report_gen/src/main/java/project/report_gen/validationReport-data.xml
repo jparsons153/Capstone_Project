@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?><validation_report>
     
     <documentType>Validation Plan</documentType>
-    <product>Product B</product>
-    <productCell>Production Cell #AB</productCell>
+    <product>Product C</product>
+    <productCell>Production Cell #C100</productCell>
     <tool>TOOL#ID</tool>
 
 </validation_report>

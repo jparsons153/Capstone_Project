@@ -24,6 +24,8 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+import static org.docx4j.Docx4J.FLAG_BIND_REMOVE_XML;
+
 @Controller
 @RequiredArgsConstructor
 public class ReportController {
@@ -51,19 +53,12 @@ public class ReportController {
         // Open the xml stream
         FileInputStream xmlStream = new FileInputStream(new File(input_XML));
 
-        // Do the binding:
-        // FLAG_NONE means that all the steps of the binding will be done,
-        // otherwise you could pass a combination of the following flags:
-        // FLAG_BIND_INSERT_XML: inject the passed XML into the document
-        // FLAG_BIND_BIND_XML: bind the document and the xml (including any OpenDope handling)
-        // FLAG_BIND_REMOVE_SDT: remove the content controls from the document (only the content remains)
-        // FLAG_BIND_REMOVE_XML: remove the custom xml parts from the document
-
+        // Do the binding
         // BindingHyperlinkResolver is used by default
         BindingHandler.getHyperlinkResolver().setHyperlinkStyle("Hyperlink");
 
-        //insert the xml if it doesn't have an XPathPart
-        Docx4J.bind(wordMLPackage, xmlStream, Docx4J.FLAG_BIND_INSERT_XML | Docx4J.FLAG_BIND_BIND_XML);// | Docx4J.FLAG_BIND_REMOVE_SDT);
+        //inject the xml into the document content controls, delete content controls and xml when done in the output file
+        Docx4J.bind(wordMLPackage, xmlStream,Docx4J.FLAG_BIND_INSERT_XML | Docx4J.FLAG_BIND_REMOVE_SDT | FLAG_BIND_REMOVE_XML); // | Docx4J.FLAG_BIND_BIND_XML)
 
         //Save the document
         Docx4J.save(wordMLPackage, new File(OUTPUT_DOCX), Docx4J.FLAG_NONE);
