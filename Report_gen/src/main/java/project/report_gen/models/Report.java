@@ -20,11 +20,12 @@ public class Report {
     private Long id;
 
     private String documentType; // could be enum or list, as is fixed
-    private String product; // use product list dataset
+    private String productFamily;
+    private String productSKU; // use product list dataset
     private int tool;
     private String productionCell; // use productionCell dataset
     private String validationStrategy; // enum or list
-    private int batchSize;
+    private int batchSize; // auto-populated based on product SKU
 
     @Builder.Default
     private LocalDateTime createdAt = LocalDateTime.now();

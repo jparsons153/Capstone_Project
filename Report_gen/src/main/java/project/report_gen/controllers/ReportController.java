@@ -23,6 +23,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.*;
 
 import static org.docx4j.Docx4J.FLAG_BIND_REMOVE_XML;
 
@@ -34,9 +35,16 @@ public class ReportController {
     @Autowired
     ReportService reportService;
 
-    @GetMapping("/report")
+    @GetMapping("/reportIndex")
+    public String viewHomePage() {
+//        List<Report> reportList = new ArrayList<Report>();
+//        reportList.add()
+    return "reportIndex";
+    }
+
+    @GetMapping("/generate")
     @ResponseBody
-    public void bindReportToXML() throws Docx4JException, FileNotFoundException {
+    public void bindReportToXML() throws Docx4JException, IOException {
 
         String input_DOCX = "C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/report_gen/src/main/java/project/report_gen/TEMPLATE_DOCX.docx";
 
@@ -63,5 +71,9 @@ public class ReportController {
         //Save the document
         Docx4J.save(wordMLPackage, new File(OUTPUT_DOCX), Docx4J.FLAG_NONE);
         System.out.println("Saved: " + OUTPUT_DOCX);
+
+        //Open output file - not supported by platform!
+       // reportService.openFile(new File(OUTPUT_DOCX));
     }
+
 }

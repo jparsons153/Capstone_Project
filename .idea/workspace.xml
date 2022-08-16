@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e2ee0b2-d9c3-4301-951c-b6e19c8040d5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Report_gen/src/main/resources/templates/ReportIndex.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OUT_ContentControlsMergeXML.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/controllers/ReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/controllers/ReportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/document3.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/report-data.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/services/ReportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/services/ReportService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helloWorld.docx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,8 +22,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -53,7 +60,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/report_gen/src/main/java/project/report_gen" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../CustomerWebsite/customer_site" />
     <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.47122863" />

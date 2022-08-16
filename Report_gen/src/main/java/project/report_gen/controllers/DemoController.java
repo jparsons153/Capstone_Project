@@ -72,7 +72,7 @@ public class DemoController {
 
     @PostMapping(value = "/mapToReport/{fileName}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> printObj(@PathVariable String fileName, @RequestBody Report report) throws Exception {
-        if(StringUtils.isEmpty(report.getProduct())){
+        if(StringUtils.isEmpty(report.getProductSKU())){
             return ResponseEntity.badRequest().body(report);
         }
 
