@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Create New Document</title>
+</head>
+<body>
+<div align="center">
+    <h1>Create New Document</h1>
+    <br />
+    <!-- form to update the Report object (created in @GetMapping("/new"))
+    on submit will hit save endpoint
+    TODO data validation on input fields & use of drop-downs
+    -->
+    <form action="#" th:action="@{/save}" th:object="${report}" method="post">
+        <table border="0" cellpadding="10">
+            <!-- remove id from form when DB connected -->
+            <tr>
+                <td>ID:</td>
+                <td><input type="number" th:field="*{id}" required/></td>
+            </tr>
+            <tr>
+                <td>Document Type:</td>
+                <td><input type="text" th:field="*{documentType}" required/></td>
+            </tr>
+            <tr>
+                <td>Product Family:</td>
+                <td><input type="text" th:field="*{productFamily}" required/></td>
+            </tr>
+            <tr>
+                <td>Product SKU#:</td>
+                <td><input type="text" th:field="*{productSKU}" required/></td>
+            </tr>
+            <tr>
+                <td>Tool:</td>
+                <td><input type="number" th:field="*{tool}" required/></td>
+            <tr>
+                <td>Production Cell:</td>
+                <td><input type="text" th:field="*{productionCell}" required/></td>
+            </tr>
+            <tr>
+                <td>Validation Strategy:</td>
+                <td><input type="text" th:field="*{validationStrategy}" required/></td>
+            </tr>
+            <tr>
+                <td>Batch Size:</td>
+                <td><input type="number" th:field="*{batchSize}" required/></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">Save</button> </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

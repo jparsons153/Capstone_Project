@@ -3,15 +3,8 @@ package project.report_gen.controllers;
 import jakarta.xml.bind.JAXBContext;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
-import org.docx4j.Docx4J;
-import org.docx4j.Docx4jProperties;
-import org.docx4j.XmlUtils;
-import org.docx4j.model.datastorage.BindingHandler;
-import org.docx4j.model.datastorage.XsltProviderImpl;
 import org.docx4j.openpackaging.exceptions.Docx4JException;
 import org.docx4j.openpackaging.packages.WordprocessingMLPackage;
-import org.docx4j.utils.XPathFactoryUtil;
-import org.docx4j.wml.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -20,21 +13,20 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import project.report_gen.models.Report;
-import project.report_gen.services.ReportService;
+import project.report_gen.services.DocCreateService;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.HashMap;
-import java.util.Map;
 
 // demo controller with test methods
+// TO Delete
 @Controller
 @RequiredArgsConstructor
 public class DemoController {
     @Autowired
-    ReportService reportService;
+    DocCreateService docCreateService;
 
     // use hello World html template taking user input from Path variable
     @GetMapping("/helloWorld/{name}")
@@ -76,7 +68,7 @@ public class DemoController {
             return ResponseEntity.badRequest().body(report);
         }
 
-        reportService.createReport(report,fileName);
+        docCreateService.createReport(report,fileName);
 
         return ResponseEntity.ok().body(report);
     }
@@ -84,13 +76,13 @@ public class DemoController {
     @GetMapping("/parts/{fileName}")
     public void printParts(@PathVariable String fileName) throws Exception {
         String filePath = "C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/report_gen/src/main/java/project/report_gen/" + fileName + ".docx";
-        reportService.getMainDocumentPart(filePath);
+        docCreateService.getMainDocumentPart(filePath);
     }
 
     @GetMapping("/parts/bind")
     public void printParts() throws Exception {
         String filePath = "C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/report_gen/src/main/java/project/report_gen/document3.docx";
-        reportService.getMainDocumentPart(filePath);
+        docCreateService.getMainDocumentPart(filePath);
     }
 
     public static JAXBContext context = org.docx4j.jaxb.Context.jc;

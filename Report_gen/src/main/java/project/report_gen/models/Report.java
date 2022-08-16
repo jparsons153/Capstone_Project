@@ -15,8 +15,8 @@ import java.time.LocalDateTime;
 @Getter
 
 public class Report {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    //@Id
+    //@GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String documentType; // could be enum or list, as is fixed

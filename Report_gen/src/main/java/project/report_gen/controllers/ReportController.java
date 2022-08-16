@@ -1,7 +1,6 @@
 package project.report_gen.controllers;
 
 
-import jakarta.xml.bind.JAXBContext;
 import lombok.RequiredArgsConstructor;
 import org.docx4j.Docx4J;
 import org.docx4j.model.datastorage.BindingHandler;
@@ -9,21 +8,15 @@ import org.docx4j.openpackaging.exceptions.Docx4JException;
 import org.docx4j.openpackaging.packages.WordprocessingMLPackage;
 import org.docx4j.utils.XPathFactoryUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import project.report_gen.models.Report;
+import project.report_gen.services.DocCreateService;
 import project.report_gen.services.ReportService;
 
-import javax.servlet.http.HttpServletResponse;
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.*;
+import java.util.List;
 
 import static org.docx4j.Docx4J.FLAG_BIND_REMOVE_XML;
 
@@ -33,15 +26,34 @@ public class ReportController {
 
     // auto wire service method
     @Autowired
+    DocCreateService docCreateService;
+
+    @Autowired
     ReportService reportService;
 
     @GetMapping("/reportIndex")
-    public String viewHomePage() {
-//        List<Report> reportList = new ArrayList<Report>();
-//        reportList.add()
+    public String viewHomePage(Model model) {
+        List<Report> reportList = reportService.getAllReports();
+        model.addAttribute("reportList", reportList);
     return "reportIndex";
     }
 
+    @GetMapping("/new")
+    public String showNewDocumentPage(Model model) {
+        // Here a new (empty) Report is created and then sent to the view
+        Report report = new Report();
+        model.addAttribute("report", report);
+        return "new-document";
+    }
+
+    @PostMapping(value = "/save")
+    // creates a Report in DB based on object collected from HTML page
+    public String saveReport(@ModelAttribute("report") Report report) {
+        reportService.saveReport(report);
+        return "redirect:/reportIndex";
+    }
+
+    // updates template docx based on input xml file, saves as separate file on output
     @GetMapping("/generate")
     @ResponseBody
     public void bindReportToXML() throws Docx4JException, IOException {
@@ -56,6 +68,7 @@ public class ReportController {
         XPathFactoryUtil.setxPathFactory(new net.sf.saxon.xpath.XPathFactoryImpl());
 
         // Load input_template.docx
+        // input template needs to have content controls bound to xml (creating xpath references), these xpaths act as placeholders for xml input
         WordprocessingMLPackage wordMLPackage = Docx4J.load(new File(input_DOCX));
 
         // Open the xml stream

@@ -5,14 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e2ee0b2-d9c3-4301-951c-b6e19c8040d5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Report_gen/src/main/resources/templates/ReportIndex.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/services/DocCreateService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Report_gen/src/main/resources/templates/new-document.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OUT_ContentControlsMergeXML.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/ReportGenApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/ReportGenApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/controllers/DemoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/controllers/DemoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/controllers/ReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/controllers/ReportController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/document3.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/report-data.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/models/Report.java" beforeDir="false" afterPath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/models/Report.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/services/ReportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/services/ReportService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helloWorld.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/resources/templates/ReportIndex.html" beforeDir="false" afterPath="$PROJECT_DIR$/Report_gen/src/main/resources/templates/ReportIndex.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/resources/templates/helloWorld.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,5 +126,16 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/report_gen/src/main/java/project/report_gen/ReportGenApplication.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
