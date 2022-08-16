@@ -1,2 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<batchSize>50</batchSize><createdAt>2022-08-16T19:22:03.472527700</createdAt><documentType>VP</documentType><id>2</id><productFamily>Spinning Wheel</productFamily><productSKU>123 spin</productSKU><productionCell>AC</productionCell><tool>2</tool><validationStrategy>New Tool</validationStrategy>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><validation_report>
+
+    <documentType>Report</documentType>
+    <product>Product Z</product>
+    <productCell>Production Cell #Z201</productCell>
+    <tool>TOOL#ID</tool>
+
+</validation_report>

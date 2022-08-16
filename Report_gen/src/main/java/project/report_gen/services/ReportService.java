@@ -36,6 +36,7 @@ public class ReportService {
         return report;
     }
 
+    //TODO fix XML format to match template xml files
     // bind POJO to xml
     // take report POJO from "/save" as input
     // create XmlRootElement "validation report"
