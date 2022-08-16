@@ -50,6 +50,7 @@ public class ReportController {
     // creates a Report in DB based on object collected from HTML page
     public String saveReport(@ModelAttribute("report") Report report) {
         reportService.saveReport(report);
+        reportService.bindPOJOtoXML(report);
         return "redirect:/reportIndex";
     }
 
@@ -60,7 +61,9 @@ public class ReportController {
 
         String input_DOCX = "C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/report_gen/src/main/java/project/report_gen/TEMPLATE_DOCX.docx";
 
-        String input_XML = "C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/report_gen/src/main/java/project/report_gen/validationReport-data.xml";
+        // test that file path of XML doesn't matter i.e. as long as XML root element and elements carry over it works -- it does!
+        //String input_XML = "C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/report_gen/src/main/java/project/report_gen/validationReport-data.xml";
+        String input_XML = "C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/report_gen/src/main/java/project/report_gen/inputXML.xml";
 
         // resulting docx
         String OUTPUT_DOCX = "C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/report_gen/src/main/java/project/report_gen/outputDoc.docx";
@@ -78,8 +81,10 @@ public class ReportController {
         // BindingHyperlinkResolver is used by default
         BindingHandler.getHyperlinkResolver().setHyperlinkStyle("Hyperlink");
 
-        //inject the xml into the document content controls, delete content controls and xml when done in the output file
-        Docx4J.bind(wordMLPackage, xmlStream,Docx4J.FLAG_BIND_INSERT_XML | Docx4J.FLAG_BIND_REMOVE_SDT | FLAG_BIND_REMOVE_XML); // | Docx4J.FLAG_BIND_BIND_XML)
+        //inject the xml into the document content controls
+        Docx4J.bind(wordMLPackage, xmlStream,Docx4J.FLAG_BIND_INSERT_XML | Docx4J.FLAG_BIND_BIND_XML);
+        // delete content controls and xml when done in the output file
+        // Docx4J.bind(wordMLPackage, xmlStream,Docx4J.FLAG_BIND_REMOVE_SDT | FLAG_BIND_REMOVE_XML);
 
         //Save the document
         Docx4J.save(wordMLPackage, new File(OUTPUT_DOCX), Docx4J.FLAG_NONE);
