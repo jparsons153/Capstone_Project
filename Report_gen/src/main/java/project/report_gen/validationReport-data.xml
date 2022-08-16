@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?><validation_report>
+    
+    <documentType>Validation Plan</documentType>
+    <product>Product B</product>
+    <productCell>Production Cell #AB</productCell>
+    <tool>TOOL#ID</tool>
+
+</validation_report>
