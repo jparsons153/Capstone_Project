@@ -62,16 +62,16 @@ public class DemoController {
         }
     }
 
-    @PostMapping(value = "/mapToReport/{fileName}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> printObj(@PathVariable String fileName, @RequestBody Report report) throws Exception {
-        if(StringUtils.isEmpty(report.getProductSKU())){
-            return ResponseEntity.badRequest().body(report);
-        }
-
-        docCreateService.createReport(report,fileName);
-
-        return ResponseEntity.ok().body(report);
-    }
+//    @PostMapping(value = "/mapToReport/{fileName}", produces = MediaType.APPLICATION_JSON_VALUE)
+//    public ResponseEntity<?> printObj(@PathVariable String fileName, @RequestBody Report report) throws Exception {
+//        if(StringUtils.isEmpty(report.getProductSKU())){
+//            return ResponseEntity.badRequest().body(report);
+//        }
+//
+//        docCreateService.createReport(report,fileName);
+//
+//        return ResponseEntity.ok().body(report);
+//    }
 
     @GetMapping("/parts/{fileName}")
     public void printParts(@PathVariable String fileName) throws Exception {

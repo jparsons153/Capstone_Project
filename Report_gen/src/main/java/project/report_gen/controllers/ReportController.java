@@ -1,6 +1,7 @@
 package project.report_gen.controllers;
 
 
+
 import lombok.RequiredArgsConstructor;
 import org.docx4j.Docx4J;
 import org.docx4j.model.datastorage.BindingHandler;
@@ -15,10 +16,11 @@ import project.report_gen.models.Report;
 import project.report_gen.services.DocCreateService;
 import project.report_gen.services.ReportService;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 import java.io.*;
 import java.util.List;
-
-import static org.docx4j.Docx4J.FLAG_BIND_REMOVE_XML;
 
 @Controller
 @RequiredArgsConstructor
@@ -30,6 +32,24 @@ public class ReportController {
 
     @Autowired
     ReportService reportService;
+
+    // test method to check marshalling of xml
+    @GetMapping("/bind")
+    @ResponseBody
+    public void marshal() throws JAXBException, IOException {
+
+        Report newReport = new Report();
+        newReport.setId(3L);
+        newReport.setDocumentType("Validation Plan");
+        newReport.setProductSKU("Widget");
+        newReport.setProductionCell("Cell AB");
+        newReport.setTool(1002);
+
+        JAXBContext context = JAXBContext.newInstance(Report.class);
+        Marshaller mar= context.createMarshaller();
+        mar.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+        mar.marshal(newReport, new File("C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/report_gen/src/main/java/project/report_gen/reportXML.xml"));
+    }
 
     @GetMapping("/reportIndex")
     public String viewHomePage(Model model) {
@@ -48,6 +68,7 @@ public class ReportController {
 
     @PostMapping(value = "/save")
     // creates a Report in DB based on object collected from HTML page
+    // binds Report obj to xml file
     public String saveReport(@ModelAttribute("report") Report report) {
         reportService.saveReport(report);
         reportService.bindPOJOtoXML(report);
@@ -63,8 +84,8 @@ public class ReportController {
 
         // test that file path of XML doesn't matter i.e. as long as XML root element and elements carry over it works -- it does!
         //String input_XML = "C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/report_gen/src/main/java/project/report_gen/validationReport-data.xml";
-        String input_XML = "C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/report_gen/src/main/java/project/report_gen/inputXML.xml";
-        //String input_XML = "C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/report_gen/src/main/java/project/report_gen/report.xml";
+        //String input_XML = "C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/report_gen/src/main/java/project/report_gen/inputXML.xml";
+        String input_XML = "C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/report_gen/src/main/java/project/report_gen/Service_ReportXML.xml";
 
         // resulting docx
         String OUTPUT_DOCX = "C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/report_gen/src/main/java/project/report_gen/outputDoc.docx";

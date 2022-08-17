@@ -1,13 +1,13 @@
 package project.report_gen.services;
 
-import jakarta.xml.bind.JAXBContext;
-import jakarta.xml.bind.JAXBException;
-import jakarta.xml.bind.Marshaller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import project.report_gen.models.Report;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.File;
 import java.util.ArrayList;
@@ -30,7 +30,6 @@ public class ReportService {
     }
 
     // Update method to invoke and return repository.save(report)
-    // TODO Call method to bind POJO to xml file validationReport-data.xml
     public Report saveReport(Report report) {
         reportList.add(report);
         return report;
@@ -57,10 +56,11 @@ public class ReportService {
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
             //Store XML to File
-            File file = new File("C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/report_gen/src/main/java/project/report_gen/report.xml");
+            File file = new File("C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/report_gen/src/main/java/project/report_gen/Service_ReportXML.xml");
 
             //Writes XML file to file-system
             jaxbMarshaller.marshal(report, file);
+            System.out.println("Saved: " + file);
 
         } catch (JAXBException e) {
             e.printStackTrace();
