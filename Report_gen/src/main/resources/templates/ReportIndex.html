@@ -8,6 +8,7 @@
 <div align="center">
     <h1>Report Index</h1>
     <a th:href="@{/new}">Add New Document</a>
+    <!-- TODO add endpoint with html page + methods to update template files -->
     <br/><br/>
     <table border="1" cellpadding="10">
         <thead>
@@ -20,6 +21,7 @@
             <th>Production Cell</th>
             <!--<th>Validation Strategy</th>-->
             <!--<th>Batch Size</th>-->
+            <th>Actions</th>
        </tr>
        </thead>
         <tbody>
@@ -30,6 +32,8 @@
             <td th:text="${report.productSKU}">Product SKU#</td>
             <td th:text="${report.tool}">Tool</td>
             <td th:text="${report.productionCell}">Production Cell</td>
+            <td> <a th:href="@{'/edit/' + ${report.id}}"> Edit </a><a th:href="@{'/delete/' + ${report.id}}"> Delete </a>
+            </td>
         </tr>
         </tbody>
     </table>

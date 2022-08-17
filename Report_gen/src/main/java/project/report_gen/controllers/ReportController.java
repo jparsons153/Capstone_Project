@@ -64,17 +64,18 @@ public class ReportController {
 
     @PostMapping(value = "/save")
     // creates a Report in DB based on object collected from HTML page
-    // binds Report obj to xml file
     public String saveReport(@ModelAttribute("report") Report report) throws IOException, Docx4JException {
         reportService.saveReport(report);
-       // reportService.bindPOJOtoXML(report);
-       // reportService.xmlToDocx(reportService.bindPOJOtoXML(report));
-        reportService.updateReport(report);
         return "redirect:/reportIndex";
     }
 
-    // TODO takes report object from new-document view, pass to service method to convert POJO to XML, then inject XML into template
-
+    // update template file with input from user form
+    @PostMapping(value = "/update")
+    public String update(@ModelAttribute("report") Report report, Model model) throws IOException, Docx4JException {
+        reportService.saveReport(report);
+        reportService.updateReport(report);
+    return "redirect:/reportIndex";
+    }
 
 
 }

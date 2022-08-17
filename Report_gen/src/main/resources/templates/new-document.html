@@ -11,10 +11,11 @@
     <!-- form to update the Report object (created in @GetMapping("/new"))
     on submit will hit save endpoint
     TODO data validation on input fields & use of drop-downs
+    TODO update Report POJO, form and template content controls for all variables
     -->
-    <form action="#" th:action="@{/save}" th:object="${report}" method="post">
+    <form action="#" th:action="@{/update}" th:object="${report}" method="post">
         <table border="0" cellpadding="10">
-            <!-- remove id from form when DB connected -->
+            <!-- TODO remove id from form when DB connected -->
             <tr>
                 <td>ID:</td>
                 <td><input type="number" th:field="*{id}" required/></td>
@@ -49,10 +50,12 @@
                 -->
             </tr>
             <tr>
-                <td colspan="2"><button type="submit">Save</button> </td>
+                <td colspan="10"><button type="submit">Auto Generate Report</button> </td>
             </tr>
         </table>
     </form>
+    <br/><br/>
+    <a th:href="@{/reportIndex}">Index</a>
 </div>
 </body>
 </html>

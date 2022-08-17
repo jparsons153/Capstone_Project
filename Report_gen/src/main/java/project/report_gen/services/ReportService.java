@@ -60,7 +60,7 @@ public class ReportService {
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
             //Store XML to File
-            File file = new File("C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/report_gen/src/main/java/project/report_gen/Service_ReportXML.xml");
+            File file = new File("C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/report_gen/src/main/java/project/report_gen/inputXML.xml");
 
             //Writes XML file to file-system
             jaxbMarshaller.marshal(report, file);
@@ -82,7 +82,9 @@ public class ReportService {
         String input_DOCX = "C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/report_gen/src/main/java/project/report_gen/TEMPLATE_DOCX.docx";
 
         // resulting docx
-        // TODO output file path ${id} + ${documentType} + ${validation strategy}
+        // TODO output file path ${documentType} + ${id} + ${validation strategy}
+        // TODO save output file to users downloads folder
+        // TODO pop-up display box when Document created
         String OUTPUT_DOCX = "C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/report_gen/src/main/java/project/report_gen/outputDoc.docx";
 
         XPathFactoryUtil.setxPathFactory(new net.sf.saxon.xpath.XPathFactoryImpl());
