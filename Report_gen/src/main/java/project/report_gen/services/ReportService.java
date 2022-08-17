@@ -1,6 +1,11 @@
 package project.report_gen.services;
 
 import lombok.RequiredArgsConstructor;
+import org.docx4j.Docx4J;
+import org.docx4j.model.datastorage.BindingHandler;
+import org.docx4j.openpackaging.exceptions.Docx4JException;
+import org.docx4j.openpackaging.packages.WordprocessingMLPackage;
+import org.docx4j.utils.XPathFactoryUtil;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import project.report_gen.models.Report;
@@ -10,16 +15,18 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import static org.docx4j.Docx4J.FLAG_BIND_REMOVE_XML;
 
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 public class ReportService {
-
-    // TODO how to map to xml to update validationReport-data.mxl?
 
     List<Report> reportList = new ArrayList<Report>();
 
@@ -35,16 +42,13 @@ public class ReportService {
         return report;
     }
 
-    //TODO fix XML format to match template xml files
-    // bind POJO to xml
-    // take report POJO from "/save" as input
-    // create XmlRootElement "validation report"
-    // write to file validationReport-data.xml
-    public void bindPOJOtoXML(Report report) {
-        jaxbObjectToXML(report);
+    public void updateReport(Report report) throws IOException, Docx4JException {
+        File inputXML = bindPOJOtoXML(report);
+        xmlToDocx(inputXML);
     }
 
-    private static void jaxbObjectToXML(Report report) {
+    // maps Report obj created in new-document form to XML
+    public File bindPOJOtoXML(Report report) {
         try {
             //Create JAXB Context
             JAXBContext jaxbContext = JAXBContext.newInstance(Report.class);
@@ -52,7 +56,7 @@ public class ReportService {
             //Create Marshaller
             Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
 
-            //Required formatting??
+            //Formats XML
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
             //Store XML to File
@@ -62,9 +66,46 @@ public class ReportService {
             jaxbMarshaller.marshal(report, file);
             System.out.println("Saved: " + file);
 
+            return file;
+
         } catch (JAXBException e) {
             e.printStackTrace();
+            System.out.println("JAXB exception - no output XML file available");
+            return null;
         }
+    }
+
+    // updates template file with XML elements in input file
+    // note template file MUST HAVE xml elements already mapped to content controls i.e. Xpath created
+    public void xmlToDocx(File input_XML) throws Docx4JException, IOException {
+
+        String input_DOCX = "C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/report_gen/src/main/java/project/report_gen/TEMPLATE_DOCX.docx";
+
+        // resulting docx
+        // TODO output file path ${id} + ${documentType} + ${validation strategy}
+        String OUTPUT_DOCX = "C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/report_gen/src/main/java/project/report_gen/outputDoc.docx";
+
+        XPathFactoryUtil.setxPathFactory(new net.sf.saxon.xpath.XPathFactoryImpl());
+
+        // Load input_template.docx
+        WordprocessingMLPackage wordMLPackage = Docx4J.load(new File(input_DOCX));
+
+        // Open the xml stream
+        FileInputStream xmlStream = new FileInputStream(input_XML);
+
+        // Do the binding, BindingHyperlinkResolver is used by default
+        BindingHandler.getHyperlinkResolver().setHyperlinkStyle("Hyperlink");
+
+        // TODO check that xml mapping pane in MS Word doesn't display on users m/c
+        //complete full binding; inject the xml into the document content controls and delete content controls (sdt) and xml
+        Docx4J.bind(wordMLPackage, xmlStream,Docx4J.FLAG_NONE); // | Docx4J.FLAG_BIND_INSERT_XML | Docx4J.FLAG_BIND_BIND_XML | Docx4J.FLAG_BIND_REMOVE_SDT | FLAG_BIND_REMOVE_XML
+
+        //Save the document
+        Docx4J.save(wordMLPackage, new File(OUTPUT_DOCX), Docx4J.FLAG_NONE);
+        System.out.println("Saved: " + OUTPUT_DOCX);
+
+        //Open output file - not supported by platform!
+        // reportService.openFile(new File(OUTPUT_DOCX));
     }
 
     // Update method to invoke and return repository.saveAll(reportList)

@@ -2,6 +2,6 @@
 <validation_report>
     <documentType>VP</documentType>
     <product>123 spin</product>
-    <productCell>AC</productCell>
-    <tool>205</tool>
+    <productCell>bcd</productCell>
+    <tool>5</tool>
 </validation_report>
