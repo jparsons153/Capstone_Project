@@ -31,7 +31,15 @@
             </tr>
             <tr>
                 <td>Product SKU#:</td>
-                <td><input type="text" th:field="*{productSKU}" required/></td>
+                <td>
+                    <select name="productSKU">
+                        <option value=" ">Select Product</option>
+                        <option th:each="product : ${productList}"
+                                th:value="${product.SKU}"
+                                th:text="${product.name}">Wireframe</option>
+                    </select>
+                <td>
+                <!--<input type="text" th:field="*{productSKU}" required/></td>-->
             </tr>
             <tr>
                 <td>Tool:</td>

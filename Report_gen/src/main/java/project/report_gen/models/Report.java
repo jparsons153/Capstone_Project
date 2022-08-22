@@ -22,7 +22,7 @@ public class Report {
     private Long id;
     private String documentType; // could be enum or list, as is fixed
 //    private String productFamily;
-    private String productSKU; // use product list dataset
+    private Product productSKU; // use product list dataset
     private int tool;
     private String productionCell; // use productionCell dataset
     private String validationStrategy; // enum or list
@@ -49,7 +49,7 @@ public class Report {
 //    }
 
     @XmlElement(name = "product")
-    public void setProductSKU(String productSKU) {
+    public void setProductSKU(Product productSKU) {
         this.productSKU = productSKU;
     }
 

@@ -11,8 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import project.report_gen.models.Product;
 import project.report_gen.models.Report;
 import project.report_gen.services.DocCreateService;
+import project.report_gen.services.ProductService;
 import project.report_gen.services.ReportService;
 
 import javax.servlet.http.HttpServletResponse;
@@ -29,6 +31,9 @@ public class ReportController {
 
     @Autowired
     ReportService reportService;
+
+    @Autowired
+    ProductService productService;
 
     // test method to check marshalling of xml
 //    @GetMapping("/bind")
@@ -60,6 +65,10 @@ public class ReportController {
         // Here a new (empty) Report is created and then sent to the view
         Report report = new Report();
         model.addAttribute("report", report);
+
+        final List<Product>productList = productService.getAllProducts();
+        model.addAttribute("productList",productList);
+
         return "new-document";
     }
 
