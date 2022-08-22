@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import javax.xml.bind.annotation.*;
 
 //@Entity
-//@Builder
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter

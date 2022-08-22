@@ -15,6 +15,7 @@ import project.report_gen.models.Report;
 import project.report_gen.services.DocCreateService;
 import project.report_gen.services.ReportService;
 
+import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.util.List;
 
@@ -69,11 +70,12 @@ public class ReportController {
         return "redirect:/reportIndex";
     }
 
-    // update template file with input from user form
+  //   update template file with input from user form
+  // TODO can't call redirect after the response has been committed?
     @PostMapping(value = "/update")
-    public String update(@ModelAttribute("report") Report report, Model model) throws IOException, Docx4JException {
+    public String update(@ModelAttribute("report") Report report, HttpServletResponse response, Model model) throws IOException, Docx4JException {
         reportService.saveReport(report);
-        reportService.updateReport(report);
+        reportService.updateReport(report, response);
     return "redirect:/reportIndex";
     }
 

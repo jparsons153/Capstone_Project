@@ -16,7 +16,7 @@ import java.io.FileNotFoundException;
 import java.util.Arrays;
 
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
-public class ReportGenApplication {// implements CommandLineRunner {
+public class ReportGenApplication implements CommandLineRunner {
 
 	@Autowired
 	private ReportService reportService;
@@ -27,20 +27,17 @@ public class ReportGenApplication {// implements CommandLineRunner {
 	}
 
 	// create a demo Report object
-//	@Override
-//	public void run(String... args) throws Exception {
-//		if (reportService.getAllReports().isEmpty()){
-//			reportService.saveReport(
-//					Report.builder()
-//							.id(1L)
-//							.documentType("Report")
-//							.productFamily("Spigot")
-//							.productSKU("41045 Spigot A")
-//							.tool(205)
-//							.productionCell("CD")
-//							.validationStrategy("New Tool")
-//							.batchSize(10000)
-//							.build());
-//		}
-//	}
+	@Override
+	public void run(String... args) throws Exception {
+		if (reportService.getAllReports().isEmpty()){
+			reportService.saveReport(
+					Report.builder()
+							.id(1L)
+							.documentType("Report")
+							.productSKU("41045 Spigot A")
+							.tool(205)
+							.productionCell("CD")
+							.build());
+		}
+	}
 }
