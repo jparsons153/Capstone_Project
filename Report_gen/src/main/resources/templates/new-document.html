@@ -11,7 +11,7 @@
     <!-- form to update the Report object (created in @GetMapping("/new"))
     on submit will hit save endpoint
     TODO data validation on input fields & use of drop-downs
-    TODO update Report POJO, form and template content controls for all variables
+    TODO update Report POJO, form and template content controls for productFamily
     -->
     <form action="#" th:action="@{/update}" th:object="${report}" method="post">
         <table border="0" cellpadding="10">
@@ -40,14 +40,13 @@
                 <td>Production Cell:</td>
                 <td><input type="text" th:field="*{productionCell}" required/></td>
             </tr>
-            <tr> <!--
+            <tr>
                 <td>Validation Strategy:</td>
                 <td><input type="text" th:field="*{validationStrategy}" required/></td>
             </tr>
             <tr>
                 <td>Batch Size:</td>
                 <td><input type="number" th:field="*{batchSize}" required/></td>
-                -->
             </tr>
             <tr>
                 <td colspan="10"><button type="submit">Auto Generate Report</button> </td>

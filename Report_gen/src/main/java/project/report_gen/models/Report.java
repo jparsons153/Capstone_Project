@@ -25,8 +25,8 @@ public class Report {
     private String productSKU; // use product list dataset
     private int tool;
     private String productionCell; // use productionCell dataset
-//    private String validationStrategy; // enum or list
-//    private int batchSize; // auto-populated based on product SKU
+    private String validationStrategy; // enum or list
+    private int batchSize; // auto-populated based on product SKU
 
 //    @Builder.Default
 //    private LocalDateTime createdAt = LocalDateTime.now();
@@ -63,13 +63,13 @@ public class Report {
         this.productionCell = productionCell;
     }
 
-//    @XmlElement
-//    public void setValidationStrategy(String validationStrategy) {
-//        this.validationStrategy = validationStrategy;
-//    }
-//
-//    @XmlElement
-//    public void setBatchSize(int batchSize) {
-//        this.batchSize = batchSize;
-//    }
+    @XmlTransient
+    public void setValidationStrategy(String validationStrategy) {
+        this.validationStrategy = validationStrategy;
+    }
+
+    @XmlTransient
+    public void setBatchSize(int batchSize) {
+        this.batchSize = batchSize;
+    }
 }

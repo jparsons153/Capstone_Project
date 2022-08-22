@@ -6,6 +6,7 @@ import org.docx4j.model.datastorage.BindingHandler;
 import org.docx4j.openpackaging.exceptions.Docx4JException;
 import org.docx4j.openpackaging.packages.WordprocessingMLPackage;
 import org.docx4j.utils.XPathFactoryUtil;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -82,8 +83,6 @@ public class ReportService {
         String input_DOCX = "C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/report_gen/src/main/java/project/report_gen/TEMPLATE_DOCX.docx";
 
         // resulting docx
-        // TODO output file path ${documentType} + ${id} + ${validation strategy}
-        // TODO save output file to users downloads folder
         // TODO pop-up display box when Document created
 
         XPathFactoryUtil.setxPathFactory(new net.sf.saxon.xpath.XPathFactoryImpl());
@@ -105,9 +104,12 @@ public class ReportService {
 //        Docx4J.save(wordMLPackage, new File(OUTPUT_DOCX), Docx4J.FLAG_NONE);
 //        System.out.println("Saved: " + OUTPUT_DOCX);
 
+        // save output file as file.docx
+        // TODO request param to take inputs from new-document.html to save as ${documentType} + ${id} + ${validation strategy}
         try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
             wordMLPackage.save(baos);
             response.setContentType("application/vnd.openxmlformats-officedocument.wordprocessingml.document");
+            response.addHeader(HttpHeaders.CONTENT_DISPOSITION,String.format("attachment;filename=file.docx"));
             response.getOutputStream().write(baos.toByteArray());
             response.getOutputStream().close();
             response.setStatus(HttpStatus.OK.value());
