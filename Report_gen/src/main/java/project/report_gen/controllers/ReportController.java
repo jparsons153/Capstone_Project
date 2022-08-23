@@ -92,5 +92,12 @@ public class ReportController {
     return "redirect:/reportIndex";
     }
 
+    @GetMapping("/newVal")
+    public String showNewValPage(Model vModel) {
+        ValidationStrategy validationStrategy = new ValidationStrategy();
+        vModel.addAttribute("validationStrategy",validationStrategy);
+
+        return "newVal";
+    }
 
 }

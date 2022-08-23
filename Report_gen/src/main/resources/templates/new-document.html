@@ -10,7 +10,7 @@
     <br />
     <!-- form to update the Report object (created in @GetMapping("/new"))
     on submit will hit save endpoint
-    TODO data validation on input fields & use of drop-downs
+    TODO data validation on input fields
     TODO update Report POJO, form and template content controls for productFamily
     -->
     <form action="#" th:action="@{/update}" th:object="${report}" method="post">
@@ -64,13 +64,16 @@
                                 th:text="${val.name}">Wireframe</option>
                     </select>
                 <td>
+                <a th:href="@{/newVal}">Add New Validation Strategy</a>
             </tr>
             <tr>
+                <!-- Batch size set by product-->
                 <!--<td>Batch Size:</td>
                 <td><input type="number" th:field="*{batchSize}" required/></td>-->
             </tr>
             <tr>
-                <td colspan="10"><button type="submit">Auto Generate Report</button> </td>
+                <br/><br/>
+                <td align="center" colspan="10"><button type="submit">Auto Generate Report</button> </td>
             </tr>
         </table>
     </form>

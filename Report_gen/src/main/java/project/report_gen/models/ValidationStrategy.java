@@ -11,4 +11,9 @@ public class ValidationStrategy {
     //@Generated
     Long id;
     String name;
+   // SamplingPlan samplingPlan;
+
+  //  private class SamplingPlan {
+
+  //  }
 }
