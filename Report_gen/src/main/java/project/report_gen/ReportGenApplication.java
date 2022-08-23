@@ -7,14 +7,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
-import project.report_gen.models.DocumentType;
-import project.report_gen.models.Product;
-import project.report_gen.models.Report;
-import project.report_gen.models.ValidationStrategy;
-import project.report_gen.services.DocumentService;
-import project.report_gen.services.ProductService;
-import project.report_gen.services.ReportService;
-import project.report_gen.services.ValidationService;
+import project.report_gen.models.*;
+import project.report_gen.services.*;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -32,6 +26,8 @@ public class ReportGenApplication implements CommandLineRunner {
 	private ValidationService validationService;
 	@Autowired
 	private DocumentService documentService;
+	@Autowired
+	private SamplingPlanService samplingPlanService;
 
 	public static void main(String[] args) {
 
@@ -52,13 +48,18 @@ public class ReportGenApplication implements CommandLineRunner {
 			documentService.saveDoc(report);
 		}
 
-		if (validationService.getAllVals().isEmpty()){
-			ValidationStrategy newTool = new ValidationStrategy(1L,"New Tool");
-			ValidationStrategy duplicateTool = new ValidationStrategy(2L,"Duplicate Tool");
+		SamplingPlan oneProportion = new SamplingPlan(1L,"1-proportion");
+		SamplingPlan glThreeTightened = new SamplingPlan(2L,"IS0-2859 GL3 tightened");
+		samplingPlanService.savePlan(oneProportion);
+		samplingPlanService.savePlan(glThreeTightened);
+
+		//if (validationService.getAllVals().isEmpty()){
+			ValidationStrategy newTool = new ValidationStrategy(1L,"New Tool",oneProportion);
+			ValidationStrategy duplicateTool = new ValidationStrategy(2L,"Duplicate Tool",glThreeTightened);
 
 			validationService.saveVal(newTool);
 			validationService.saveVal(duplicateTool);
-		}
+		//}
 
 		// create Products - Widget & Spinning Wheel using builder & productService
 		if(productService.getAllProducts().isEmpty() && reportService.getAllReports().isEmpty()) {

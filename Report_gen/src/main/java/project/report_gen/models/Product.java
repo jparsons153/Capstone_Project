@@ -12,6 +12,7 @@ public class Product {
     String name;
     Double minAQL;
     int batchSize;
+    // array / tree / list / hashmap of defects & AQL
 
     @Override
     public String toString() {

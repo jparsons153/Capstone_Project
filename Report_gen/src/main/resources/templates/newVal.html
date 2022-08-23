@@ -21,7 +21,15 @@
             </tr>
             <tr>
                 <td>Sampling Plan:</td>
-                <td><input type="text" th:field="*{name}" required/></td>
+                <td>
+                    <select name="samplingPlanID">
+                        <option value=" ">Select Sampling Plan</option>
+                        <option th:each="plan : ${samplingPlanlist}"
+                                th:value="${plan.id}"
+                                th:text="${plan.name}">Wireframe</option>
+                    </select>
+                <td>
+                <a th:href="@{/newSamplingPlan}">Add New Sampling Plan </a>
             </tr>
         </table>
     </form>

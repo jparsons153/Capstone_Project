@@ -7,10 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import project.report_gen.models.DocumentType;
-import project.report_gen.models.Product;
-import project.report_gen.models.Report;
-import project.report_gen.models.ValidationStrategy;
+import project.report_gen.models.*;
 import project.report_gen.services.*;
 
 import javax.servlet.http.HttpServletResponse;
@@ -32,6 +29,8 @@ public class ReportController {
     ValidationService validationService;
     @Autowired
     DocumentService documentService;
+    @Autowired
+    SamplingPlanService samplingPlanService;
 
     // test method to check marshalling of xml
 //    @GetMapping("/bind")
@@ -97,7 +96,16 @@ public class ReportController {
         ValidationStrategy validationStrategy = new ValidationStrategy();
         vModel.addAttribute("validationStrategy",validationStrategy);
 
+        final List<SamplingPlan> samplingPlanlist = samplingPlanService.getAllSamplingPlans();
+        vModel.addAttribute("samplingPlanlist",samplingPlanlist);
         return "newVal";
     }
 
+    @GetMapping("/newSamplingPlan")
+    public String showNewSamplingPlanPage(Model samplingModel){
+            SamplingPlan samplingPlan = new SamplingPlan();
+            samplingModel.addAttribute("samplingPlan",samplingPlan);
+
+            return "newSamplingPlan";
+        }
 }

@@ -7,10 +7,14 @@ import lombok.*;
 @AllArgsConstructor
 @Getter
 @Setter
-public class ValidationStrategy {
+
+public class SamplingPlan {
     //@Generated
     Long id;
     String name;
-    SamplingPlan samplingPlan;
 
+    @Override
+    public String toString() {
+        return name;
+    }
 }
