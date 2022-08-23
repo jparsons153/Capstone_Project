@@ -22,7 +22,14 @@
             </tr>
             <tr>
                 <td>Document Type:</td>
-                <td><input type="text" th:field="*{documentType}" required/></td>
+                <td>
+                    <select name="documentID">
+                        <option value=" ">Select DocumentType</option>
+                        <option th:each="doc : ${docTypeList}"
+                                th:value="${doc.id}"
+                                th:text="${doc.name}">Wireframe</option>
+                    </select>
+                <td>
             </tr>
             <tr> <!--
                 <td>Product Family:</td>
@@ -39,7 +46,6 @@
                                 th:text="${product.name}">Wireframe</option>
                     </select>
                 <td>
-                <!--<input type="text" th:field="*{productSKU}" required/></td>-->
             </tr>
             <tr>
                 <td>Tool:</td>
@@ -50,11 +56,18 @@
             </tr>
             <tr>
                 <td>Validation Strategy:</td>
-                <td><input type="text" th:field="*{validationStrategy}" required/></td>
+                <td>
+                    <select name="validationID">
+                        <option value=" ">Select Validation Strategy</option>
+                        <option th:each="val : ${valList}"
+                                th:value="${val.id}"
+                                th:text="${val.name}">Wireframe</option>
+                    </select>
+                <td>
             </tr>
             <tr>
-                <td>Batch Size:</td>
-                <td><input type="number" th:field="*{batchSize}" required/></td>
+                <!--<td>Batch Size:</td>
+                <td><input type="number" th:field="*{batchSize}" required/></td>-->
             </tr>
             <tr>
                 <td colspan="10"><button type="submit">Auto Generate Report</button> </td>

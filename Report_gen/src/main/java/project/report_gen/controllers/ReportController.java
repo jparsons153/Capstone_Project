@@ -2,20 +2,16 @@ package project.report_gen.controllers;
 
 
 import lombok.RequiredArgsConstructor;
-import org.docx4j.Docx4J;
-import org.docx4j.model.datastorage.BindingHandler;
 import org.docx4j.openpackaging.exceptions.Docx4JException;
-import org.docx4j.openpackaging.packages.WordprocessingMLPackage;
-import org.docx4j.utils.XPathFactoryUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import project.report_gen.models.DocumentType;
 import project.report_gen.models.Product;
 import project.report_gen.models.Report;
-import project.report_gen.services.DocCreateService;
-import project.report_gen.services.ProductService;
-import project.report_gen.services.ReportService;
+import project.report_gen.models.ValidationStrategy;
+import project.report_gen.services.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
@@ -28,12 +24,14 @@ public class ReportController {
     // auto wire service method
     @Autowired
     DocCreateService docCreateService;
-
     @Autowired
     ReportService reportService;
-
     @Autowired
     ProductService productService;
+    @Autowired
+    ValidationService validationService;
+    @Autowired
+    DocumentService documentService;
 
     // test method to check marshalling of xml
 //    @GetMapping("/bind")
@@ -68,6 +66,12 @@ public class ReportController {
 
         final List<Product>productList = productService.getAllProducts();
         model.addAttribute("productList",productList);
+
+        final List<ValidationStrategy>valList = validationService.getAllVals();
+        model.addAttribute("valList",valList);
+
+        final List<DocumentType> docTypeList = documentService.getAllDocTypes();
+        model.addAttribute("docTypeList",docTypeList);
 
         return "new-document";
     }
