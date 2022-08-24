@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Add New Sampling Plan</title>
+</head>
+<body>
+<div align="center">
+    <h1>Add New Sampling Plan</h1>
+    <!-- TODO remove id from form when DB connected -->
+    <br/>
+    <form action="#" th:action="@{/createSamplingPlan}" th:object="${samplingPlan}" method="post">
+        <table border="0" cellpadding="10">
+            <tr>
+                <td>ID:</td>
+                <td><input type="number" th:field="*{id}" required/></td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td><input type="text" th:field="*{name}" required/></td>
+            </tr>
+            <tr>
+                <td align="center" colspan="2"><button type="submit">Save</button> </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

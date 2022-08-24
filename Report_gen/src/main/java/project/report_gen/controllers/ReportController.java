@@ -101,11 +101,23 @@ public class ReportController {
         return "newVal";
     }
 
+    @PostMapping("/createVal")
+    // creates a new Validation Strategy in DB based on object collected from HTML page
+    public String saveVal(@ModelAttribute("validationStrategy") ValidationStrategy validationStrategy){
+        validationService.saveVal(validationStrategy);
+        return "redirect:/reportIndex";
+    }
+
     @GetMapping("/newSamplingPlan")
     public String showNewSamplingPlanPage(Model samplingModel){
             SamplingPlan samplingPlan = new SamplingPlan();
             samplingModel.addAttribute("samplingPlan",samplingPlan);
-
             return "newSamplingPlan";
-        }
+    }
+
+    @PostMapping("/createSamplingPlan")
+    public String saveSampling(@ModelAttribute("samplingPlan") SamplingPlan samplingPlan){
+        samplingPlanService.savePlan(samplingPlan);
+        return "redirect:/reportIndex";
+    }
 }
