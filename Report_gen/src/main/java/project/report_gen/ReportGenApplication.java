@@ -48,17 +48,17 @@ public class ReportGenApplication implements CommandLineRunner {
 			documentService.saveDoc(report);
 		}
 
-		SamplingPlan oneProportion = new SamplingPlan(1L,"1-proportion");
-		SamplingPlan glThreeTightened = new SamplingPlan(2L,"IS0-2859 GL3 tightened");
-		samplingPlanService.savePlan(oneProportion);
-		samplingPlanService.savePlan(glThreeTightened);
+//		SamplingPlan oneProportion = new SamplingPlan(1L,"1-proportion");
+//		SamplingPlan glThreeTightened = new SamplingPlan(2L,"IS0-2859 GL3 tightened");
+//		samplingPlanService.savePlan(oneProportion);
+//		samplingPlanService.savePlan(glThreeTightened);
 
 		//if (validationService.getAllVals().isEmpty()){
-			ValidationStrategy newTool = new ValidationStrategy(1L,"New Tool",oneProportion);
-			ValidationStrategy duplicateTool = new ValidationStrategy(2L,"Duplicate Tool",glThreeTightened);
-
-			validationService.saveVal(newTool);
-			validationService.saveVal(duplicateTool);
+//			ValidationStrategy newTool = new ValidationStrategy(1L,"New Tool",oneProportion);
+//			ValidationStrategy duplicateTool = new ValidationStrategy(2L,"Duplicate Tool",glThreeTightened);
+//
+//			validationService.saveVal(newTool);
+//			validationService.saveVal(duplicateTool);
 		//}
 
 		// create Products - Widget & Spinning Wheel using builder & productService
