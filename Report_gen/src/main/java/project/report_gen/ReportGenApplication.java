@@ -26,8 +26,6 @@ public class ReportGenApplication implements CommandLineRunner {
 	private ValidationService validationService;
 	@Autowired
 	private DocumentService documentService;
-	@Autowired
-	private SamplingPlanService samplingPlanService;
 
 	public static void main(String[] args) {
 
@@ -47,11 +45,6 @@ public class ReportGenApplication implements CommandLineRunner {
 			documentService.saveDoc(protocol);
 			documentService.saveDoc(report);
 		}
-
-//		SamplingPlan oneProportion = new SamplingPlan(1L,"1-proportion");
-//		SamplingPlan glThreeTightened = new SamplingPlan(2L,"IS0-2859 GL3 tightened");
-//		samplingPlanService.savePlan(oneProportion);
-//		samplingPlanService.savePlan(glThreeTightened);
 
 		//if (validationService.getAllVals().isEmpty()){
 //			ValidationStrategy newTool = new ValidationStrategy(1L,"New Tool",oneProportion);

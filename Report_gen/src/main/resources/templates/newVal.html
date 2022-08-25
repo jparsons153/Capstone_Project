@@ -19,20 +19,55 @@
                 <td>Name:</td>
                 <td><input type="text" th:field="*{name}" required/></td>
             </tr>
-            <tr>
-                <td>Sampling Plan:</td>
-                <td>
-                    <select name="samplingPlanID">
-                        <option value=" ">Select Sampling Plan</option>
-                        <option th:each="plan : ${samplingPlanlist}"
-                                th:value="${plan.id}"
-                                th:text="${plan.name}">Wireframe</option>
-                    </select>
-                <td>
-                <a th:href="@{/newSamplingPlan}">Add New Sampling Plan </a>
-            </tr>
-            <td align="center" colspan="2"><button type="submit">Save</button> </td>
+<!--            <tr>-->
+<!--                <td>Sampling Plan:</td>-->
+<!--                <td>-->
+<!--                    <select name="samplingPlanID">-->
+<!--                        <option value=" ">Select Sampling Plan</option>-->
+<!--                        <option th:each="plan : ${samplingPlanlist}"-->
+<!--                                th:value="${plan.id}"-->
+<!--                                th:text="${plan.name}">Wireframe</option>-->
+<!--                    </select>-->
+<!--                <td>-->
+<!--            </tr>-->
         </table>
+        <br/>
+        <div class="col-md-6 form-group">
+            <label>Inspection Type</label>
+            <select class="form-control" th:field="*{type}">
+                <option value="">Choose...</option>
+                <option value="Design">Normal</option>
+                <option value="Engineering">Tightened</option>
+                <option value="Marketing">Reduced</option>
+            </select>
+        </div>
+        <!-- insert radio buttons selection-->
+        <br/>
+        <div class="col-md-6 form-group">
+            <tr>
+                <strong>Inspection level:</strong>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" th:field="*{inspectionLevel}" id="option1" value="1">
+                    <label class="form-check-label" for="option1">S1</label>
+                    <input class="form-check-input" type="radio" th:field="*{inspectionLevel}" id="option2" value="2">
+                    <label class="form-check-label" for="option2">S2</label>
+                    <input class="form-check-input" type="radio" th:field="*{inspectionLevel}" id="option3" value="3">
+                    <label class="form-check-label" for="option3">S3</label>
+                    <input class="form-check-input" type="radio" th:field="*{inspectionLevel}" id="option4" value="4">
+                    <label class="form-check-label" for="option3">S4</label>
+                    <input class="form-check-input" type="radio" th:field="*{inspectionLevel}" id="option5" value="5">
+                    <label class="form-check-label" for="option3">GL1</label>
+                    <input class="form-check-input" type="radio" th:field="*{inspectionLevel}" id="option6" value="6">
+                    <label class="form-check-label" for="option3">GL2</label>
+                    <input class="form-check-input" type="radio" th:field="*{inspectionLevel}" id="option7" value="7">
+                    <label class="form-check-label" for="option3">GL3</label>
+                </div>
+            </tr>
+        </div>
+        <br/>
+        <tr>
+        <td align="center" colspan="2"><button type="submit">Save</button> </td>
+        </tr>
     </form>
     <a th:href="@{/new-document}">Index</a>
 </div>
