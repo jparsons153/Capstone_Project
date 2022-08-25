@@ -19,32 +19,23 @@
                 <td>Name:</td>
                 <td><input type="text" th:field="*{name}" required/></td>
             </tr>
-<!--            <tr>-->
-<!--                <td>Sampling Plan:</td>-->
-<!--                <td>-->
-<!--                    <select name="samplingPlanID">-->
-<!--                        <option value=" ">Select Sampling Plan</option>-->
-<!--                        <option th:each="plan : ${samplingPlanlist}"-->
-<!--                                th:value="${plan.id}"-->
-<!--                                th:text="${plan.name}">Wireframe</option>-->
-<!--                    </select>-->
-<!--                <td>-->
-<!--            </tr>-->
         </table>
         <br/>
         <div class="col-md-6 form-group">
             <label>Inspection Type</label>
             <select class="form-control" th:field="*{type}">
                 <option value="">Choose...</option>
-                <option value="Design">Normal</option>
-                <option value="Engineering">Tightened</option>
-                <option value="Marketing">Reduced</option>
+                <option value="1-proportion">1-proportion</option>
+                <option value="Normal">Normal</option>
+                <option value="Tightened">Tightened</option>
+                <option value="Reduced">Reduced</option>
             </select>
         </div>
         <!-- insert radio buttons selection-->
         <br/>
         <div class="col-md-6 form-group">
             <tr>
+                <!--TODO display table below if {type} is NOT Equal to 1-proportion-->
                 <strong>Inspection level:</strong>
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" th:field="*{inspectionLevel}" id="option1" value="1">

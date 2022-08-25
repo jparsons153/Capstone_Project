@@ -2,6 +2,8 @@ package project.report_gen.models;
 
 import lombok.*;
 
+import java.util.ArrayList;
+
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -12,7 +14,7 @@ public class Product {
     String name;
     Double minAQL;
     int batchSize;
-    // array / tree / list / hashmap of defects & AQL
+    ArrayList<Defect> defectList = new ArrayList<Defect>();
 
     @Override
     public String toString() {

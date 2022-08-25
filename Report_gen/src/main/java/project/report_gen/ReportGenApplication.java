@@ -13,6 +13,7 @@ import project.report_gen.services.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
@@ -46,18 +47,27 @@ public class ReportGenApplication implements CommandLineRunner {
 			documentService.saveDoc(report);
 		}
 
-		//if (validationService.getAllVals().isEmpty()){
-//			ValidationStrategy newTool = new ValidationStrategy(1L,"New Tool",oneProportion);
-//			ValidationStrategy duplicateTool = new ValidationStrategy(2L,"Duplicate Tool",glThreeTightened);
-//
-//			validationService.saveVal(newTool);
-//			validationService.saveVal(duplicateTool);
-		//}
+		if (validationService.getAllVals().isEmpty()){
+			ValidationStrategy newTool = new ValidationStrategy(1L,"New Tool",6,"General");
+			ValidationStrategy duplicateTool = new ValidationStrategy(2L,"Duplicate Tool",7,"Tightened");
+
+			validationService.saveVal(newTool);
+			validationService.saveVal(duplicateTool);
+		}
 
 		// create Products - Widget & Spinning Wheel using builder & productService
 		if(productService.getAllProducts().isEmpty() && reportService.getAllReports().isEmpty()) {
 
-			Product widget = Product.builder().name("Widget").SKU(200345L).minAQL(0.01).batchSize(5000).build();
+			Defect scratches = Defect.builder().description("Scratches").aql(0.01).build();
+			Defect scuffs = Defect.builder().description("Scuffs").aql(1.0).build();
+			Defect damage = Defect.builder().description("Damage").aql(0.5).build();
+
+			ArrayList<Defect> widgetDefects = new ArrayList<Defect>();
+			widgetDefects.add(scratches);
+			widgetDefects.add(scuffs);
+			widgetDefects.add(damage);
+
+			Product widget = Product.builder().name("Widget").SKU(200345L).minAQL(0.01).batchSize(5000).defectList(widgetDefects).build();
 			productService.saveProduct(widget);
 
 			Product spinningWheel = Product.builder().name("Spinning Wheel").SKU(101278L).minAQL(1.0).batchSize(40000).build();
