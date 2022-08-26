@@ -27,4 +27,8 @@ public class ValidationService {
         valList.add(val);
         return val;
     }
+
+    public ValidationStrategy getVal(Long id){
+        return valList.get(Math.toIntExact(id));
+    }
 }

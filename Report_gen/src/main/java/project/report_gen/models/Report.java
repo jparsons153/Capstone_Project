@@ -20,12 +20,12 @@ public class Report {
     //@Id
     //@GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String documentType; // could be enum or list, as is fixed
+    private Document documentType; // could be enum or list, as is fixed
 //    private String productFamily;
     private Product productSKU; // use product list dataset
     private int tool;
     private String productionCell; // use productionCell dataset
-    private String validationStrategy; // enum or list
+    private ValidationStrategy validationStrategy; // enum or list
     private int batchSize; // auto-populated based on product SKU
 
 //    @Builder.Default
@@ -39,7 +39,7 @@ public class Report {
     }
 
     @XmlElement(name = "documentType")
-    public void setDocumentType(String documentType){
+    public void setDocumentType(Document documentType){
         this.documentType = documentType;
     }
 
@@ -64,7 +64,7 @@ public class Report {
     }
 
     @XmlTransient
-    public void setValidationStrategy(String validationStrategy) {
+    public void setValidationStrategy(ValidationStrategy validationStrategy) {
         this.validationStrategy = validationStrategy;
     }
 

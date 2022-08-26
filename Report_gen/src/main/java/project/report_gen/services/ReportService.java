@@ -6,10 +6,12 @@ import org.docx4j.model.datastorage.BindingHandler;
 import org.docx4j.openpackaging.exceptions.Docx4JException;
 import org.docx4j.openpackaging.packages.WordprocessingMLPackage;
 import org.docx4j.utils.XPathFactoryUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import project.report_gen.models.Product;
 import project.report_gen.models.Report;
 
 import javax.servlet.ServletOutputStream;
@@ -29,6 +31,9 @@ import static org.docx4j.Docx4J.FLAG_BIND_REMOVE_XML;
 @Transactional(readOnly = true)
 public class ReportService {
 
+    @Autowired
+    private ProductService productService;
+
     List<Report> reportList = new ArrayList<Report>();
 
     // Update method to invoke and return repository.findAll
@@ -41,6 +46,19 @@ public class ReportService {
     public Report saveReport(Report report) {
         reportList.add(report);
         return report;
+    }
+
+    public void defectTable(Report report){
+        // get report.productSKU.minAQL
+        // get validationStrategy.inspectionLevel & validationStrategy.type (normal, tightened or reduced)
+        // get sample size based on minAQL, inspectionLevel & type - create arrayList of acc/rej for each AQL based on sampleSize
+        // create defect table, write each defect from defectList[] to a new line - col.1 id, col.2 description & col.3 AQL
+        // write acc/rej to column in defect table
+
+
+        System.out.println("Product" + report.getProductSKU() + "min AQL = " + report.getProductSKU().getMinAQL());
+        System.out.println("Validation inspection level" + report.getValidationStrategy().getType() + report.getValidationStrategy().getInspectionLevel());
+
     }
 
     public void updateReport(Report report, HttpServletResponse response) throws IOException, Docx4JException {

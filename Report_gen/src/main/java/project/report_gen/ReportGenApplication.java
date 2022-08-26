@@ -1,7 +1,5 @@
 package project.report_gen;
 
-import org.docx4j.openpackaging.exceptions.Docx4JException;
-import org.docx4j.openpackaging.packages.WordprocessingMLPackage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -10,11 +8,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import project.report_gen.models.*;
 import project.report_gen.services.*;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 public class ReportGenApplication implements CommandLineRunner {
@@ -38,13 +32,13 @@ public class ReportGenApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 
 		if(documentService.getAllDocTypes().isEmpty()){
-			DocumentType plan = new DocumentType(1L,"Validation Plan");
-			DocumentType protocol = new DocumentType(2L,"Protocol");
-			DocumentType report = new DocumentType(3L,"Report");
+			Document plan = new Document(1L,"Validation Plan");
+//			Document protocol = new Document(2L,"Protocol");
+//			Document report = new Document(3L,"Report");
 
 			documentService.saveDoc(plan);
-			documentService.saveDoc(protocol);
-			documentService.saveDoc(report);
+//			documentService.saveDoc(protocol);
+//			documentService.saveDoc(report);
 		}
 
 		if (validationService.getAllVals().isEmpty()){
@@ -70,25 +64,17 @@ public class ReportGenApplication implements CommandLineRunner {
 			Product widget = Product.builder().name("Widget").SKU(200345L).minAQL(0.01).batchSize(5000).defectList(widgetDefects).build();
 			productService.saveProduct(widget);
 
-			Product spinningWheel = Product.builder().name("Spinning Wheel").SKU(101278L).minAQL(1.0).batchSize(40000).build();
-			productService.saveProduct(spinningWheel);
+//			Product spinningWheel = Product.builder().name("Spinning Wheel").SKU(101278L).minAQL(1.0).batchSize(40000).build();
+//			productService.saveProduct(spinningWheel);
 
 			reportService.saveReport(
 					Report.builder()
 							.id(1L)
-							.documentType("Report")
+							.documentType(documentService.getDoc(1L))
 							.productSKU(widget)
 							.tool(205)
 							.productionCell("CD")
-							.build());
-
-			reportService.saveReport(
-					Report.builder()
-							.id(2L)
-							.documentType("Validation Plan")
-							.productSKU(spinningWheel)
-							.tool(411)
-							.productionCell("AB")
+							.validationStrategy(validationService.getVal(1L))
 							.build());
 		}
 	}

@@ -51,7 +51,7 @@ public class DocCreateService {
                 XmlUtils.marshaltoString(documentPart.getJaxbElement(), true, true));
     }
 
-    static ObjectFactory factory = Context.getWmlObjectFactory();
+   // static ObjectFactory factory = Context.getWmlObjectFactory();
 
 //    public void createReport(Report report, String fileName) throws Exception {
 //        Report.builder().documentType(report.getDocumentType()).productSKU(report.getProductSKU()).productionCell(report.getProductionCell()).build();

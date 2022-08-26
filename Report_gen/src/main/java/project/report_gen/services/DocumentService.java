@@ -1,30 +1,37 @@
 package project.report_gen.services;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import project.report_gen.models.DocumentType;
-import project.report_gen.models.ValidationStrategy;
+import org.springframework.util.StringUtils;
+import project.report_gen.models.Document;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 public class DocumentService {
 
-    List<DocumentType> documentTypeList = new ArrayList<>();
+    List<Document> documentList = new ArrayList<>();
 
     // Update method to invoke and return repository.findAll
     // create and save some report objects
-    public List<DocumentType> getAllDocTypes() {
-        return documentTypeList;
+    public List<Document> getAllDocTypes() {
+        return documentList;
     }
 
     // Update method to invoke and return repository.save(report)
-    public DocumentType saveDoc(DocumentType doc) {
-        documentTypeList.add(doc);
+    public Document saveDoc(Document doc) {
+        documentList.add(doc);
         return doc;
+    }
+
+    public Document getDoc(Long id){
+        return documentList.get(Math.toIntExact(id));
     }
 }

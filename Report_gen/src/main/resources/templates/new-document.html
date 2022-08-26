@@ -28,7 +28,24 @@
                         <option th:each="doc : ${docTypeList}"
                                 th:value="${doc.id}"
                                 th:text="${doc.name}">Wireframe</option>
+                        <option value="New">New</option>
                     </select>
+                </td>
+                <!-- Select file if documentID = New
+                    <div>
+                    <form method="post" enctype="multipart/form-data">
+                        <div>
+                            <label for="file">File name</label>
+                            <input type="text" id="documentName" name="documentName">
+                        </div>
+                            <label for="file">Choose Template file to upload</label>
+                            <input type="file" id="file" name="file">
+                        <div>
+                            <button>Submit</button>
+                        </div>
+                    </form>
+                    </div>
+                -->
                 <td>
             </tr>
             <tr> <!--
