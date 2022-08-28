@@ -140,11 +140,13 @@ public class ReportController {
 
   //   update template file with input from user form
   // TODO can't call redirect after the response has been committed?
+  // TODO move @RequestParam's to hashmap
     @PostMapping(value = "/update")
-    public String update(@RequestParam("documentID")Long documentID,@ModelAttribute("report") Report report, HttpServletResponse response, Model model) throws IOException, Docx4JException {
-        reportService.saveReport(report);
-        reportService.defectTable(report);
-       // reportService.updateReport(report, response);
+    public String update(@RequestParam("id")int reportId, @RequestParam("documentID")int documentID,@ModelAttribute("report") Report report, HttpServletResponse response, Model model) throws IOException, Docx4JException {
+        reportService.assignDoc(report,documentID);
+//       reportService.saveReport(report);
+ //       reportService.defectTable(report);
+ //       reportService.updateReport(report, response);
     return "redirect:/reportIndex";
     }
 

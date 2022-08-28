@@ -48,7 +48,7 @@ public class Report {
 //        this.productFamily = productFamily;
 //    }
 
-    @XmlElement(name = "product")
+    @XmlElement(name = "productSKU")
     public void setProductSKU(Product productSKU) {
         this.productSKU = productSKU;
     }

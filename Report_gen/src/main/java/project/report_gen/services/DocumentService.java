@@ -31,7 +31,11 @@ public class DocumentService {
         return doc;
     }
 
-    public Document getDoc(Long id){
-        return documentList.get(Math.toIntExact(id));
+    public Document getDoc(int id){
+        return documentList.get(id);
+    }
+
+    public Boolean deleteAllDocs(){
+       return documentList.removeAll(documentList);
     }
 }

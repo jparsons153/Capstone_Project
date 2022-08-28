@@ -28,7 +28,9 @@ public class ValidationService {
         return val;
     }
 
-    public ValidationStrategy getVal(Long id){
-        return valList.get(Math.toIntExact(id));
+    public ValidationStrategy getVal(int id){
+        return valList.get(id);
     }
+
+    public Boolean deleteAllVals(){return valList.removeAll(valList);}
 }

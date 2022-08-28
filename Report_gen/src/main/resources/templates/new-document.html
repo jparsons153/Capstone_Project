@@ -56,10 +56,10 @@
             <tr>
                 <td>Product SKU#:</td>
                 <td>
-                    <select name="productSKU">
+                    <select name="productID">
                         <option value=" ">Select Product</option>
                         <option th:each="product : ${productList}"
-                                th:value="${product.SKU}"
+                                th:value="${product.id}"
                                 th:text="${product.name}">Wireframe</option>
                     </select>
                 <td>

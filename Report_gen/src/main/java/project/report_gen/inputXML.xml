@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <validation_report>
-    <documentType>VP</documentType>
-    <product>123 spin</product>
     <productCell>AC</productCell>
-    <tool>2</tool>
+    <tool>3</tool>
 </validation_report>

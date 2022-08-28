@@ -11,20 +11,15 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import project.report_gen.models.Product;
+import project.report_gen.models.Document;
 import project.report_gen.models.Report;
 
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
-import javax.xml.bind.annotation.XmlRootElement;
 import java.io.*;
 import java.util.*;
-
-import static org.docx4j.Docx4J.FLAG_BIND_REMOVE_XML;
 
 @Service
 @RequiredArgsConstructor
@@ -33,6 +28,8 @@ public class ReportService {
 
     @Autowired
     private ProductService productService;
+    @Autowired
+    private DocumentService documentService;
 
     List<Report> reportList = new ArrayList<Report>();
 
@@ -42,10 +39,23 @@ public class ReportService {
         return reportList;
     }
 
+    public Report getReport(int id){
+        return reportList.get(id);
+    }
+
     // Update method to invoke and return repository.save(report)
     public Report saveReport(Report report) {
         reportList.add(report);
         return report;
+    }
+
+    public Boolean deleteAllReports(){return reportList.removeAll(reportList);}
+
+    @Transactional
+    public void assignDoc(Report reportAssigned, int documentId){
+        Document documentAssigned = documentService.getDoc(documentId);
+        reportAssigned.setDocumentType(documentAssigned);
+        saveReport(reportAssigned);
     }
 
     public void defectTable(Report report){
@@ -56,7 +66,7 @@ public class ReportService {
         // write acc/rej to column in defect table
 
 
-        System.out.println("Product" + report.getProductSKU() + "min AQL = " + report.getProductSKU().getMinAQL());
+        System.out.println("Product" + report.getProductSKU().getName() + "min AQL = " + report.getProductSKU().getMinAQL());
         System.out.println("Validation inspection level" + report.getValidationStrategy().getType() + report.getValidationStrategy().getInspectionLevel());
 
     }
