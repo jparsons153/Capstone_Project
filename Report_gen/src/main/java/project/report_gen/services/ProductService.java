@@ -33,5 +33,9 @@ public class ProductService {
         return product;
     }
 
+    public Product getProduct(int id){
+        return productList.get(id);
+    }
+
     public Boolean deleteAllProducts(){return productList.removeAll(productList);}
 }

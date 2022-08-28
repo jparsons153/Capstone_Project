@@ -17,8 +17,8 @@ public class Product {
     int batchSize;
     ArrayList<Defect> defectList = new ArrayList<Defect>();
 
-//    @Override
-//    public String toString() {
-//        return  SKU + " " + name;
-//    }
+    @Override
+    public String toString() {
+        return  SKU + " " + name;
+    }
 }

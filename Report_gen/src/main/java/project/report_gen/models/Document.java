@@ -16,6 +16,10 @@ public class Document {
     Long id; // change to Long for DB
     String name;
 
+    @Override
+    public String toString() {
+        return name +" Document";
+    }
 //    private String fileName;
 //    private String fileType;
 //

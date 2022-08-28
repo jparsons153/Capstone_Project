@@ -142,9 +142,8 @@ public class ReportController {
   // TODO can't call redirect after the response has been committed?
   // TODO move @RequestParam's to hashmap
     @PostMapping(value = "/update")
-    public String update(@RequestParam("id")int reportId, @RequestParam("documentID")int documentID,@ModelAttribute("report") Report report, HttpServletResponse response, Model model) throws IOException, Docx4JException {
-        reportService.assignDoc(report,documentID);
-//       reportService.saveReport(report);
+    public String update(@RequestParam("productID")int productID, @RequestParam("documentID")int documentID,@RequestParam("validationID")int validationID,@ModelAttribute("report") Report report, HttpServletResponse response, Model model) throws IOException, Docx4JException {
+        reportService.assignDoc(report,documentID, productID, validationID);
  //       reportService.defectTable(report);
  //       reportService.updateReport(report, response);
     return "redirect:/reportIndex";

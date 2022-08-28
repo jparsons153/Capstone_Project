@@ -12,7 +12,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import project.report_gen.models.Document;
+import project.report_gen.models.Product;
 import project.report_gen.models.Report;
+import project.report_gen.models.ValidationStrategy;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.JAXBContext;
@@ -30,6 +32,8 @@ public class ReportService {
     private ProductService productService;
     @Autowired
     private DocumentService documentService;
+    @Autowired
+    private ValidationService validationService;
 
     List<Report> reportList = new ArrayList<Report>();
 
@@ -52,9 +56,16 @@ public class ReportService {
     public Boolean deleteAllReports(){return reportList.removeAll(reportList);}
 
     @Transactional
-    public void assignDoc(Report reportAssigned, int documentId){
+    public void assignDoc(Report reportAssigned, int documentId, int productID, int validationID){
         Document documentAssigned = documentService.getDoc(documentId);
         reportAssigned.setDocumentType(documentAssigned);
+
+        Product productAssigned = productService.getProduct(productID);
+        reportAssigned.setProductSKU(productAssigned);
+
+        ValidationStrategy valAssigned = validationService.getVal(validationID);
+        reportAssigned.setValidationStrategy(valAssigned);
+
         saveReport(reportAssigned);
     }
 
