@@ -4,36 +4,57 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e2ee0b2-d9c3-4301-951c-b6e19c8040d5" name="Changes" comment="" />
+    <list default="true" id="55ff9167-6213-418a-a81b-c1234b7cd0d5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/Capstone_Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Capstone_Project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/ReportGenApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/TEMPLATE_DOCX.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/controllers/DemoController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/controllers/ReportController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/desktop.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/docs-demoController/VALIDATION_TEMPLATE-fields.dotx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/docs-demoController/VALIDATION_TEMPLATE.dotx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/docs-demoController/char_data.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/docs-demoController/invoice-data.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/docs-demoController/invoice_Saxon_XPath2.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/docs-demoController/report.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/inputXML.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/models/Defect.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/models/Document.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/models/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/models/Report.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/models/ValidationStrategy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/services/DocCreateService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/services/DocumentService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/services/ProductService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/services/ReportService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/services/ValidationService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/validationReport-data.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/resources/image5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/resources/templates/ReportIndex.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/resources/templates/new-document.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/resources/templates/newVal.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report_gen/src/test/java/project/report_gen/ReportGenApplicationTests.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="HTML File" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="a93020f51fadadef8ebba301e3b26242d697cb46" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="RESET_MODE" value="HARD" />
-  </component>
-  <component name="GitSEFilterConfiguration">
-    <file-type-list>
-      <filtered-out-file-type name="LOCAL_BRANCH" />
-      <filtered-out-file-type name="REMOTE_BRANCH" />
-      <filtered-out-file-type name="TAG" />
-      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
-    </file-type-list>
   </component>
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
@@ -47,45 +68,23 @@
       </map>
     </option>
   </component>
-  <component name="ProjectId" id="2C9J2VcMXnoa7q9kp0fQijZeKGI" />
+  <component name="ProjectId" id="2E802eZ8yBBWwiNcuSmDndnOLgV" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../CustomerWebsite/customer_site" />
-    <property name="project.structure.last.edited" value="Global Libraries" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.47122863" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="project.report_gen.models" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\User\OneDrive\Documents\CodingNomads\projects\Capstone_Project\report_gen\src\main\java\project\report_gen" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\User\OneDrive\Documents\CodingNomads\projects\Capstone_Project\report_gen\src\main\java\project\report_gen\docs-demoController" />
-      <recent name="C:\Users\User\OneDrive\Documents\CodingNomads\projects\Capstone_Project\report_gen\src\main\resources\templates" />
-      <recent name="C:\Users\User\OneDrive\Documents\CodingNomads\projects\Capstone_Project\report_gen\src\main\resources\demo" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="project.report_gen" />
-    </key>
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RunManager">
     <configuration name="ReportGenApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="project.report_gen.ReportGenApplication" />
-      <module name="report_gen" />
+      <module name="Capstone_Project" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="project.report_gen.controllers.*" />
+          <option name="PATTERN" value="project.report_gen.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -96,47 +95,18 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.ReportGenApplication" />
-        <item itemvalue="Application.ReportGenApplication" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="9e2ee0b2-d9c3-4301-951c-b6e19c8040d5" name="Changes" comment="" />
-      <created>1658208668102</created>
+      <changelist id="55ff9167-6213-418a-a81b-c1234b7cd0d5" name="Changes" comment="" />
+      <created>1661961700008</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1658208668102</updated>
+      <updated>1661961700008</updated>
     </task>
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/report_gen/src/main/java/project/report_gen/controllers/ReportController.java</url>
-          <line>145</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-    <pin-to-top-manager>
-      <pinned-members>
-        <PinnedItemInfo parentTag="java.lang.String" memberName="value" />
-      </pinned-members>
-    </pin-to-top-manager>
   </component>
 </project>

@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Capstone_Project.iml" filepath="$PROJECT_DIR$/.idea/Capstone_Project.iml" />
-      <module fileurl="file://$PROJECT_DIR$/report_gen/report_gen.iml" filepath="$PROJECT_DIR$/report_gen/report_gen.iml" />
     </modules>
   </component>
 </project>
