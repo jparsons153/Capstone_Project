@@ -32,7 +32,4 @@ public class ValidationService {
 
     public Boolean deleteAllVals(){return valList.removeAll(valList);}
 
-    public void getSampling(String type, int inspectionLevel) {
-    }
-
 }

@@ -13,7 +13,7 @@ public class Product {
     int id; // change to Long for DB connection
     Long SKU;
     String name;
-    Double minAQL;
+    Double minAQL; // change to method
     int batchSize;
     ArrayList<Defect> defectList = new ArrayList<Defect>();
 

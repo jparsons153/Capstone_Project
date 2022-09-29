@@ -11,10 +11,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import project.report_gen.models.Document;
-import project.report_gen.models.Product;
-import project.report_gen.models.Report;
-import project.report_gen.models.ValidationStrategy;
+import project.report_gen.models.*;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.JAXBContext;
@@ -79,6 +76,27 @@ public class ReportService {
         System.out.println("Product " + report.getProductSKU().getName() + " min AQL = " + report.getProductSKU().getMinAQL());
         System.out.println("Validation inspection level " + report.getValidationStrategy().getType() + report.getValidationStrategy().getInspectionLevel());
         System.out.println("Sample table" + report.getValidationStrategy().getSampleTable());
+        System.out.println(getSampling(report).toString());
+    }
+
+    public TableRow getSampling(Report report) {
+        Double productMinAQL = report.getProductSKU().getMinAQL();
+        ArrayList<TableRow> rowsToIterate = report.getValidationStrategy().getSampleTable().getTableRows();
+        TableRow selectRowForSampleSize;
+
+        // check if productMinAQL is a value in map for each row
+        // iterate through each row in sampleTable
+        // if productMinAQL is equal is key in map, return TableRow for selected sample size
+
+        for (TableRow row: rowsToIterate) {
+            if (row.getAcceptRejectHashMap().containsKey(productMinAQL)){
+                selectRowForSampleSize = row;
+                System.out.println("Sample size required " + selectRowForSampleSize.getSampleSize());
+                return selectRowForSampleSize;
+            }
+            else System.out.println("Sample size could not be found");
+        }
+        return null;
     }
 
     public void updateReport(Report report, HttpServletResponse response) throws IOException, Docx4JException {

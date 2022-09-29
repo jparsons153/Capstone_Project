@@ -90,7 +90,6 @@ public class ReportController {
     @PostMapping(value = "/update")
     public void update(@RequestParam("productID")int productID, @RequestParam("documentID")int documentID,@RequestParam("validationStrategyID")int validationStrategyID,@ModelAttribute("report") Report report, HttpServletResponse response, Model model) throws IOException, Docx4JException {
        reportService.assignDoc(report,documentID, productID, validationStrategyID);
-        System.out.println("val strat" + validationStrategyID);
        reportService.defectTable(report);
 //       reportService.updateReport(report, response);
     }

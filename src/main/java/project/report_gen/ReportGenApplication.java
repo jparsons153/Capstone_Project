@@ -79,7 +79,7 @@ public class ReportGenApplication implements CommandLineRunner {
 		// create Products - Widget & Spinning Wheel using builder & productService
 		if(productService.getAllProducts().isEmpty() && reportService.getAllReports().isEmpty()) {
 
-		Defect scratches = Defect.builder().description("Scratches").aql(0.01).build();
+		Defect scratches = Defect.builder().description("Scratches").aql(0.015).build();
 		Defect scuffs = Defect.builder().description("Scuffs").aql(1.0).build();
 		Defect damage = Defect.builder().description("Damage").aql(0.5).build();
 		ArrayList<Defect> widgetDefects = new ArrayList<Defect>();
@@ -87,7 +87,7 @@ public class ReportGenApplication implements CommandLineRunner {
 		widgetDefects.add(scuffs);
 		widgetDefects.add(damage);
 
-		Product widget = Product.builder().id(0).SKU(200345L).name("Widget").minAQL(0.01).batchSize(5000).defectList(widgetDefects).build();
+		Product widget = Product.builder().id(0).SKU(200345L).name("Widget").minAQL(0.015).batchSize(5000).defectList(widgetDefects).build();
 		productService.saveProduct(widget);
 		Product spinningWheel = Product.builder().id(1).SKU(500346L).name("Spinning Wheel").minAQL(0.1).batchSize(45000).defectList(widgetDefects).build();
 		productService.saveProduct(spinningWheel);
