@@ -94,19 +94,4 @@ public class ReportController {
        reportService.defectTable(report);
 //       reportService.updateReport(report, response);
     }
-
-    @GetMapping("/newVal")
-    public String showNewValPage(Model vModel) {
-        ValidationStrategy validationStrategy = new ValidationStrategy();
-        vModel.addAttribute("validationStrategy",validationStrategy);
-
-        return "newVal";
-    }
-
-    @PostMapping("/createVal")
-    // creates a new Validation Strategy in DB based on object collected from HTML page
-    public String saveVal(@ModelAttribute("validationStrategy") ValidationStrategy validationStrategy){
-        validationService.saveVal(validationStrategy);
-        return "redirect:/reportIndex";
-    }
 }
