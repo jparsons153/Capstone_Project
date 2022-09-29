@@ -8,6 +8,8 @@ import lombok.*;
 @Getter
 @Setter
 public class Defect {
+    // long id;
+    // String name;
     String description;
     double aql;
     int accept;

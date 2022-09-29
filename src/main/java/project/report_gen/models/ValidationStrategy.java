@@ -9,7 +9,7 @@ import lombok.*;
 @Setter
 public class ValidationStrategy {
     //@Generated
-    Long id; // change to Long for DB
+    int id; // change to Long for DB
     String name;
     int inspectionLevel; // S1=1, S2=2, S3=3, S4=4, GL1=5, GL2=6, GL3=7
     String type;

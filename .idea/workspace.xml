@@ -5,48 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="55ff9167-6213-418a-a81b-c1234b7cd0d5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Capstone_Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Capstone_Project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Report_gen/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Report_gen/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Report_gen/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Report_gen/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Report_gen/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Report_gen/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/ReportGenApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/TEMPLATE_DOCX.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/controllers/DemoController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/controllers/ReportController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/docs-demoController/VALIDATION_TEMPLATE-fields.dotx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/docs-demoController/VALIDATION_TEMPLATE.dotx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/docs-demoController/char_data.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/docs-demoController/invoice-data.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/docs-demoController/invoice_Saxon_XPath2.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/docs-demoController/report.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/inputXML.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/models/Defect.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/models/Document.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/models/Product.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/models/Report.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/models/ValidationStrategy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/services/DocCreateService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/services/DocumentService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/services/ProductService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/services/ReportService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/services/ValidationService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/java/project/report_gen/validationReport-data.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/resources/image5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/resources/templates/ReportIndex.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/resources/templates/new-document.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Report_gen/src/main/resources/templates/newVal.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Report_gen/src/test/java/project/report_gen/ReportGenApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/ReportGenApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/ReportGenApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/TEMPLATE_DOCX.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/controllers/ReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/controllers/ReportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/inputXML.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/models/Defect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/models/Defect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/models/Document.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/models/Document.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/models/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/models/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/models/Report.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/models/Report.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/models/ValidationStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/models/ValidationStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/services/ReportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/services/ReportService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/validationReport-data.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/new-document.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/new-document.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +47,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../CustomerWebsite" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RunManager">
@@ -108,5 +80,37 @@
       <updated>1661961700008</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/project/report_gen/services/ReportService.java</url>
+          <line>78</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/project/report_gen/controllers/ReportController.java</url>
+          <line>91</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/project/report_gen/services/DocumentService.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

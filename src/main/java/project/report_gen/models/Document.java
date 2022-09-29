@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Setter
 public class Document {
     //@Generated
-    Long id; // change to Long for DB
+    int id; // change to Long for DB
     String name;
 
     @Override
@@ -21,7 +21,6 @@ public class Document {
         return name +" Document";
     }
 //    private String fileName;
-//    private String fileType;
 //
 //    @Lob
 //    private byte[] data;

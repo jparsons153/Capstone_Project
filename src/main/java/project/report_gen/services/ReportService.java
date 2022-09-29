@@ -76,7 +76,6 @@ public class ReportService {
         // create defect table, write each defect from defectList[] to a new line - col.1 id, col.2 description & col.3 AQL
         // write acc/rej to column in defect table
 
-
         System.out.println("Product" + report.getProductSKU().getName() + "min AQL = " + report.getProductSKU().getMinAQL());
         System.out.println("Validation inspection level" + report.getValidationStrategy().getType() + report.getValidationStrategy().getInspectionLevel());
 
@@ -100,7 +99,7 @@ public class ReportService {
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
             //Store XML to File
-            File file = new File("C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/report_gen/src/main/java/project/report_gen/inputXML.xml");
+            File file = new File("C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/src/main/resources/inputXML.xml");
 
             //Writes XML file to file-system
             jaxbMarshaller.marshal(report, file);
@@ -119,7 +118,7 @@ public class ReportService {
     // note template file MUST HAVE xml elements already mapped to content controls i.e. Xpath created
     public void xmlToDocx(File input_XML, HttpServletResponse response) throws Docx4JException, IOException {
 
-        String input_DOCX = "C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/report_gen/src/main/java/project/report_gen/TEMPLATE_DOCX.docx";
+        String input_DOCX = "C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/src/main/resources/TEMPLATE_DOCX.docx";
 
         // resulting docx
         // TODO pop-up display box when Document created

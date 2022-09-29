@@ -52,60 +52,6 @@ public class ReportController {
 //        mar.marshal(newReport, new File("C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/report_gen/src/main/java/project/report_gen/reportXML.xml"));
 //    }
 
-//    @RestController
-//    @RequestMapping("/files")
-//    public class HandleMultipartDataController {
-
-//        @Autowired
-//        DatabaseFileRepository fileRepository;
-
-//        @PostMapping()
-//        public ResponseEntity<?> uploadFile(@RequestBody MultipartFile file) {
-//
-//            String fileName;
-//            // get the original file name
-//            if (file == null) {
-//                return ResponseEntity.badRequest().body(
-//                        new IllegalStateException("Sorry did not receive a file, please try again!"));
-//            } else {
-//                fileName = StringUtils.cleanPath(Objects.requireNonNull(file.getOriginalFilename()));
-//            }
-//
-//            try {
-//                // create a new DatabaseFile with the file information
-//                final DatabaseFile databaseFile = DatabaseFile.builder()
-//                        .data(file.getBytes())
-//                        .fileName(fileName)
-//                        .fileType(file.getContentType())
-//                        .build();
-//
-//
-//
-//                // save to the database
-//                final DatabaseFile savedFile = fileRepository.save(databaseFile);
-//
-//                // create the download URI
-//                savedFile.setDownloadUrl(ServletUriComponentsBuilder.fromCurrentContextPath()
-//                        .path("/files/")
-//                        .path(String.valueOf(savedFile.getId()))
-//                        .toUriString());
-//
-//                // create a FileResponse object using file info and wrap it in a ResponseEntity
-//                return ResponseEntity.ok(FileResponse.builder()
-//                        .fileName(databaseFile.getFileName())
-//                        .fileDownloadUri(savedFile.getDownloadUrl())
-//                        .fileType(file.getContentType())
-//                        .size(file.getSize())
-//                        .build());
-//
-//            } catch (IOException ex) {
-//                // wraps exception with custom message in a ResponseEntity to be returned to the user.
-//                return ResponseEntity.badRequest().body(
-//                        new IllegalStateException("Sorry could not store file " + fileName + "Try again!", ex));
-//            }
-//        }
-//    }
-
     @GetMapping("/reportIndex")
     public String viewHomePage(Model model) {
         List<Report> reportList = reportService.getAllReports();
@@ -142,11 +88,11 @@ public class ReportController {
   // TODO can't call redirect after the response has been committed?
   // TODO move @RequestParam's to hashmap
     @PostMapping(value = "/update")
-    public String update(@RequestParam("productID")int productID, @RequestParam("documentID")int documentID,@RequestParam("validationID")int validationID,@ModelAttribute("report") Report report, HttpServletResponse response, Model model) throws IOException, Docx4JException {
-        reportService.assignDoc(report,documentID, productID, validationID);
- //       reportService.defectTable(report);
- //       reportService.updateReport(report, response);
-    return "redirect:/reportIndex";
+    public void update(@RequestParam("productID")int productID, @RequestParam("documentID")int documentID,@RequestParam("validationStrategyID")int validationStrategyID,@ModelAttribute("report") Report report, HttpServletResponse response, Model model) throws IOException, Docx4JException {
+       reportService.assignDoc(report,documentID, productID, validationStrategyID);
+        System.out.println("val strat" + validationStrategyID);
+       reportService.defectTable(report);
+//       reportService.updateReport(report, response);
     }
 
     @GetMapping("/newVal")

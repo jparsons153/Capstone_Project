@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<validation_report>
+    <documentType>
+        <id>2</id>
+        <name>Protocol</name>
+    </documentType>
+    <productSKU>
+        <batchSize>45000</batchSize>
+        <defectList>
+            <accept>0</accept>
+            <aql>0.01</aql>
+            <description>Scratches</description>
+            <reject>0</reject>
+        </defectList>
+        <defectList>
+            <accept>0</accept>
+            <aql>1.0</aql>
+            <description>Scuffs</description>
+            <reject>0</reject>
+        </defectList>
+        <defectList>
+            <accept>0</accept>
+            <aql>0.5</aql>
+            <description>Damage</description>
+            <reject>0</reject>
+        </defectList>
+        <id>2</id>
+        <minAQL>0.1</minAQL>
+        <name>Spinning Wheel</name>
+        <SKU>500346</SKU>
+    </productSKU>
+    <productCell>AC</productCell>
+    <tool>305</tool>
+</validation_report>

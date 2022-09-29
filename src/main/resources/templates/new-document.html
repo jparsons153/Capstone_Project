@@ -28,7 +28,7 @@
                         <option th:each="doc : ${docTypeList}"
                                 th:value="${doc.id}"
                                 th:text="${doc.name}">Wireframe</option>
-                        <option value="New">New</option>
+<!--                        <option value="New">New</option>-->
                     </select>
                 </td>
                 <!-- Select file if documentID = New
@@ -74,11 +74,11 @@
             <tr>
                 <td>Validation Strategy:</td>
                 <td>
-                    <select name="validationID">
+                    <select name="validationStrategyID">
                         <option value=" ">Select Validation Strategy</option>
-                        <option th:each="val : ${valList}"
-                                th:value="${val.id}"
-                                th:text="${val.name}">Wireframe</option>
+                        <option th:each="validationStrategy : ${valList}"
+                                th:value="${validationStrategy.id}"
+                                th:text="${validationStrategy.name}">Wireframe</option>
                     </select>
                 <td>
                 <a th:href="@{/newVal}">Add New Validation Strategy</a>

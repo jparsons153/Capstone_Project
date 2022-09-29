@@ -10,7 +10,7 @@ import java.util.ArrayList;
 @Getter
 @Setter
 public class Product {
-    Long id;
+    int id; // change to Long for DB connection
     Long SKU;
     String name;
     Double minAQL;

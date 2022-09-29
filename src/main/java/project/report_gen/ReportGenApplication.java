@@ -37,17 +37,17 @@ public class ReportGenApplication implements CommandLineRunner {
 		productService.deleteAllProducts();
 		reportService.deleteAllReports();
 
-		Document plan = new Document(1L,"Validation Plan");
-		Document protocol = new Document(2L,"Protocol");
-		Document report = new Document(3L,"Report");
+		Document plan = new Document(0,"Validation Plan");
+		Document protocol = new Document(1,"Protocol");
+//		Document report = new Document(3L,"Report");
 
 		documentService.saveDoc(plan);
 		documentService.saveDoc(protocol);
-		documentService.saveDoc(report);
+//		documentService.saveDoc(report);
 
 
-		ValidationStrategy newTool = new ValidationStrategy(1L,"New Tool",6,"General");
-		ValidationStrategy duplicateTool = new ValidationStrategy(2L,"Duplicate Tool",7,"Tightened");
+		ValidationStrategy newTool = new ValidationStrategy(0,"New Tool",6,"General");
+		ValidationStrategy duplicateTool = new ValidationStrategy(1,"Duplicate Tool",7,"Tightened");
 
 		validationService.saveVal(newTool);
 		validationService.saveVal(duplicateTool);
@@ -64,10 +64,10 @@ public class ReportGenApplication implements CommandLineRunner {
 		widgetDefects.add(scuffs);
 		widgetDefects.add(damage);
 
-		Product widget = Product.builder().id(1L).SKU(200345L).name("Widget").minAQL(0.01).batchSize(5000).defectList(widgetDefects).build();
+		Product widget = Product.builder().id(0).SKU(200345L).name("Widget").minAQL(0.01).batchSize(5000).defectList(widgetDefects).build();
 		productService.saveProduct(widget);
 
-		Product spinningWheel = Product.builder().id(2L).SKU(500346L).name("Spinning Wheel").minAQL(0.1).batchSize(45000).defectList(widgetDefects).build();
+		Product spinningWheel = Product.builder().id(1).SKU(500346L).name("Spinning Wheel").minAQL(0.1).batchSize(45000).defectList(widgetDefects).build();
 		productService.saveProduct(spinningWheel);
 
 		reportService.saveReport(
@@ -78,7 +78,7 @@ public class ReportGenApplication implements CommandLineRunner {
 					.tool(205)
 					.productionCell("CD")
 					.validationStrategy(duplicateTool)
-					.batchSize(5000)
+					//.batchSize(5000)
 					.build());
 		}
 	}
