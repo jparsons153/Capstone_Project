@@ -13,6 +13,7 @@ public class ValidationStrategy {
     String name;
     int inspectionLevel; // S1=1, S2=2, S3=3, S4=4, GL1=5, GL2=6, GL3=7
     String type;
+    SampleTable sampleTable;
     //Boolean featured;
 
 }

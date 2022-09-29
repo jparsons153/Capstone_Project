@@ -12,8 +12,7 @@ public class Defect {
     // String name;
     String description;
     double aql;
-    int accept;
-    int reject;
+    AcceptReject acceptReject;
 
     public Defect(String description, double aql) {
         this.description = description;
@@ -24,7 +23,7 @@ public class Defect {
     public String toString() {
         return  description + aql +
                 "%AQL"+
-                "acc" + accept + "/" +
-                "rej" + reject;
+                "acc" + acceptReject.accept + "/" +
+                "rej" + acceptReject.reject;
     }
 }

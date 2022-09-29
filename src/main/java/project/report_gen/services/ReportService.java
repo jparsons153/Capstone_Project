@@ -76,9 +76,9 @@ public class ReportService {
         // create defect table, write each defect from defectList[] to a new line - col.1 id, col.2 description & col.3 AQL
         // write acc/rej to column in defect table
 
-        System.out.println("Product" + report.getProductSKU().getName() + "min AQL = " + report.getProductSKU().getMinAQL());
-        System.out.println("Validation inspection level" + report.getValidationStrategy().getType() + report.getValidationStrategy().getInspectionLevel());
-
+        System.out.println("Product " + report.getProductSKU().getName() + " min AQL = " + report.getProductSKU().getMinAQL());
+        System.out.println("Validation inspection level " + report.getValidationStrategy().getType() + report.getValidationStrategy().getInspectionLevel());
+        System.out.println("Sample table" + report.getValidationStrategy().getSampleTable());
     }
 
     public void updateReport(Report report, HttpServletResponse response) throws IOException, Docx4JException {

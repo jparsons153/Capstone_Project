@@ -3,11 +3,9 @@ package project.report_gen.services;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import project.report_gen.models.Product;
-import project.report_gen.models.ValidationStrategy;
+import project.report_gen.models.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Service
 @RequiredArgsConstructor
@@ -33,4 +31,8 @@ public class ValidationService {
     }
 
     public Boolean deleteAllVals(){return valList.removeAll(valList);}
+
+    public void getSampling(String type, int inspectionLevel) {
+    }
+
 }

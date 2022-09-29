@@ -5,8 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="55ff9167-6213-418a-a81b-c1234b7cd0d5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/controllers/ValidationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/controllers/ReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/controllers/ReportController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/models/AcceptReject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/models/SampleTable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/models/TableRow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/ReportGenApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/ReportGenApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/controllers/ValidationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/controllers/ValidationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/models/Defect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/models/Defect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/models/ValidationStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/models/ValidationStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/services/ReportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/services/ReportService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/services/ValidationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/services/ValidationService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +54,9 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../CustomerWebsite" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RunManager">
@@ -100,11 +113,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/project/report_gen/controllers/ReportController.java</url>
           <line>91</line>
           <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/project/report_gen/services/DocumentService.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

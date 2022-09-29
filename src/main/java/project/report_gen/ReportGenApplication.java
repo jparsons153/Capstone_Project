@@ -5,10 +5,11 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.context.annotation.Bean;
 import project.report_gen.models.*;
 import project.report_gen.services.*;
 
-import java.util.ArrayList;
+import java.util.*;
 
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 public class ReportGenApplication implements CommandLineRunner {
@@ -40,15 +41,38 @@ public class ReportGenApplication implements CommandLineRunner {
 		Document plan = new Document(0,"Validation Plan");
 		Document protocol = new Document(1,"Protocol");
 //		Document report = new Document(3L,"Report");
-
 		documentService.saveDoc(plan);
 		documentService.saveDoc(protocol);
 //		documentService.saveDoc(report);
 
+		AcceptReject zeroOne = new AcceptReject(0,1);
+		AcceptReject oneTwo = new AcceptReject(1,2);
+		AcceptReject twoThree = new AcceptReject(2,3);
+		AcceptReject threeFour = new AcceptReject(3,4);
 
-		ValidationStrategy newTool = new ValidationStrategy(0,"New Tool",6,"General");
-		ValidationStrategy duplicateTool = new ValidationStrategy(1,"Duplicate Tool",7,"Tightened");
+		Map<Double, AcceptReject> acceptRejectMap_GL2_800pcs_normal = new HashMap<>();
+		acceptRejectMap_GL2_800pcs_normal.put(0.015,zeroOne);
+		acceptRejectMap_GL2_800pcs_normal.put(0.025,zeroOne);
+		acceptRejectMap_GL2_800pcs_normal.put(0.040,zeroOne);
+		acceptRejectMap_GL2_800pcs_normal.put(0.065,oneTwo);
+		acceptRejectMap_GL2_800pcs_normal.put(0.10,twoThree);
+		acceptRejectMap_GL2_800pcs_normal.put(0.15,threeFour);
 
+		TableRow normalGL2_800_row = TableRow.builder()
+				.sampleSize(800)
+				.acceptRejectHashMap(acceptRejectMap_GL2_800pcs_normal)
+				.build();
+
+		ArrayList<TableRow> normalGL2rows = new ArrayList<>();
+		normalGL2rows.add(normalGL2_800_row);
+
+		SampleTable normalGeneralLevelIIsampleTable = SampleTable.builder()
+				.tableName("GL2")
+				.tableRows(normalGL2rows)
+				.build();
+
+		ValidationStrategy newTool = new ValidationStrategy(0,"New Tool",6,"General",normalGeneralLevelIIsampleTable);
+		ValidationStrategy duplicateTool = new ValidationStrategy(1,"Duplicate Tool",7,"Tightened",normalGeneralLevelIIsampleTable);
 		validationService.saveVal(newTool);
 		validationService.saveVal(duplicateTool);
 
@@ -58,7 +82,6 @@ public class ReportGenApplication implements CommandLineRunner {
 		Defect scratches = Defect.builder().description("Scratches").aql(0.01).build();
 		Defect scuffs = Defect.builder().description("Scuffs").aql(1.0).build();
 		Defect damage = Defect.builder().description("Damage").aql(0.5).build();
-
 		ArrayList<Defect> widgetDefects = new ArrayList<Defect>();
 		widgetDefects.add(scratches);
 		widgetDefects.add(scuffs);
@@ -66,7 +89,6 @@ public class ReportGenApplication implements CommandLineRunner {
 
 		Product widget = Product.builder().id(0).SKU(200345L).name("Widget").minAQL(0.01).batchSize(5000).defectList(widgetDefects).build();
 		productService.saveProduct(widget);
-
 		Product spinningWheel = Product.builder().id(1).SKU(500346L).name("Spinning Wheel").minAQL(0.1).batchSize(45000).defectList(widgetDefects).build();
 		productService.saveProduct(spinningWheel);
 

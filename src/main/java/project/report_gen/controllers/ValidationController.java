@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import project.report_gen.models.ValidationStrategy;
 import project.report_gen.services.ValidationService;
 
@@ -25,7 +26,10 @@ public class ValidationController {
 
     @PostMapping("/createVal")
     // creates a new Validation Strategy in DB based on object collected from HTML page
-    public String saveVal(@ModelAttribute("validationStrategy") ValidationStrategy validationStrategy){
+    public String saveVal(@RequestParam("type")String type, @RequestParam("inspectionLevel")int inspectionLevel, @ModelAttribute("validationStrategy") ValidationStrategy validationStrategy){
+        System.out.println("type: " + type + "level " +inspectionLevel);
+        validationService.getSampling(type,inspectionLevel);
+        // update save method to take sample plan as input
         validationService.saveVal(validationStrategy);
         return "redirect:/reportIndex";
     }
