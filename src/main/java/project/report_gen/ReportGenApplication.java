@@ -87,9 +87,9 @@ public class ReportGenApplication implements CommandLineRunner {
 		widgetDefects.add(scuffs);
 		widgetDefects.add(damage);
 
-		Product widget = Product.builder().id(0).SKU(200345L).name("Widget").minAQL(0.015).batchSize(5000).defectList(widgetDefects).build();
+		Product widget = Product.builder().id(0).SKU(200345L).name("Widget").batchSize(5000).defectList(widgetDefects).build();
 		productService.saveProduct(widget);
-		Product spinningWheel = Product.builder().id(1).SKU(500346L).name("Spinning Wheel").minAQL(0.1).batchSize(45000).defectList(widgetDefects).build();
+		Product spinningWheel = Product.builder().id(1).SKU(500346L).name("Spinning Wheel").batchSize(45000).defectList(widgetDefects).build();
 		productService.saveProduct(spinningWheel);
 
 		reportService.saveReport(

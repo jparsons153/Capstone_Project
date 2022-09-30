@@ -10,9 +10,9 @@ import lombok.*;
 public class Defect {
     // long id;
     // String name;
-    String description;
-    double aql;
-    AcceptReject acceptReject;
+    private String description;
+    private double aql;
+    private AcceptReject acceptReject;
 
     public Defect(String description, double aql) {
         this.description = description;
