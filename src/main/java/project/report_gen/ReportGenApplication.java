@@ -80,8 +80,8 @@ public class ReportGenApplication implements CommandLineRunner {
 		if(productService.getAllProducts().isEmpty() && reportService.getAllReports().isEmpty()) {
 
 		Defect scratches = Defect.builder().description("Scratches").aql(0.015).build();
-		Defect scuffs = Defect.builder().description("Scuffs").aql(1.0).build();
-		Defect damage = Defect.builder().description("Damage").aql(0.5).build();
+		Defect scuffs = Defect.builder().description("Scuffs").aql(0.040).build();
+		Defect damage = Defect.builder().description("Damage").aql(0.065).build();
 		ArrayList<Defect> widgetDefects = new ArrayList<Defect>();
 		widgetDefects.add(scratches);
 		widgetDefects.add(scuffs);

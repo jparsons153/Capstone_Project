@@ -18,12 +18,4 @@ public class Defect {
         this.description = description;
         this.aql = aql;
     }
-
-    @Override
-    public String toString() {
-        return  description + aql +
-                "%AQL"+
-                "acc" + acceptReject.accept + "/" +
-                "rej" + acceptReject.reject;
-    }
 }

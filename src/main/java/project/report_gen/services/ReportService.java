@@ -75,8 +75,9 @@ public class ReportService {
 
         System.out.println("Product " + report.getProductSKU().getName() + " min AQL = " + report.getProductSKU().getMinAQL());
         System.out.println("Validation inspection level " + report.getValidationStrategy().getType() + report.getValidationStrategy().getInspectionLevel());
-        System.out.println("Sample table" + report.getValidationStrategy().getSampleTable());
-        System.out.println(getSampling(report).toString());
+        System.out.println("Sample table " + report.getValidationStrategy().getSampleTable());
+        TableRow tableRowForSample = getSampling(report);
+        getDefectAccRej(report,tableRowForSample);
     }
 
     public TableRow getSampling(Report report) {
@@ -97,6 +98,21 @@ public class ReportService {
             else System.out.println("Sample size could not be found");
         }
         return null;
+    }
+
+    public void getDefectAccRej(Report report, TableRow selectRowForSampleSize){
+
+        System.out.println("Updating defect acc / rej to align with validation sampling plan");
+        for (Defect defect:report.getProductSKU().getDefectList()) {
+            if (selectRowForSampleSize.getAcceptRejectHashMap().containsKey(defect.getAql())){
+                defect.setAcceptReject(selectRowForSampleSize.getAcceptRejectHashMap().get(defect.getAql()));
+                System.out.println(defect.getDescription() + " AQL " + defect.getAql() + "%"
+                        + " acc" + defect.getAcceptReject().getAccept() + "/rej" + defect.getAcceptReject().getReject());
+            }
+            else
+                continue;
+        }
+        System.out.println("Defect acc/rej updated based on selected sampling plan");
     }
 
     public void updateReport(Report report, HttpServletResponse response) throws IOException, Docx4JException {
