@@ -103,6 +103,13 @@ public class ReportService {
     public void getDefectAccRej(Report report, TableRow selectRowForSampleSize){
 
         System.out.println("Updating defect acc / rej to align with validation sampling plan");
+        report.getProductSKU().getDefectList().sort((a,b)-> {
+        int compare = Double.compare(a.getAql(),b.getAql());
+            if (compare==0){
+                return a.getDescription().compareTo(b.getDescription());
+            }
+            return compare;
+        });
         for (Defect defect:report.getProductSKU().getDefectList()) {
             if (selectRowForSampleSize.getAcceptRejectHashMap().containsKey(defect.getAql())){
                 defect.setAcceptReject(selectRowForSampleSize.getAcceptRejectHashMap().get(defect.getAql()));
@@ -133,7 +140,7 @@ public class ReportService {
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
             //Store XML to File
-            File file = new File("C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/src/main/resources/inputXML.xml");
+            File file = new File("C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/src/main/resources/input.xml");
 
             //Writes XML file to file-system
             jaxbMarshaller.marshal(report, file);

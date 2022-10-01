@@ -2,18 +2,21 @@ package project.report_gen.models;
 
 import lombok.*;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlTransient;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-@Setter
 public class Product {
     private int id; // change to Long for DB connection
     private Long SKU;
     private String name;
     private int batchSize;
+
     private ArrayList<Defect> defectList = new ArrayList<Defect>();
 
     public double getMinAQL(){
@@ -25,6 +28,31 @@ public class Product {
             }
         }
         return calcMinAQL;
+    }
+
+    @XmlTransient
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @XmlElement
+    public void setSKU(Long SKU) {
+        this.SKU = SKU;
+    }
+
+    @XmlElement
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @XmlElement
+    public void setBatchSize(int batchSize) {
+        this.batchSize = batchSize;
+    }
+
+    @XmlTransient
+    public void setDefectList(ArrayList<Defect> defectList) {
+        this.defectList = defectList;
     }
 
     @Override

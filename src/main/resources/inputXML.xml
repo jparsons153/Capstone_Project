@@ -1,34 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <validation_report>
     <documentType>
-        <id>2</id>
-        <name>Protocol</name>
+        <id>0</id>
+        <name>Validation Plan</name>
     </documentType>
     <productSKU>
-        <batchSize>45000</batchSize>
+        <batchSize>5000</batchSize>
         <defectList>
-            <accept>0</accept>
-            <aql>0.01</aql>
+            <acceptReject>
+                <accept>0</accept>
+                <reject>1</reject>
+            </acceptReject>
+            <aql>0.015</aql>
             <description>Scratches</description>
-            <reject>0</reject>
         </defectList>
         <defectList>
-            <accept>0</accept>
-            <aql>1.0</aql>
+            <acceptReject>
+                <accept>0</accept>
+                <reject>1</reject>
+            </acceptReject>
+            <aql>0.04</aql>
             <description>Scuffs</description>
-            <reject>0</reject>
         </defectList>
         <defectList>
-            <accept>0</accept>
-            <aql>0.5</aql>
+            <acceptReject>
+                <accept>1</accept>
+                <reject>2</reject>
+            </acceptReject>
+            <aql>0.065</aql>
             <description>Damage</description>
-            <reject>0</reject>
         </defectList>
-        <id>2</id>
-        <minAQL>0.1</minAQL>
-        <name>Spinning Wheel</name>
-        <SKU>500346</SKU>
+        <id>0</id>
+        <name>Widget</name>
+        <SKU>200345</SKU>
     </productSKU>
     <productCell>AC</productCell>
-    <tool>305</tool>
+    <tool>301</tool>
 </validation_report>
