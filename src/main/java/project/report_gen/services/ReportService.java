@@ -140,7 +140,7 @@ public class ReportService {
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
             //Store XML to File
-            File file = new File("C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/src/main/resources/input.xml");
+            File file = new File("C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/src/main/resources/inputXML.xml");
 
             //Writes XML file to file-system
             jaxbMarshaller.marshal(report, file);

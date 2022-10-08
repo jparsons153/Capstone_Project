@@ -15,7 +15,7 @@ import javax.xml.bind.annotation.*;
 @Getter
 
 @XmlRootElement(name = "validation_report")
-@XmlType(propOrder = {"documentType", "productSKU", "productionCell","tool"})
+@XmlType(propOrder = {"reportID","documentType", "productSKU", "productionCell","tool"})
 public class Report {
     //@Id
     //@GeneratedValue(strategy = GenerationType.AUTO)
@@ -33,7 +33,7 @@ public class Report {
 
     // list of defects and product spec derived from product table
 
-    @XmlTransient
+    @XmlElement(name = "reportID")
     public void setId(Long id){
         this.id = id;
     }
@@ -42,11 +42,6 @@ public class Report {
     public void setDocumentType(Document documentType){
         this.documentType = documentType;
     }
-
-//    @XmlElement
-//    public void setProductFamily(String productFamily){
-//        this.productFamily = productFamily;
-//    }
 
     @XmlElement(name = "productSKU")
     public void setProductSKU(Product productSKU) {
@@ -67,9 +62,4 @@ public class Report {
     public void setValidationStrategy(ValidationStrategy validationStrategy) {
         this.validationStrategy = validationStrategy;
     }
-
-//    @XmlTransient
-//    public void setBatchSize(int batchSize) {
-//        this.batchSize = batchSize;
-//    }
 }

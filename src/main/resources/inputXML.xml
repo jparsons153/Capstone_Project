@@ -6,31 +6,6 @@
     </documentType>
     <productSKU>
         <batchSize>5000</batchSize>
-        <defectList>
-            <acceptReject>
-                <accept>0</accept>
-                <reject>1</reject>
-            </acceptReject>
-            <aql>0.015</aql>
-            <description>Scratches</description>
-        </defectList>
-        <defectList>
-            <acceptReject>
-                <accept>0</accept>
-                <reject>1</reject>
-            </acceptReject>
-            <aql>0.04</aql>
-            <description>Scuffs</description>
-        </defectList>
-        <defectList>
-            <acceptReject>
-                <accept>1</accept>
-                <reject>2</reject>
-            </acceptReject>
-            <aql>0.065</aql>
-            <description>Damage</description>
-        </defectList>
-        <id>0</id>
         <name>Widget</name>
         <SKU>200345</SKU>
     </productSKU>
