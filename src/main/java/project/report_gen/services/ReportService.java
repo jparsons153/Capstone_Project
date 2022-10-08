@@ -5,6 +5,7 @@ import org.docx4j.Docx4J;
 import org.docx4j.model.datastorage.BindingHandler;
 import org.docx4j.openpackaging.exceptions.Docx4JException;
 import org.docx4j.openpackaging.packages.WordprocessingMLPackage;
+import org.docx4j.openpackaging.parts.WordprocessingML.MainDocumentPart;
 import org.docx4j.utils.XPathFactoryUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -31,6 +32,8 @@ public class ReportService {
     private DocumentService documentService;
     @Autowired
     private ValidationService validationService;
+    @Autowired
+    private DocCreateService docCreateService;
 
     List<Report> reportList = new ArrayList<Report>();
 
@@ -122,7 +125,7 @@ public class ReportService {
         System.out.println("Defect acc/rej updated based on selected sampling plan");
     }
 
-    public void updateReport(Report report, HttpServletResponse response) throws IOException, Docx4JException {
+    public void updateReport(Report report, HttpServletResponse response) throws Exception {
         File inputXML = bindPOJOtoXML(report);
         xmlToDocx(inputXML, response);
     }
@@ -157,7 +160,7 @@ public class ReportService {
 
     // updates template file with XML elements in input file
     // note template file MUST HAVE xml elements already mapped to content controls i.e. Xpath created
-    public void xmlToDocx(File input_XML, HttpServletResponse response) throws Docx4JException, IOException {
+    public void xmlToDocx(File input_XML, HttpServletResponse response) throws Exception {
 
         String input_DOCX = "C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/src/main/resources/TEMPLATE_DOCX.docx";
 
@@ -168,6 +171,11 @@ public class ReportService {
 
         // Load input_template.docx
         WordprocessingMLPackage wordMLPackage = Docx4J.load(new File(input_DOCX));
+
+        MainDocumentPart documentPart = wordMLPackage.getMainDocumentPart();
+        documentPart.addParagraphOfText("Table added");
+        docCreateService.addTable(wordMLPackage,documentPart);
+
 
         // Open the xml stream
         FileInputStream xmlStream = new FileInputStream(input_XML);

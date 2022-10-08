@@ -44,6 +44,11 @@ public class DocCreateService {
         }
 
         MainDocumentPart documentPart = template.getMainDocumentPart();
+        // add image and table
+        documentPart.addParagraphOfText("Image added" + "\r \r");
+        addImage(template);
+        documentPart.addParagraphOfText("Table added");
+        addTable(template,documentPart);
 
         // Pretty print the main document part
         //VariablePrepare.prepare(template);
