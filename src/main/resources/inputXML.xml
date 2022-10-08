@@ -1,14 +1,71 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <validation_report>
+    <reportID>2</reportID>
     <documentType>
-        <id>0</id>
         <name>Validation Plan</name>
     </documentType>
     <productSKU>
         <batchSize>5000</batchSize>
         <name>Widget</name>
+        <productSpec>BS123</productSpec>
         <SKU>200345</SKU>
     </productSKU>
     <productCell>AC</productCell>
-    <tool>301</tool>
+    <tool>201</tool>
+    <validationStrategy>
+        <id>0</id>
+        <inspectionLevel>6</inspectionLevel>
+        <name>New Tool</name>
+        <sampleTable>
+            <tableName>GL2</tableName>
+            <tableRows>
+                <acceptRejectHashMap>
+                    <entry>
+                        <key>0.04</key>
+                        <value>
+                            <accept>0</accept>
+                            <reject>1</reject>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>0.15</key>
+                        <value>
+                            <accept>3</accept>
+                            <reject>4</reject>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>0.015</key>
+                        <value>
+                            <accept>0</accept>
+                            <reject>1</reject>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>0.025</key>
+                        <value>
+                            <accept>0</accept>
+                            <reject>1</reject>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>0.1</key>
+                        <value>
+                            <accept>2</accept>
+                            <reject>3</reject>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>0.065</key>
+                        <value>
+                            <accept>1</accept>
+                            <reject>2</reject>
+                        </value>
+                    </entry>
+                </acceptRejectHashMap>
+                <sampleSize>800</sampleSize>
+            </tableRows>
+        </sampleTable>
+        <type>General</type>
+    </validationStrategy>
 </validation_report>

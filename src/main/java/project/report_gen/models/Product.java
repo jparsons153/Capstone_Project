@@ -15,6 +15,7 @@ public class Product {
     private int id; // change to Long for DB connection
     private Long SKU;
     private String name;
+    private String productSpec;
     private int batchSize;
 
     private ArrayList<Defect> defectList = new ArrayList<Defect>();
@@ -43,6 +44,11 @@ public class Product {
     @XmlElement
     public void setName(String name) {
         this.name = name;
+    }
+
+    @XmlElement
+    public void setProductSpec(String productSpec) {
+        this.productSpec = productSpec;
     }
 
     @XmlElement

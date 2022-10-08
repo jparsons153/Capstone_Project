@@ -2,11 +2,14 @@ package project.report_gen.models;
 
 import lombok.*;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlTransient;
+
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-@Setter
+
 public class ValidationStrategy {
     //@Generated
     int id; // change to Long for DB
@@ -16,4 +19,29 @@ public class ValidationStrategy {
     SampleTable sampleTable;
     //Boolean featured;
 
+    @XmlTransient
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @XmlElement
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @XmlElement
+    //TODO create custom method to return toString (e.g. 6 = GL2)
+    public void setInspectionLevel(int inspectionLevel) {
+        this.inspectionLevel = inspectionLevel;
+    }
+
+    @XmlElement
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    @XmlElement
+    public void setSampleTable(SampleTable sampleTable) {
+        this.sampleTable = sampleTable;
+    }
 }

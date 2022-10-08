@@ -15,18 +15,16 @@ import javax.xml.bind.annotation.*;
 @Getter
 
 @XmlRootElement(name = "validation_report")
-@XmlType(propOrder = {"reportID","documentType", "productSKU", "productionCell","tool"})
+@XmlType(propOrder = {"id","documentType", "productSKU", "productionCell","tool", "validationStrategy"})
 public class Report {
     //@Id
     //@GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private Document documentType; // could be enum or list, as is fixed
-//    private String productFamily;
     private Product productSKU; // use product list dataset
     private int tool;
     private String productionCell; // use productionCell dataset
     private ValidationStrategy validationStrategy; // enum or list
-//    private int batchSize; // auto-populated based on product SKU
 
 //    @Builder.Default
 //    private LocalDateTime createdAt = LocalDateTime.now();
@@ -48,7 +46,7 @@ public class Report {
         this.productSKU = productSKU;
     }
 
-    @XmlElement
+    @XmlElement(name = "tool")
     public void setTool(int tool) {
         this.tool = tool;
     }
@@ -58,7 +56,7 @@ public class Report {
         this.productionCell = productionCell;
     }
 
-    @XmlTransient
+    @XmlElement(name = "validationStrategy")
     public void setValidationStrategy(ValidationStrategy validationStrategy) {
         this.validationStrategy = validationStrategy;
     }

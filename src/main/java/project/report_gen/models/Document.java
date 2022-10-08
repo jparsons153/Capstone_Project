@@ -48,4 +48,9 @@ public class Document {
 //    public void setDownloadUrl(String downloadUrl) {
 //        this.downloadUrl = downloadUrl;
 //    }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }
