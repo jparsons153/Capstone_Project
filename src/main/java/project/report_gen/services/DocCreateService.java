@@ -152,7 +152,54 @@ public class DocCreateService {
         int cellWidthTwips = new Double(Math.floor((writableWidthTwips / cols))).intValue();
         Tbl tbl = TblFactory.createTable(5, 3, cellWidthTwips);
         mainDocumentPart.addObject(tbl);
+    }
 
+    // creating a table here, another option could be to find the first table in document (Table table =
+    //                doc.MainDocumentPart.Document.Body.Elements<Table>().First())
+    public void addCustomTable(WordprocessingMLPackage wordprocessingMLPackage, MainDocumentPart mainDocumentPart, Report report) {
+        int writableWidthTwips = wordprocessingMLPackage.getDocumentModel().getSections().get(0).getPageDimensions().getWritableWidthTwips();
+        int qtyCols = 5;
+        int qtyRows = report.getProductSKU().getDefectList().size();
+        int cellWidthTwips = new Double(Math.floor((writableWidthTwips / qtyCols))).intValue();
+
+        // adding objects to create paragraph & run
+        ObjectFactory factory = Context.getWmlObjectFactory();
+
+        //mainDocumentPart.getContent().add(p);
+
+        Tbl tbl = TblFactory.createTable(qtyRows, qtyCols, cellWidthTwips);
+        List<Object> tableRows = tbl.getContent();
+        int defectId=0;
+        for(Object row: tableRows){
+            Tr tr = (Tr) row;
+            List<Object> cells = tr.getContent();
+            for(Object cell : cells) {
+                Tc td = (Tc) cell;
+                P p = factory.createP();
+                R r = factory.createR();
+                Text t = factory.createText();
+                t.setValue(String.valueOf(defectId));
+                r.getContent().add(t);
+                p.getContent().add(r);
+                r.getContent().add(t);
+                td.getContent().add(p);
+//                        new P(new R(Text t = new Text());
+//                        t.setValue(String.valueOf(defectId));
+//                )));
+                defectId++;
+            }
+
+//            for(int i =0; i<5; i++){
+//                Tc td = (Tc)cells.get(i);
+//                if(i==0){cells.set(0,td.getContent().add(defectId +1));}
+//                if(i==1){cells.set(1,td.getContent().add(report.getProductSKU().getDefectList().get(defectId).getDescription()));}
+//                if(i==2){cells.set(2,td.getContent().add(report.getProductSKU().getDefectList().get(defectId).getAql()));}
+//                if(i==3){cells.set(3,td.getContent().add(report.getValSampleSize()));}
+//                if(i==4){cells.set(3,td.getContent().add(report.getProductSKU().getDefectList().get(defectId).getAcceptReject().toString()));}
+//            }
+            //defectId++;
+        }
+        mainDocumentPart.addObject(tbl);
     }
 
     private static List<Object> getAllElementFromObject(Object obj, Class<?> toSearch) {

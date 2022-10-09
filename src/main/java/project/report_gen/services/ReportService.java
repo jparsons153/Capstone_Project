@@ -80,6 +80,7 @@ public class ReportService {
         System.out.println("Validation inspection level " + report.getValidationStrategy().getType() + report.getValidationStrategy().getInspectionLevel());
         System.out.println("Sample table " + report.getValidationStrategy().getSampleTable());
         TableRow tableRowForSample = getSampling(report);
+        report.setValSampleSize(tableRowForSample.getSampleSize());
         getDefectAccRej(report,tableRowForSample);
     }
 
@@ -127,7 +128,7 @@ public class ReportService {
 
     public void updateReport(Report report, HttpServletResponse response) throws Exception {
         File inputXML = bindPOJOtoXML(report);
-        xmlToDocx(inputXML, response);
+        xmlToDocx(inputXML, response, report);
     }
 
     // maps Report obj created in new-document form to XML
@@ -160,7 +161,7 @@ public class ReportService {
 
     // updates template file with XML elements in input file
     // note template file MUST HAVE xml elements already mapped to content controls i.e. Xpath created
-    public void xmlToDocx(File input_XML, HttpServletResponse response) throws Exception {
+    public void xmlToDocx(File input_XML, HttpServletResponse response,Report report) throws Exception {
 
         String input_DOCX = "C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/src/main/resources/TEMPLATE_DOCX.docx";
 
@@ -174,7 +175,9 @@ public class ReportService {
 
         MainDocumentPart documentPart = wordMLPackage.getMainDocumentPart();
         documentPart.addParagraphOfText("Table added");
-        docCreateService.addTable(wordMLPackage,documentPart);
+        //docCreateService.addTable(wordMLPackage,documentPart);
+
+        docCreateService.addCustomTable(wordMLPackage,documentPart,report);
 
 
         // Open the xml stream

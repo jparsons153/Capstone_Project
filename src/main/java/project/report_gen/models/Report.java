@@ -15,7 +15,7 @@ import javax.xml.bind.annotation.*;
 @Getter
 
 @XmlRootElement(name = "validation_report")
-@XmlType(propOrder = {"id","documentType", "productSKU", "productionCell","tool", "validationStrategy"})
+@XmlType(propOrder = {"id","documentType", "productSKU", "productionCell","tool", "validationStrategy", "valSampleSize"})
 public class Report {
     //@Id
     //@GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,6 +25,7 @@ public class Report {
     private int tool;
     private String productionCell; // use productionCell dataset
     private ValidationStrategy validationStrategy; // enum or list
+    private int valSampleSize;
 
 //    @Builder.Default
 //    private LocalDateTime createdAt = LocalDateTime.now();
@@ -54,6 +55,11 @@ public class Report {
     @XmlElement(name = "productCell")
     public void setProductionCell(String productionCell) {
         this.productionCell = productionCell;
+    }
+
+    @XmlElement(name = "valSampleSize")
+    public void setValSampleSize(int valSampleSize) {
+        this.valSampleSize = valSampleSize;
     }
 
     @XmlElement(name = "validationStrategy")
