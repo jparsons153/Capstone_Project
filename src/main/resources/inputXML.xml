@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <validation_report>
-    <reportID>2</reportID>
+    <reportID>20345</reportID>
     <documentType>
         <name>Validation Plan</name>
     </documentType>
@@ -11,9 +11,8 @@
         <SKU>200345</SKU>
     </productSKU>
     <productCell>AC</productCell>
-    <tool>201</tool>
+    <tool>203</tool>
     <validationStrategy>
-        <id>0</id>
         <inspectionLevel>6</inspectionLevel>
         <name>New Tool</name>
         <sampleTable>
@@ -66,6 +65,7 @@
                 <sampleSize>800</sampleSize>
             </tableRows>
         </sampleTable>
-        <type>General</type>
+        <type>Normal</type>
     </validationStrategy>
+    <valSampleSize>800</valSampleSize>
 </validation_report>

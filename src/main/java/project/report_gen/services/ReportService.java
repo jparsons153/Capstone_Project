@@ -174,7 +174,7 @@ public class ReportService {
         WordprocessingMLPackage wordMLPackage = Docx4J.load(new File(input_DOCX));
 
         MainDocumentPart documentPart = wordMLPackage.getMainDocumentPart();
-        documentPart.addParagraphOfText("Table added");
+        documentPart.addParagraphOfText("Programmatic table added");
         //docCreateService.addTable(wordMLPackage,documentPart);
 
         docCreateService.addCustomTable(wordMLPackage,documentPart,report);

@@ -7,7 +7,6 @@ import org.docx4j.dml.wordprocessingDrawing.Inline;
 import org.docx4j.jaxb.Context;
 import org.docx4j.model.datastorage.CustomXmlDataStorage;
 import org.docx4j.model.datastorage.CustomXmlDataStorageImpl;
-import org.docx4j.model.datastorage.migration.VariablePrepare;
 import org.docx4j.model.table.TblFactory;
 import org.docx4j.openpackaging.exceptions.Docx4JException;
 import org.docx4j.openpackaging.exceptions.InvalidFormatException;
@@ -19,7 +18,6 @@ import org.docx4j.openpackaging.parts.WordprocessingML.BinaryPartAbstractImage;
 import org.docx4j.openpackaging.parts.WordprocessingML.DocumentSettingsPart;
 import org.docx4j.openpackaging.parts.WordprocessingML.MainDocumentPart;
 import org.docx4j.openpackaging.parts.relationships.RelationshipsPart;
-import org.docx4j.utils.XPathFactoryUtil;
 import org.docx4j.wml.*;
 import org.springframework.stereotype.Service;
 import project.report_gen.models.Report;
@@ -159,45 +157,50 @@ public class DocCreateService {
     public void addCustomTable(WordprocessingMLPackage wordprocessingMLPackage, MainDocumentPart mainDocumentPart, Report report) {
         int writableWidthTwips = wordprocessingMLPackage.getDocumentModel().getSections().get(0).getPageDimensions().getWritableWidthTwips();
         int qtyCols = 5;
-        int qtyRows = report.getProductSKU().getDefectList().size();
+        int qtyRows = report.getProductSKU().getDefectList().size()+1;
         int cellWidthTwips = new Double(Math.floor((writableWidthTwips / qtyCols))).intValue();
-        
+
         ObjectFactory factory = Context.getWmlObjectFactory();
         Tbl tbl = TblFactory.createTable(qtyRows, qtyCols, cellWidthTwips);
         List<Object> tableRows = tbl.getContent();
         int defectId=0;
-        for(Object row: tableRows){
-            Tr tr = (Tr) row;
-            List<Object> cells = tr.getContent();
 
-            for(int i =0; i<5; i++){
-                Tc td = (Tc)cells.get(i);
-                P p = factory.createP();
-                R r = factory.createR();
-                Text t = factory.createText();
-                switch (i){
-                    case 0:
-                        t.setValue(String.valueOf(defectId +1));
-                        break;
-                    case 1:
-                        t.setValue(String.valueOf(report.getProductSKU().getDefectList().get(defectId).getDescription()));
-                        break;
-                    case 2:
-                        t.setValue(String.valueOf(report.getProductSKU().getDefectList().get(defectId).getAql()));
-                        break;
-                    case 3:
-                        t.setValue(String.valueOf(report.getValSampleSize()));
-                        break;
-                    case 4:
-                        t.setValue(String.valueOf(report.getProductSKU().getDefectList().get(defectId).getAcceptReject().toString()));
-                }
-                r.getContent().add(t);
-                p.getContent().add(r);
-                td.getContent().add(p);
-            }
+        // set table header row
+            Tr tr = (Tr) tableRows.get(0);
+            List<Object>  cells = tr.getContent();
+            ((Tc)cells.get(0)).getContent().add(createCell(factory,"DEFECT #"));
+            ((Tc)cells.get(1)).getContent().add(createCell(factory,"DESCRIPTION"));
+            ((Tc)cells.get(2)).getContent().add(createCell(factory,"AQL %"));
+            ((Tc)cells.get(3)).getContent().add(createCell(factory,"SAMPLE SIZE"));
+            ((Tc)cells.get(4)).getContent().add(createCell(factory,"ACC / REJ"));
+
+        for(int j=1; j<tableRows.size(); j++){
+           tr = (Tr) tableRows.get(j);
+           cells = tr.getContent();
+
+            ((Tc)cells.get(0)).getContent().add(createCell(factory,String.valueOf(defectId +1)));
+            ((Tc)cells.get(1)).getContent().add(createCell(factory,String.valueOf(report.getProductSKU().getDefectList().get(defectId).getDescription())));
+            ((Tc)cells.get(2)).getContent().add(createCell(factory,String.valueOf(report.getProductSKU().getDefectList().get(defectId).getAql())));
+            ((Tc)cells.get(3)).getContent().add(createCell(factory,String.valueOf(report.getValSampleSize())));
+            ((Tc)cells.get(4)).getContent().add(createCell(factory,String.valueOf(report.getProductSKU().getDefectList().get(defectId).getAcceptReject().toString())));
+
             defectId++;
         }
         mainDocumentPart.addObject(tbl);
+    }
+
+    private static P createCell(ObjectFactory factory, String value){
+
+        P p = factory.createP();
+        R r = factory.createR();
+        Text t = factory.createText();
+
+        t.setValue(value);
+
+        r.getContent().add(t);
+        p.getContent().add(r);
+
+        return p;
     }
 
     private static List<Object> getAllElementFromObject(Object obj, Class<?> toSearch) {
