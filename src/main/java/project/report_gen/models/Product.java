@@ -17,6 +17,7 @@ public class Product {
     private String name;
     private String productSpec;
     private int batchSize;
+    private Image processMap;
 
     private ArrayList<Defect> defectList = new ArrayList<Defect>();
 
@@ -54,6 +55,11 @@ public class Product {
     @XmlElement
     public void setBatchSize(int batchSize) {
         this.batchSize = batchSize;
+    }
+
+    @XmlElement
+    public void setProcessMap(Image processMap) {
+        this.processMap = processMap;
     }
 
     @XmlTransient

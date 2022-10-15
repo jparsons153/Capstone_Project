@@ -87,9 +87,13 @@ public class ReportGenApplication implements CommandLineRunner {
 		widgetDefects.add(scuffs);
 		widgetDefects.add(damage);
 
-		Product widget = Product.builder().id(0).SKU(200345L).name("Widget").productSpec("BS123").batchSize(5000).defectList(widgetDefects).build();
+		Image processFlowWidget = Image.builder().id(1L).fileName("Process flowchart").fileType("JPEG")
+				.filePath("C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/report_gen/src/main/resources/image5.png")
+				.build();
+
+		Product widget = Product.builder().id(0).SKU(200345L).name("Widget").productSpec("BS123").batchSize(5000).processMap(processFlowWidget).defectList(widgetDefects).build();
 		productService.saveProduct(widget);
-		Product spinningWheel = Product.builder().id(1).SKU(500346L).name("Spinning Wheel").productSpec("BS123").batchSize(45000).defectList(widgetDefects).build();
+		Product spinningWheel = Product.builder().id(1).SKU(500346L).name("Spinning Wheel").productSpec("BS123").batchSize(45000).processMap(processFlowWidget).defectList(widgetDefects).build();
 		productService.saveProduct(spinningWheel);
 
 		reportService.saveReport(

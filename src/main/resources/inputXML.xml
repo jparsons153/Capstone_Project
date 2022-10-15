@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <validation_report>
-    <reportID>20345</reportID>
+    <reportID>2</reportID>
     <documentType>
         <name>Validation Plan</name>
     </documentType>
     <productSKU>
         <batchSize>5000</batchSize>
         <name>Widget</name>
+        <processMap>
+            <fileName>Process flowchart</fileName>
+        </processMap>
         <productSpec>BS123</productSpec>
         <SKU>200345</SKU>
     </productSKU>
     <productCell>AC</productCell>
-    <tool>203</tool>
+    <tool>205</tool>
     <validationStrategy>
         <inspectionLevel>6</inspectionLevel>
         <name>New Tool</name>
