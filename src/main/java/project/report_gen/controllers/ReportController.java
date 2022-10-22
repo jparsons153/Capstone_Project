@@ -52,6 +52,11 @@ public class ReportController {
 //        mar.marshal(newReport, new File("C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/report_gen/src/main/java/project/report_gen/reportXML.xml"));
 //    }
 
+    @GetMapping("/csvDefects")
+    public void printCsvDefects() {
+        reportService.csvDefects();
+    }
+
     @GetMapping("/reportIndex")
     public String viewHomePage(Model model) {
         List<Report> reportList = reportService.getAllReports();

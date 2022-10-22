@@ -33,6 +33,8 @@ import java.util.UUID;
 @Service
 public class DocCreateService {
 
+    //For reference only - TO BE DELETED
+
     public void getMainDocumentPart(String docx) throws Exception {
         WordprocessingMLPackage template;
         try {
@@ -152,56 +154,7 @@ public class DocCreateService {
         mainDocumentPart.addObject(tbl);
     }
 
-    // creating a table here, another option could be to find the first table in document (Table table =
-    //                doc.MainDocumentPart.Document.Body.Elements<Table>().First())
-    public void addCustomTable(WordprocessingMLPackage wordprocessingMLPackage, MainDocumentPart mainDocumentPart, Report report) {
-        int writableWidthTwips = wordprocessingMLPackage.getDocumentModel().getSections().get(0).getPageDimensions().getWritableWidthTwips();
-        int qtyCols = 5;
-        int qtyRows = report.getProductSKU().getDefectList().size()+1;
-        int cellWidthTwips = new Double(Math.floor((writableWidthTwips / qtyCols))).intValue();
 
-        ObjectFactory factory = Context.getWmlObjectFactory();
-        Tbl tbl = TblFactory.createTable(qtyRows, qtyCols, cellWidthTwips);
-        List<Object> tableRows = tbl.getContent();
-        int defectId=0;
-
-        // set table header row
-            Tr tr = (Tr) tableRows.get(0);
-            List<Object>  cells = tr.getContent();
-            ((Tc)cells.get(0)).getContent().add(createCell(factory,"DEFECT #"));
-            ((Tc)cells.get(1)).getContent().add(createCell(factory,"DESCRIPTION"));
-            ((Tc)cells.get(2)).getContent().add(createCell(factory,"AQL %"));
-            ((Tc)cells.get(3)).getContent().add(createCell(factory,"SAMPLE SIZE"));
-            ((Tc)cells.get(4)).getContent().add(createCell(factory,"ACC / REJ"));
-
-        for(int j=1; j<tableRows.size(); j++){
-           tr = (Tr) tableRows.get(j);
-           cells = tr.getContent();
-
-            ((Tc)cells.get(0)).getContent().add(createCell(factory,String.valueOf(defectId +1)));
-            ((Tc)cells.get(1)).getContent().add(createCell(factory,String.valueOf(report.getProductSKU().getDefectList().get(defectId).getDescription())));
-            ((Tc)cells.get(2)).getContent().add(createCell(factory,String.valueOf(report.getProductSKU().getDefectList().get(defectId).getAql())));
-            ((Tc)cells.get(3)).getContent().add(createCell(factory,String.valueOf(report.getValSampleSize())));
-            ((Tc)cells.get(4)).getContent().add(createCell(factory,String.valueOf(report.getProductSKU().getDefectList().get(defectId).getAcceptReject().toString())));
-
-            defectId++;
-        }
-        mainDocumentPart.addObject(tbl);
-    }
-
-    private static P createCell(ObjectFactory factory, String value){
-
-        P p = factory.createP();
-        R r = factory.createR();
-        Text t = factory.createText();
-
-        t.setValue(value);
-
-        r.getContent().add(t);
-        p.getContent().add(r);
-
-        return p;
-    }
 
     private static List<Object> getAllElementFromObject(Object obj, Class<?> toSearch) {
         List<Object> result = new ArrayList<Object>();

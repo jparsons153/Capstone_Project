@@ -8,6 +8,7 @@ import org.docx4j.openpackaging.packages.WordprocessingMLPackage;
 import org.docx4j.openpackaging.parts.WordprocessingML.MainDocumentPart;
 import org.docx4j.utils.XPathFactoryUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -34,6 +35,8 @@ public class ReportService {
     private ValidationService validationService;
     @Autowired
     private DocCreateService docCreateService;
+    @Autowired
+    private GenerateDocument generateDocument;
 
     List<Report> reportList = new ArrayList<Report>();
 
@@ -143,8 +146,10 @@ public class ReportService {
             //Formats XML
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
+            // TODO write output xml to temporary file, need to save?
             //Store XML to File
             File file = new File("C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/src/main/resources/inputXML.xml");
+            //File file = new File("C:/Users/User/AppData/Local/Temp");
 
             //Writes XML file to file-system
             jaxbMarshaller.marshal(report, file);
@@ -174,11 +179,13 @@ public class ReportService {
         WordprocessingMLPackage wordMLPackage = Docx4J.load(new File(input_DOCX));
 
         MainDocumentPart documentPart = wordMLPackage.getMainDocumentPart();
+
         documentPart.addParagraphOfText("Programmatic table added");
-        //docCreateService.addTable(wordMLPackage,documentPart);
+        generateDocument.addCustomTable(wordMLPackage,documentPart,report);
 
-        docCreateService.addCustomTable(wordMLPackage,documentPart,report);
-
+        documentPart.addParagraphOfText("Added image from file location");
+        Image processMap = report.getProductSKU().getProcessMap();
+        generateDocument.addImage(wordMLPackage, processMap);
 
         // Open the xml stream
         FileInputStream xmlStream = new FileInputStream(input_XML);
@@ -211,5 +218,46 @@ public class ReportService {
     // Update method to invoke and return repository.saveAll(reportList)
     public List<Report> saveAllReports(List<Report> list) {
         return list;
+    }
+
+    public static void csvDefects() {
+
+        ArrayList<Defect> defects = new ArrayList();
+
+        String filePath = "C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/src/main/resources/defects.csv";
+
+        try (BufferedReader br =
+                     new BufferedReader(new FileReader(filePath))) {
+
+            String line;
+            br.readLine();
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");
+                defects.add(mapValuesToDefectObject(values));
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        for(Defect defect : defects){
+            System.out.println(defect.toString());
+        }
+
+    }
+
+    private static Defect mapValuesToDefectObject(String[] values) {
+
+        Defect defect = new Defect();
+
+        defect.setId(Integer.parseInt(values[0]));
+        defect.setName(values[1]);
+        defect.setDescription(values[2]);
+        defect.setAql(Double.parseDouble(values[3]));
+
+        return defect;
+
     }
 }
