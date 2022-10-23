@@ -33,8 +33,8 @@ public class ReportService {
     private DocumentService documentService;
     @Autowired
     private ValidationService validationService;
-    @Autowired
-    private DocCreateService docCreateService;
+//    @Autowired
+//    private DocCreateService docCreateService;
     @Autowired
     private GenerateDocument generateDocument;
 
@@ -178,6 +178,9 @@ public class ReportService {
         // Load input_template.docx
         WordprocessingMLPackage wordMLPackage = Docx4J.load(new File(input_DOCX));
 
+        // set title as document property
+        wordMLPackage.setTitle(report.getDocumentType().getName() + " for product " + report.getProductSKU().getName() + " in production Cell " + report.getProductionCell());
+
         MainDocumentPart documentPart = wordMLPackage.getMainDocumentPart();
 
         documentPart.addParagraphOfText("Programmatic table added");
@@ -206,7 +209,8 @@ public class ReportService {
         try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
             wordMLPackage.save(baos);
             response.setContentType("application/vnd.openxmlformats-officedocument.wordprocessingml.document");
-            response.addHeader(HttpHeaders.CONTENT_DISPOSITION,String.format("attachment;filename=file.docx"));
+            //response.addHeader(HttpHeaders.CONTENT_DISPOSITION,String.format("attachment;filename=file.docx"));
+            response.addHeader(HttpHeaders.CONTENT_DISPOSITION,String.format("attachment; filename=" +wordMLPackage.getTitle() +".docx"));
             response.getOutputStream().write(baos.toByteArray());
             response.getOutputStream().close();
             response.setStatus(HttpStatus.OK.value());
