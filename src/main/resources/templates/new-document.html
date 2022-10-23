@@ -28,11 +28,11 @@
                         <option th:each="doc : ${docTypeList}"
                                 th:value="${doc.id}"
                                 th:text="${doc.name}">Wireframe</option>
-<!--                        <option value="New">New</option>-->
+                        <option value="New">New</option>
                     </select>
                 </td>
-                <!-- Select file if documentID = New
-                    <div>
+                <!-- TODO make conditional to select file if documentID = New -->
+                <div th:if="${documentID} == New">
                     <form method="post" enctype="multipart/form-data">
                         <div>
                             <label for="file">File name</label>
@@ -44,14 +44,7 @@
                             <button>Submit</button>
                         </div>
                     </form>
-                    </div>
-                -->
-                <td>
-            </tr>
-            <tr> <!--
-                <td>Product Family:</td>
-                <td><input type="text" th:field="*{productFamily}" required/></td>
-                -->
+                </div>
             </tr>
             <tr>
                 <td>Product SKU#:</td>
@@ -85,9 +78,6 @@
                 <a th:href="@{/newVal}">Add New Validation Strategy</a>
             </tr>
             <tr>
-                <!-- Batch size set by product-->
-                <!--<td>Batch Size:</td>
-                <td><input type="number" th:field="*{batchSize}" required/></td>-->
             </tr>
             <tr>
                 <br/><br/>

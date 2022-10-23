@@ -30,7 +30,7 @@ public class ValidationStrategy {
     }
 
     @XmlElement
-    //TODO create custom method to return toString (e.g. 6 = GL2)
+    // TODO create custom method to return toString (e.g. 6 = GL2)
     public void setInspectionLevel(int inspectionLevel) {
         this.inspectionLevel = inspectionLevel;
     }

@@ -13,7 +13,7 @@
         <productSpec>BS123</productSpec>
         <SKU>200345</SKU>
     </productSKU>
-    <productCell>bcd</productCell>
+    <productCell>AC</productCell>
     <tool>205</tool>
     <validationStrategy>
         <inspectionLevel>6</inspectionLevel>

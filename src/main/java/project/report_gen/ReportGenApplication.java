@@ -77,36 +77,36 @@ public class ReportGenApplication implements CommandLineRunner {
 		validationService.saveVal(duplicateTool);
 
 		// create Products - Widget & Spinning Wheel using builder & productService
-//		if(productService.getAllProducts().isEmpty() && reportService.getAllReports().isEmpty()) {
-//
-////		Defect scratches = Defect.builder().description("Scratches").aql(0.015).build();
-////		Defect scuffs = Defect.builder().description("Scuffs").aql(0.040).build();
-////		Defect damage = Defect.builder().description("Damage").aql(0.065).build();
-////		ArrayList<Defect> widgetDefects = new ArrayList<Defect>();
-////		widgetDefects.add(scratches);
-////		widgetDefects.add(scuffs);
-////		widgetDefects.add(damage);
-//
-//
-//
-//		Image processFlowWidget = Image.builder().id(1L).fileName("Process flowchart").fileType("JPG")
-//				.filePath("C:\\Users\\User\\OneDrive\\Documents\\CodingNomads\\projects\\Capstone_Project\\src\\main\\resources\\download.jpg")
-//				.build();
-//
-//		Product widget = Product.builder().id(0).SKU(200345L).name("Widget").productSpec("BS123").batchSize(5000).processMap(processFlowWidget).defectList(widgetDefects).build();
-//		productService.saveProduct(widget);
-//		Product spinningWheel = Product.builder().id(1).SKU(500346L).name("Spinning Wheel").productSpec("BS123").batchSize(45000).processMap(processFlowWidget).defectList(widgetDefects).build();
-//		productService.saveProduct(spinningWheel);
-//
-//		reportService.saveReport(
-//			Report.builder()
-//					.id(1L)
-//					.documentType(plan)
-//					.productSKU(widget)
-//					.tool(205)
-//					.productionCell("CD")
-//					.validationStrategy(duplicateTool)
-//					.build());
-//		}
+		if(productService.getAllProducts().isEmpty() && reportService.getAllReports().isEmpty()) {
+
+		Defect scratches = Defect.builder().description("Scratches").aql(0.015).build();
+		Defect scuffs = Defect.builder().description("Scuffs").aql(0.040).build();
+		Defect damage = Defect.builder().description("Damage").aql(0.065).build();
+		ArrayList<Defect> widgetDefects = new ArrayList<Defect>();
+		widgetDefects.add(scratches);
+		widgetDefects.add(scuffs);
+		widgetDefects.add(damage);
+
+
+
+		Image processFlowWidget = Image.builder().id(1L).fileName("Process flowchart").fileType("JPG")
+				.filePath("C:\\Users\\User\\OneDrive\\Documents\\CodingNomads\\projects\\Capstone_Project\\src\\main\\resources\\download.jpg")
+				.build();
+
+		Product widget = Product.builder().id(0).SKU(200345L).name("Widget").productSpec("BS123").batchSize(5000).processMap(processFlowWidget).defectList(widgetDefects).build();
+		productService.saveProduct(widget);
+		Product spinningWheel = Product.builder().id(1).SKU(500346L).name("Spinning Wheel").productSpec("BS123").batchSize(45000).processMap(processFlowWidget).defectList(widgetDefects).build();
+		productService.saveProduct(spinningWheel);
+
+		reportService.saveReport(
+			Report.builder()
+					.id(1L)
+					.documentType(plan)
+					.productSKU(widget)
+					.tool(205)
+					.productionCell("CD")
+					.validationStrategy(duplicateTool)
+					.build());
+		}
 	}
 }

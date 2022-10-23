@@ -24,8 +24,6 @@ public class ReportController {
 
     // auto wire service method
     @Autowired
-    DocCreateService docCreateService;
-    @Autowired
     ReportService reportService;
     @Autowired
     ProductService productService;
@@ -33,18 +31,13 @@ public class ReportController {
     ValidationService validationService;
     @Autowired
     DocumentService documentService;
+    @Autowired
+    GenerateDocument generateDocument;
 
     // test method to check marshalling of xml
 //    @GetMapping("/bind")
 //    @ResponseBody
 //    public void marshal() throws JAXBException, IOException {
-//
-//        Report newReport = new Report();
-//        newReport.setId(3L);
-//        newReport.setDocumentType("Validation Plan");
-//        newReport.setProductSKU("Widget");
-//        newReport.setProductionCell("Cell AB");
-//        newReport.setTool(1002);
 //
 //        JAXBContext context = JAXBContext.newInstance(Report.class);
 //        Marshaller mar= context.createMarshaller();
@@ -54,7 +47,7 @@ public class ReportController {
 
     @GetMapping("/csvDefects")
     public void printCsvDefects() {
-        reportService.csvDefects();
+        productService.csvDefects();
     }
 
     @GetMapping("/reportIndex")
@@ -95,8 +88,8 @@ public class ReportController {
     @PostMapping(value = "/update")
     public void update(@RequestParam("productID")int productID, @RequestParam("documentID")int documentID,@RequestParam("validationStrategyID")int validationStrategyID,@ModelAttribute("report") Report report, HttpServletResponse response, Model model) throws Exception {
        reportService.assignDoc(report,documentID, productID, validationStrategyID);
-       reportService.defectTable(report);
-       reportService.updateReport(report, response);
+       generateDocument.defectTable(report);
+       generateDocument.updateReport(report, response);
 
     }
 }
