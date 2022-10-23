@@ -6,14 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="55ff9167-6213-418a-a81b-c1234b7cd0d5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/ReportGenApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/ReportGenApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/controllers/ReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/controllers/ReportController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/models/ValidationStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/models/ValidationStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/services/GenerateDocument.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/services/GenerateDocument.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/services/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/services/ReportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/services/ReportService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/inputXML.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/inputXML.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/controllers/ProductController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/new-document.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/new-document.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/newProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/newProduct.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,9 +97,19 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/project/report_gen/controllers/ProductController.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="report" />
+        <watch expression="file.getResource()" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>

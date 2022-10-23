@@ -32,7 +32,10 @@
                     </select>
                 </td>
                 <!-- TODO make conditional to select file if documentID = New -->
-                <div th:if="${documentID} == New">
+                <!--<div th:if="${documentID} == New">
+                 1. when select happens trigger JS - event listener
+                 2. pick target...
+                 -->
                     <form method="post" enctype="multipart/form-data">
                         <div>
                             <label for="file">File name</label>
@@ -44,7 +47,6 @@
                             <button>Submit</button>
                         </div>
                     </form>
-                </div>
             </tr>
             <tr>
                 <td>Product SKU#:</td>
