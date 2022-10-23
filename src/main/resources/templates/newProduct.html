@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Add Product</title>
+</head>
+<body>
+<div align="center">
+    <h1>Add Product</h1>
+    <br />
+    <form action="#" th:action="@{/addProduct}" th:object="${product}" method="post">
+        <table border="0" cellpadding="10">
+            <tr>
+                <td>ID:</td>
+                <td><input type="number" th:field="*{id}" required/></td>
+            </tr>
+            <tr>
+                <td>SKU:</td>
+                <td><input type="text" th:field="*{SKU}" required/></td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td><input type="text" th:field="*{name}" required/></td>
+            </tr>
+            <tr>
+                <td>Product Spec:</td>
+                <td><input type="text" th:field="*{productSpec}" required/></td>
+            </tr>
+            <tr>
+                <td>Batch Size:</td>
+                <td><input type="number" th:field="*{batchSize}" required/></td>
+            </tr>
+            <!-- TODO add image & defect list upload -->
+        </table>
+            <tr>
+                <br/><br/>
+                <td align="center" colspan="10"><button type="submit">Save</button> </td>
+            </tr>
+    </form>
+</div>
+</body>
+</html>

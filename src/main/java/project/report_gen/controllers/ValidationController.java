@@ -28,9 +28,8 @@ public class ValidationController {
     // creates a new Validation Strategy in DB based on object collected from HTML page
     public String saveVal(@RequestParam("type")String type, @RequestParam("inspectionLevel")int inspectionLevel, @ModelAttribute("validationStrategy") ValidationStrategy validationStrategy){
         System.out.println("type: " + type + "level " +inspectionLevel);
-        // update save method to take sample plan as input
         validationService.saveVal(validationStrategy);
-        return "redirect:/reportIndex";
+        return "redirect:/new";
     }
 
 }
