@@ -36,16 +36,8 @@ public class ProductController {
     public String saveProduct(@RequestPart("file") MultipartFile file, @ModelAttribute("product") Product product) throws IOException {
         productService.saveProduct(product);
 
-        // pass file to csv method
+        productService.csvDefects(file);
 
-        String str = new String(file.getBytes(), StandardCharsets.UTF_8);
-        BufferedReader reader = new BufferedReader(new InputStreamReader(file.getInputStream()));
-        String line;
-        while ((line = reader.readLine()) != null) {
-            System.out.println(line);
-            // Handle the line, ideally in a separate method
-        }
         return "redirect:/new";
     }
-
 }

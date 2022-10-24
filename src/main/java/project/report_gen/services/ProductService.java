@@ -3,14 +3,11 @@ package project.report_gen.services;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 import project.report_gen.models.Defect;
 import project.report_gen.models.Product;
-import project.report_gen.models.Report;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,18 +42,21 @@ public class ProductService {
     public Boolean deleteAllProducts(){return productList.removeAll(productList);}
 
 
-    public static void csvDefects() {
+    public ArrayList<Defect> csvDefects(MultipartFile file) {
 
         ArrayList<Defect> defects = new ArrayList();
+        String line;
 
-        String filePath = "C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/src/main/resources/defects.csv";
+        try(BufferedReader reader = new BufferedReader(new InputStreamReader(file.getInputStream()))){
 
-        try (BufferedReader br =
-                     new BufferedReader(new FileReader(filePath))) {
+//        String filePath = "C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/src/main/resources/defects.csv";
+//
+//        try (BufferedReader br =
+//                     new BufferedReader(new FileReader(filePath))) {
 
-            String line;
-            br.readLine();
-            while ((line = br.readLine()) != null) {
+
+            reader.readLine();
+            while ((line = reader.readLine()) != null) {
                 String[] values = line.split(",");
                 defects.add(mapValuesToDefectObject(values));
             }
@@ -70,6 +70,8 @@ public class ProductService {
         for(Defect defect : defects){
             System.out.println(defect.toString());
         }
+
+        return defects;
     }
 
     private static Defect mapValuesToDefectObject(String[] values) {
