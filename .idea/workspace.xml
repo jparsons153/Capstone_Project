@@ -5,16 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="55ff9167-6213-418a-a81b-c1234b7cd0d5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/newTemplate.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/exceptions/NoSuchValidationException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/repos/ValidationRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Capstone_Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Capstone_Project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/controllers/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/controllers/ReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/controllers/ReportController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/models/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/models/Image.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/models/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/models/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/services/DocumentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/services/DocumentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/services/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/new-document.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/new-document.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/newProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/newProduct.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/ReportGenApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/ReportGenApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/models/ValidationStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/models/ValidationStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/services/ReportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/services/ReportService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/services/ValidationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/services/ValidationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +25,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -35,11 +37,15 @@
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
       <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
         <entry key="com.haulmont.jpb.jpaStructure" value="true" />
       </map>
     </option>
     <option name="myId2Visible">
       <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="false" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="false" />
         <entry key="com.haulmont.jpb.jpaStructure" value="false" />
       </map>
     </option>
@@ -59,8 +65,16 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="project.report_gen.exceptions" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="ReportGenApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <envs>
+        <env name="SECRET_KEY" value="punqyp-nevxy8-zyVqap" />
+      </envs>
       <option name="MAIN_CLASS_NAME" value="project.report_gen.ReportGenApplication" />
       <module name="Capstone_Project" />
       <extension name="coverage">

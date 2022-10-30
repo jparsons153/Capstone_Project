@@ -13,6 +13,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import project.report_gen.exceptions.NoSuchValidationException;
 import project.report_gen.models.*;
 
 import javax.servlet.http.HttpServletResponse;
@@ -57,7 +58,7 @@ public class ReportService {
     public Boolean deleteAllReports(){return reportList.removeAll(reportList);}
 
     @Transactional
-    public void assignDoc(Report reportAssigned, int documentId, int productID, int validationID){
+    public void assignDoc(Report reportAssigned, int documentId, int productID, long validationID) throws NoSuchValidationException {
         Document documentAssigned = documentService.getDoc(documentId);
         reportAssigned.setDocumentType(documentAssigned);
 
