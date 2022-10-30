@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import project.report_gen.models.Product;
 import project.report_gen.services.ProductService;
@@ -33,10 +30,17 @@ public class ProductController {
     }
 
     @PostMapping(value = "/addProduct",consumes = MediaType.ALL_VALUE)
-    public String saveProduct(@RequestPart("file") MultipartFile file, @ModelAttribute("product") Product product) throws IOException {
+    public String saveProduct(@RequestParam("id")int id, @RequestPart("file") MultipartFile file, @RequestPart("image") MultipartFile image, @ModelAttribute("product") Product product) throws IOException {
         productService.saveProduct(product);
 
-        productService.csvDefects(file);
+        System.out.println("Product id" + id);
+        Product p = productService.getProduct(id);
+        p.setDefectList(productService.csvDefects(file));
+        productService.saveProduct(p);
+        // TODO save image to multi-part file (see notes)
+        //p.setProcessMap(image);
+
+        //productService.csvDefects(file);
 
         return "redirect:/new";
     }

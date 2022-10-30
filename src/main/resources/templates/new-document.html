@@ -31,22 +31,15 @@
                         <option value="New">New</option>
                     </select>
                 </td>
+                <td>
+                <a th:href="@{/newTemplate}">Add New Template</a>
+                </td>
                 <!-- TODO make conditional to select file if documentID = New -->
                 <!--<div th:if="${documentID} == New">
                  1. when select happens trigger JS - event listener
                  2. pick target...
                  -->
-                    <form method="post" enctype="multipart/form-data">
-                        <div>
-                            <label for="file">File name</label>
-                            <input type="text" id="documentName" name="documentName">
-                        </div>
-                            <label for="file">Choose Template file to upload</label>
-                            <input type="file" id="file" name="file">
-                        <div>
-                            <button>Submit</button>
-                        </div>
-                    </form>
+                <!-- TODO add new page to upload document template -->
             </tr>
             <tr>
                 <td>Product SKU#:</td>

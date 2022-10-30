@@ -1,6 +1,7 @@
 package project.report_gen.models;
 
 import lombok.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlTransient;

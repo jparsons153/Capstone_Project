@@ -4,6 +4,7 @@ package project.report_gen.controllers;
 import lombok.RequiredArgsConstructor;
 import org.docx4j.openpackaging.exceptions.Docx4JException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -75,6 +76,24 @@ public class ReportController {
         return "new-document";
     }
 
+    @GetMapping("/newTemplate")
+    public String showAddTemplatePage (Model templateModel){
+        Document document = new Document();
+        templateModel.addAttribute("document",document);
+
+        return "newTemplate";
+    }
+
+    @PostMapping(value = "/addTemplate", consumes = MediaType.ALL_VALUE)
+    public String saveTemplate(@RequestParam("id")int id, @RequestPart("file") MultipartFile file, @ModelAttribute("document")Document document) throws IOException{
+
+        System.out.println("Document id" + id);
+        documentService.saveDoc(document);
+
+        return "redirect:/reportIndex";
+    }
+
+
     @PostMapping(value = "/save")
     // creates a Report in DB based on object collected from HTML page
     public String saveReport(@ModelAttribute("report") Report report) throws IOException, Docx4JException {
@@ -90,6 +109,5 @@ public class ReportController {
        reportService.assignDoc(report,documentID, productID, validationStrategyID);
        generateDocument.defectTable(report);
        generateDocument.updateReport(report, response);
-
     }
 }

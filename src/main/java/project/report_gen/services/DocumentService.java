@@ -5,9 +5,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
+import org.springframework.web.multipart.MultipartFile;
 import project.report_gen.models.Document;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -38,4 +41,5 @@ public class DocumentService {
     public Boolean deleteAllDocs(){
        return documentList.removeAll(documentList);
     }
+
 }

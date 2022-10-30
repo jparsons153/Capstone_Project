@@ -23,8 +23,8 @@ public class Image {
     private String fileName;
     private String fileType;
 
-//    @Lob
-//    private byte[] data;
+    @Lob
+    private byte[] data;
 
     @Transient
     private String filePath;

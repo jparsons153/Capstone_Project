@@ -49,12 +49,6 @@ public class ProductService {
 
         try(BufferedReader reader = new BufferedReader(new InputStreamReader(file.getInputStream()))){
 
-//        String filePath = "C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/src/main/resources/defects.csv";
-//
-//        try (BufferedReader br =
-//                     new BufferedReader(new FileReader(filePath))) {
-
-
             reader.readLine();
             while ((line = reader.readLine()) != null) {
                 String[] values = line.split(",");
