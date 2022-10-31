@@ -2,10 +2,13 @@ package project.report_gen.models;
 
 import lombok.*;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
+
 
 @Builder
 @NoArgsConstructor

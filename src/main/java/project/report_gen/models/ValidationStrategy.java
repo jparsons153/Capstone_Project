@@ -1,5 +1,6 @@
 package project.report_gen.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -16,10 +17,19 @@ import javax.xml.bind.annotation.XmlTransient;
 public class ValidationStrategy {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id; // change to Long for DB
+    private Long id;
+
+    @Column(nullable = false)
     private String name;
+
+    @Column(nullable = false)
     private int inspectionLevel; // S1=1, S2=2, S3=3, S4=4, GL1=5, GL2=6, GL3=7
+
+    @Column(nullable = false)
     private String type;
+
+    @Transient
+    @JsonIgnore
     private SampleTable sampleTable;
     //Boolean featured;
 

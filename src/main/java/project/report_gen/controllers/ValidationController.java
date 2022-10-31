@@ -31,5 +31,4 @@ public class ValidationController {
         validationService.saveVal(validationStrategy);
         return "redirect:/new";
     }
-
 }

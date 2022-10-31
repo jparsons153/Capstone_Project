@@ -12,7 +12,7 @@ import project.report_gen.services.*;
 
 import java.util.*;
 
-@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
+@SpringBootApplication
 public class ReportGenApplication { //implements CommandLineRunner {
 
 	@Autowired
