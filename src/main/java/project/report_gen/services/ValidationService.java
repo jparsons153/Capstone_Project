@@ -18,10 +18,6 @@ public class ValidationService {
     @Autowired
     final ValidationRepo validationRepo;
 
-    //List<ValidationStrategy> valList = new ArrayList<>();
-
-    // Update method to invoke and return repository.findAll
-    // create and save some report objects
     @Transactional
     public List<ValidationStrategy> getAllVals() {
         ArrayList<ValidationStrategy> valList = new ArrayList<>(validationRepo.findAll());
@@ -29,7 +25,6 @@ public class ValidationService {
         return valList;
     }
 
-    // Update method to invoke and return repository.save(report)
     @Transactional
     public ValidationStrategy saveVal(ValidationStrategy val) {
         validationRepo.save(val);

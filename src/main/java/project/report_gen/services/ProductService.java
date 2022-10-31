@@ -1,45 +1,61 @@
 package project.report_gen.services;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
+import project.report_gen.exceptions.NoSuchProductException;
+import project.report_gen.exceptions.NoSuchValidationException;
 import project.report_gen.models.Defect;
 import project.report_gen.models.Product;
+import project.report_gen.models.ValidationStrategy;
+import project.report_gen.repos.ProductRepo;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 public class ProductService {
 
-    // create product
-    // read / find
-    // update product
-    // delete product
+    //List<Product> productList = new ArrayList<>();
 
-    List<Product> productList = new ArrayList<>();
+    @Autowired
+    final ProductRepo productRepo;
 
-    // Update method to invoke and return repository.findAll
-    // create and save some report objects
+    @Transactional
     public List<Product> getAllProducts() {
+        ArrayList<Product> productList = new ArrayList<>(productRepo.findAll());
+
         return productList;
     }
 
-    // Update method to invoke and return repository.save(report)
+    @Transactional
     public Product saveProduct(Product product) {
-        productList.add(product);
+        productRepo.save(product);
         return product;
     }
 
-    public Product getProduct(int id){
-        return productList.get(id);
+    @Transactional
+    public Product getProduct(Long id) throws NoSuchProductException {
+        Optional<Product> productOptional = productRepo.findById(id);
+
+        if (productOptional.isEmpty()){
+            throw new NoSuchProductException("No product with ID " + id + "could be found");
+        }
+
+        Product product = productOptional.get();
+        return product;
     }
 
-    public Boolean deleteAllProducts(){return productList.removeAll(productList);}
+    @Transactional
+    public void deleteAllProducts(){
+        productRepo.deleteAll();
+    }
 
 
     public ArrayList<Defect> csvDefects(MultipartFile file) {

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import project.report_gen.exceptions.NoSuchProductException;
 import project.report_gen.models.Product;
 import project.report_gen.services.ProductService;
 
@@ -30,7 +31,7 @@ public class ProductController {
     }
 
     @PostMapping(value = "/addProduct",consumes = MediaType.ALL_VALUE)
-    public String saveProduct(@RequestParam("id")int id, @RequestPart("file") MultipartFile file, @RequestPart("image") MultipartFile image, @ModelAttribute("product") Product product) throws IOException {
+    public String saveProduct(@RequestParam("id")Long id, @RequestPart("file") MultipartFile file, @RequestPart("image") MultipartFile image, @ModelAttribute("product") Product product) throws IOException, NoSuchProductException {
         productService.saveProduct(product);
 
         System.out.println("Product id" + id);

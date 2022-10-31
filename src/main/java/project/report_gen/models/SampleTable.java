@@ -15,6 +15,9 @@ import java.util.ArrayList;
 @Getter
 @Setter
 public class SampleTable {
+
+    // TODO how to map SampleTable & tableRows to database (arraylist & hashmap?)?
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
