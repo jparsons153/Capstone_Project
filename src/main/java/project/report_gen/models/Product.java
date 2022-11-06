@@ -34,8 +34,7 @@ public class Product {
     @Column(nullable = false)
     private int batchSize;
 
-    @Transient
-    @JsonIgnore
+    @OneToOne
     private Image processMap;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)

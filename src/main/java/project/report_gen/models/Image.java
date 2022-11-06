@@ -24,10 +24,10 @@ public class Image {
     @Lob
     private byte[] data;
 
-    @Transient
+//    @Transient
     private String filePath;
 
-    @XmlTransient
+    @XmlElement
     public void setId(Long id) {
         this.id = id;
     }
@@ -37,12 +37,12 @@ public class Image {
         this.fileName = fileName;
     }
 
-    @XmlTransient
+    @XmlElement
     public void setFileType(String fileType) {
         this.fileType = fileType;
     }
 
-    @XmlTransient
+    @XmlElement
     public void setFilePath(String filePath) {
         this.filePath = filePath;
     }

@@ -35,22 +35,6 @@ public class ReportController {
     @Autowired
     GenerateDocument generateDocument;
 
-    // test method to check marshalling of xml
-//    @GetMapping("/bind")
-//    @ResponseBody
-//    public void marshal() throws JAXBException, IOException {
-//
-//        JAXBContext context = JAXBContext.newInstance(Report.class);
-//        Marshaller mar= context.createMarshaller();
-//        mar.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-//        mar.marshal(newReport, new File("C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/report_gen/src/main/java/project/report_gen/reportXML.xml"));
-//    }
-
-//    @GetMapping("/csvDefects")
-//    public void printCsvDefects() {
-//        productService.csvDefects();
-//    }
-
     @GetMapping("/reportIndex")
     public String viewHomePage(Model model) {
         List<Report> reportList = reportService.getAllReports();

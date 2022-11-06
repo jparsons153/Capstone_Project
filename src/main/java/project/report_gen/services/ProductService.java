@@ -2,19 +2,21 @@ package project.report_gen.services;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 import project.report_gen.exceptions.NoSuchProductException;
-import project.report_gen.exceptions.NoSuchValidationException;
 import project.report_gen.models.Defect;
+import project.report_gen.models.Image;
 import project.report_gen.models.Product;
-import project.report_gen.models.ValidationStrategy;
 import project.report_gen.repos.ProductRepo;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -26,19 +28,6 @@ public class ProductService {
     final ProductRepo productRepo;
 
     @Transactional
-    public List<Product> getAllProducts() {
-        ArrayList<Product> productList = new ArrayList<>(productRepo.findAll());
-
-        return productList;
-    }
-
-    @Transactional
-    public Product saveProduct(Product product) {
-        productRepo.save(product);
-        return product;
-    }
-
-    @Transactional
     public Product getProduct(Long id) throws NoSuchProductException {
         Optional<Product> productOptional = productRepo.findById(id);
 
@@ -47,6 +36,21 @@ public class ProductService {
         }
 
         Product product = productOptional.get();
+        return product;
+    }
+
+    @Transactional
+    public List<Product> getAllProducts() {
+        ArrayList<Product> productList = new ArrayList<>(productRepo.findAll());
+
+        return productList;
+    }
+
+    @Transactional
+    public Product saveProduct(Product product,MultipartFile file,MultipartFile image) throws IOException {
+        product.setDefectList(csvDefects(file));
+        product.setProcessMap(uploadFile(image));
+        productRepo.save(product);
         return product;
     }
 
@@ -69,7 +73,6 @@ public class ProductService {
                 defects.add(mapValuesToDefectObject(values));
             }
 
-
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -80,7 +83,7 @@ public class ProductService {
             System.out.println(defect.toString());
         }
 
-        file.getResource().getFile().delete();
+        // delete csv once mapped and return defect list
         return defects;
     }
 
@@ -95,4 +98,30 @@ public class ProductService {
 
         return defect;
     }
+
+    private Image uploadFile(MultipartFile inputFile) {
+
+        String fileName;
+        // get the original file name
+        if (inputFile == null) {
+            throw new IllegalStateException("Sorry did not receive a file, please try again!");
+        } else {
+            fileName = StringUtils.cleanPath(Objects.requireNonNull(inputFile.getOriginalFilename()));
+        }
+
+        Image imageFile = null;
+        try {
+            imageFile = Image.builder()
+                    .data(inputFile.getBytes())
+                    .fileName(fileName)
+                    .fileType(inputFile.getContentType())
+                    .build();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return imageFile;
+    }
+
 }
