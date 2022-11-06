@@ -56,7 +56,7 @@ public class ProductService {
     }
 
 
-    public ArrayList<Defect> csvDefects(MultipartFile file) {
+    public ArrayList<Defect> csvDefects(MultipartFile file) throws IOException {
 
         ArrayList<Defect> defects = new ArrayList();
         String line;
@@ -69,6 +69,7 @@ public class ProductService {
                 defects.add(mapValuesToDefectObject(values));
             }
 
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -79,6 +80,7 @@ public class ProductService {
             System.out.println(defect.toString());
         }
 
+        file.getResource().getFile().delete();
         return defects;
     }
 

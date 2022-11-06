@@ -9,7 +9,6 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
-@Entity
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,16 +18,9 @@ import java.util.Set;
 
 public class TableRow {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
-    @Column(nullable = false)
     int sampleSize;
 
-    @Transient
-    @JsonIgnore
-    // TODO map to db
     // map each AQL to AcceptReject
     Map<Double, AcceptReject> acceptRejectHashMap;
 

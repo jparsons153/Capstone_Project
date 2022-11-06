@@ -32,14 +32,16 @@ public class ProductController {
 
     @PostMapping(value = "/addProduct",consumes = MediaType.ALL_VALUE)
     public String saveProduct(@RequestParam("id")Long id, @RequestPart("file") MultipartFile file, @RequestPart("image") MultipartFile image, @ModelAttribute("product") Product product) throws IOException, NoSuchProductException {
-        productService.saveProduct(product);
+        //productService.saveProduct(product);
 
+        // TODO pass files & params, product to service levels
         System.out.println("Product id" + id);
         Product p = productService.getProduct(id);
         p.setDefectList(productService.csvDefects(file));
         productService.saveProduct(p);
         // TODO save image to multi-part file (see notes)
         //p.setProcessMap(image);
+        // get file and save to db (see notes)
 
         return "redirect:/new";
     }
