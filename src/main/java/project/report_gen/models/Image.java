@@ -2,23 +2,21 @@ package project.report_gen.models;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Lob;
-import javax.persistence.Table;
-import javax.persistence.Transient;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlTransient;
 
-//@Entity
+@Entity
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-//@Table(name = "imageFiles")
+@Table(name = "imageFiles")
 
 public class Image {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String fileName;
     private String fileType;

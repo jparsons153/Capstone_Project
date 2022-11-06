@@ -24,8 +24,8 @@ public class Document {
 
 //    private String fileName;
 //
-//    @Lob
-//    private byte[] data;
+    @Lob
+    private byte[] data;
 //
 //    @Transient
 //    private String downloadUrl;
@@ -44,9 +44,9 @@ public class Document {
 //        this.fileName = fileName;
 //    }
 //
-//    public void setData(byte[] data) {
-//        this.data = data;
-//    }
+    public void setData(byte[] data) {
+        this.data = data;
+    }
 //
 //    public void setDownloadUrl(String downloadUrl) {
 //        this.downloadUrl = downloadUrl;

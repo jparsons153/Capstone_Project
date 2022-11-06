@@ -105,7 +105,7 @@ public class ReportController {
   // TODO can't call redirect after the response has been committed? - attach JS function to send document as response then redirect
   // TODO move @RequestParam's to hashmap
     @PostMapping(value = "/update")
-    public void update(@RequestParam("productID")Long productID, @RequestParam("documentID")int documentID,@RequestParam("validationStrategyID")int validationStrategyID,@ModelAttribute("report") Report report, HttpServletResponse response, Model model) throws Exception {
+    public void update(@RequestParam("productID")Long productID, @RequestParam("documentID")Long documentID,@RequestParam("validationStrategyID")Long validationStrategyID,@ModelAttribute("report") Report report, HttpServletResponse response, Model model) throws Exception {
        reportService.assignDoc(report,documentID, productID, validationStrategyID);
        generateDocument.defectTable(report);
        generateDocument.updateReport(report, response);

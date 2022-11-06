@@ -36,7 +36,7 @@ public class ValidationService {
         Optional<ValidationStrategy> valOptional = validationRepo.findById(id);
 
         if (valOptional.isEmpty()){
-            throw new NoSuchValidationException("No validation with ID " + id + "could be found");
+            throw new NoSuchValidationException("No validation with ID " + id + "could not be found");
         }
 
         ValidationStrategy validation = valOptional.get();
