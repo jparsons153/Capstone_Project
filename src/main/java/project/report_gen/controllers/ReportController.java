@@ -101,9 +101,7 @@ public class ReportController {
         return "redirect:/reportIndex";
     }
 
-  //   update template file with input from user form
-  // TODO can't call redirect after the response has been committed? - attach JS function to send document as response then redirect
-  // TODO move @RequestParam's to hashmap
+    // update template file with input from user form
     @PostMapping(value = "/update")
     public void update(@RequestParam("productID")Long productID, @RequestParam("documentID")Long documentID,@RequestParam("validationStrategyID")Long validationStrategyID,@ModelAttribute("report") Report report, HttpServletResponse response, Model model) throws Exception {
        reportService.assignDoc(report,documentID, productID, validationStrategyID);

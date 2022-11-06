@@ -40,8 +40,6 @@ public class Report {
 //    @Builder.Default
 //    private LocalDateTime createdAt = LocalDateTime.now();
 
-    // list of defects and product spec derived from product table
-
     @XmlElement(name = "reportID")
     public void setId(Long id){
         this.id = id;

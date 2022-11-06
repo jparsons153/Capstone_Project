@@ -9,6 +9,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlTransient;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 @Entity
 @Builder
@@ -37,9 +38,9 @@ public class Product {
     @JsonIgnore
     private Image processMap;
 
-    @Transient
-    @JsonIgnore
-    private ArrayList<Defect> defectList = new ArrayList<Defect>();
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "product_id")
+    private List<Defect> defectList;
 
     public double getMinAQL(){
         double calcMinAQL = defectList.get(0).getAql();

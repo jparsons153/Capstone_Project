@@ -2,27 +2,29 @@ package project.report_gen.models;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
-
+@Entity
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class SampleTable {
 
-    // TODO how to map SampleTable & tableRows to database (arraylist & hashmap?)?
+public class SampleTable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @Column(nullable = false)
     private String tableName;
-    private ArrayList<TableRow> tableRows = new ArrayList<>();
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "sampleTable_id")
+    private List<TableRow> tableRows;
 
     @Override
     public String toString() {

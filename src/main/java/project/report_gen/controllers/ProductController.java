@@ -41,8 +41,6 @@ public class ProductController {
         // TODO save image to multi-part file (see notes)
         //p.setProcessMap(image);
 
-        //productService.csvDefects(file);
-
         return "redirect:/new";
     }
 }

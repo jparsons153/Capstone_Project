@@ -1,17 +1,33 @@
 package project.report_gen.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
+import javax.persistence.*;
+
+@Entity
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 public class Defect {
-    private int id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false)
     private String name;
+
+    @Column(nullable = false)
     private String description;
+
+    @Column(nullable = false)
     private double aql;
+
+    @Transient
+    @JsonIgnore
     private AcceptReject acceptReject;
 
     public Defect(String description, double aql) {
@@ -19,7 +35,7 @@ public class Defect {
         this.aql = aql;
     }
 
-    public Defect(int id, String name, String description, double aql) {
+    public Defect(Long id, String name, String description, double aql) {
         this.id = id;
         this.name = name;
         this.description = description;

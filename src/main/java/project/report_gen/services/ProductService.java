@@ -86,7 +86,7 @@ public class ProductService {
 
         Defect defect = new Defect();
 
-        defect.setId(Integer.parseInt(values[0]));
+        defect.setId(Long.parseLong(values[0]));
         defect.setName(values[1]);
         defect.setDescription(values[2]);
         defect.setAql(Double.parseDouble(values[3]));

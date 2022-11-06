@@ -47,7 +47,7 @@ public class GenerateDocument {
 
     public TableRow getSampling(Report report) {
         Double productMinAQL = report.getProductSKU().getMinAQL();
-        ArrayList<TableRow> rowsToIterate = report.getValidationStrategy().getSampleTable().getTableRows();
+        List<TableRow> rowsToIterate = report.getValidationStrategy().getSampleTable().getTableRows();
         TableRow selectRowForSampleSize;
 
         // check if productMinAQL is a value in map for each row
