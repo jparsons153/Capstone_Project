@@ -2,13 +2,11 @@ package project.report_gen.models;
 
 import lombok.*;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import javax.xml.bind.annotation.*;
 
-//@Entity
+@Entity
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -17,14 +15,26 @@ import javax.xml.bind.annotation.*;
 @XmlRootElement(name = "validation_report")
 @XmlType(propOrder = {"id","documentType", "productSKU", "productionCell","tool", "validationStrategy", "valSampleSize"})
 public class Report {
-    //@Id
-    //@GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private Document documentType; // could be enum or list, as is fixed
-    private Product productSKU; // use product list dataset
+
+    @OneToOne
+    private Document documentType;
+
+    @OneToOne
+    private Product productSKU;
+
+    @Column(nullable = false)
     private int tool;
-    private String productionCell; // use productionCell dataset
-    private ValidationStrategy validationStrategy; // enum or list
+
+    @Column(nullable = false)
+    private String productionCell;
+
+    @OneToOne
+    private ValidationStrategy validationStrategy;
+
+    @Column(nullable = false)
     private int valSampleSize;
 
 //    @Builder.Default

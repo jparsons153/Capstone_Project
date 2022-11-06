@@ -22,8 +22,6 @@ import java.util.Optional;
 @Transactional(readOnly = true)
 public class ProductService {
 
-    //List<Product> productList = new ArrayList<>();
-
     @Autowired
     final ProductRepo productRepo;
 

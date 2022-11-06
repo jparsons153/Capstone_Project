@@ -1,23 +1,26 @@
 package project.report_gen.models;
 
-import jakarta.persistence.Lob;
+import javax.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlTransient;
 
+@Entity
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 public class Document {
-    //@Generated
-    int id; // change to Long for DB
-    String name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    @Column(nullable = false)
+    private String name;
 
 //    private String fileName;
 //
@@ -28,7 +31,7 @@ public class Document {
 //    private String downloadUrl;
 
     @XmlTransient
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
