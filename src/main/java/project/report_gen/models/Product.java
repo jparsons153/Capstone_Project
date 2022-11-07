@@ -34,7 +34,7 @@ public class Product {
     @Column(nullable = false)
     private int batchSize;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Image processMap;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)

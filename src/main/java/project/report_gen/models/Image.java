@@ -27,7 +27,7 @@ public class Image {
 //    @Transient
     private String filePath;
 
-    @XmlElement
+    @XmlTransient
     public void setId(Long id) {
         this.id = id;
     }
@@ -37,12 +37,12 @@ public class Image {
         this.fileName = fileName;
     }
 
-    @XmlElement
+    @XmlTransient
     public void setFileType(String fileType) {
         this.fileType = fileType;
     }
 
-    @XmlElement
+    @XmlTransient
     public void setFilePath(String filePath) {
         this.filePath = filePath;
     }
