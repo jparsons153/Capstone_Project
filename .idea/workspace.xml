@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="55ff9167-6213-418a-a81b-c1234b7cd0d5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/models/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/models/Image.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/models/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/models/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/controllers/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/controllers/ReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/controllers/ReportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/models/Document.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/models/Document.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/models/Report.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/models/Report.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/services/DocumentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/services/DocumentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/newTemplate.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/newTemplate.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

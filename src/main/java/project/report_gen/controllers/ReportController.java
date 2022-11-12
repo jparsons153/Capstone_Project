@@ -69,10 +69,9 @@ public class ReportController {
     }
 
     @PostMapping(value = "/addTemplate", consumes = MediaType.ALL_VALUE)
-    public String saveTemplate(@RequestParam("id")int id, @RequestPart("file") MultipartFile file, @ModelAttribute("document")Document document) throws IOException{
+    public String saveTemplate(@RequestParam("name")String name, @RequestPart("file") MultipartFile template, @ModelAttribute("document")Document document) throws IOException{
 
-        System.out.println("Document id" + id);
-        documentService.saveDoc(document);
+        documentService.saveDoc(document, template, name);
 
         return "redirect:/reportIndex";
     }

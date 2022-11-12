@@ -11,16 +11,12 @@
     <form action="#" th:action="@{/addTemplate}" th:object="${document}" method="post" enctype="multipart/form-data">
         <table border="0" cellpadding="10">
             <tr>
-                <td>ID:</td>
-                <td><input type="number" th:field="*{id}" required/></td>
-            </tr>
-            <tr>
                 <td>Name:</td>
                 <td><input type="text" th:field="*{name}" required/></td>
             </tr>
             <tr>
                 <td>Document Template File:</td>
-                <td><input type="file" id="file" name="file" multiple="multiple"></td>
+                <td><input type="file" id="template" name="file" multiple="multiple"></td>
             </tr>
         </table>
         <tr>

@@ -37,8 +37,7 @@ public class Report {
     @Column(nullable = false)
     private int valSampleSize;
 
-//    @Builder.Default
-//    private LocalDateTime createdAt = LocalDateTime.now();
+    private LocalDateTime createdAt = LocalDateTime.now();
 
     @XmlElement(name = "reportID")
     public void setId(Long id){

@@ -15,6 +15,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @Getter
 @Setter
 public class Document {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -22,13 +23,12 @@ public class Document {
     @Column(nullable = false)
     private String name;
 
-//    private String fileName;
-//
+    private String fileName;
+
+    private String fileType;
+
     @Lob
     private byte[] data;
-//
-//    @Transient
-//    private String downloadUrl;
 
     @XmlTransient
     public void setId(Long id) {
@@ -40,17 +40,20 @@ public class Document {
         this.name = name;
     }
 
-//    public void setFileName(String fileName) {
-//        this.fileName = fileName;
-//    }
-//
+    @XmlTransient
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    @XmlTransient
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
+    }
+
+    @XmlTransient
     public void setData(byte[] data) {
         this.data = data;
     }
-//
-//    public void setDownloadUrl(String downloadUrl) {
-//        this.downloadUrl = downloadUrl;
-//    }
 
     @Override
     public String toString() {

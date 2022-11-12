@@ -35,15 +35,6 @@ public class ProductController {
 
         productService.saveProduct(product,file,image);
 
-        // TODO pass files & params, product to service levels
-//        System.out.println("Product id" + id);
-//        Product p = productService.getProduct(id);
-//        p.setDefectList(productService.csvDefects(file));
-//        productService.saveProduct(p);
-        // TODO save image to multi-part file (see notes)
-        //p.setProcessMap(image);
-        // get file and save to db (see notes)
-
         return "redirect:/new";
     }
 }

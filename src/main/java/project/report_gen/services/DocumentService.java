@@ -9,10 +9,12 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 import project.report_gen.exceptions.NoSuchDocumentException;
 import project.report_gen.models.Document;
+import project.report_gen.models.Image;
 import project.report_gen.repos.DocumentRepo;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,9 +35,10 @@ public class DocumentService {
         return documentList;
     }
 
+    // TODO request param ID + name, set document instance var + save
     @Transactional
-    public Document saveDoc(Document doc) {
-        documentRepo.save(doc);
+    public Document saveDoc(Document doc, MultipartFile template, String name) {
+        documentRepo.save(uploadFile(template, name));
         return doc;
     }
 
@@ -51,5 +54,32 @@ public class DocumentService {
 
     public void deleteAllDocs() {
         documentRepo.deleteAll();
+    }
+
+    // create interface to reduce method (image / document)
+    private Document uploadFile(MultipartFile inputFile, String name) {
+
+        String fileName;
+        // get the original file name
+        if (inputFile == null) {
+            throw new IllegalStateException("Sorry did not receive a file, please try again!");
+        } else {
+            fileName = StringUtils.cleanPath(Objects.requireNonNull(inputFile.getOriginalFilename()));
+        }
+
+        Document docFile = null;
+        try {
+            docFile = Document.builder()
+                    .name(name)
+                    .data(inputFile.getBytes())
+                    .fileName(fileName)
+                    .fileType(inputFile.getContentType())
+                    .build();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return docFile;
     }
 }
