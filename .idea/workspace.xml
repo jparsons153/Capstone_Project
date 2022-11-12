@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55ff9167-6213-418a-a81b-c1234b7cd0d5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/controllers/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/controllers/ReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/controllers/ReportController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/models/Document.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/models/Document.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/models/Report.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/models/Report.java" afterDir="false" />
+    <list default="true" id="55ff9167-6213-418a-a81b-c1234b7cd0d5" name="Changes" comment="fix-- upload template as .docx and save to db">
       <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/services/DocumentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/services/DocumentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/newTemplate.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/newTemplate.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/new-document.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/new-document.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +23,7 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIEW_PUSH_PROTECTED_ONLY" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JpbToolWindowState">
@@ -98,6 +94,14 @@
       <option name="presentableId" value="Default" />
       <updated>1661961700008</updated>
     </task>
+    <task id="LOCAL-00001" summary="fix-- upload template as .docx and save to db">
+      <created>1668246669235</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1668246669235</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -111,6 +115,10 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fix-- upload template as .docx and save to db" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix-- upload template as .docx and save to db" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

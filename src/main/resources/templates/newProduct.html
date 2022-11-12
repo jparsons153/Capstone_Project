@@ -11,10 +11,6 @@
     <form action="#" th:action="@{/addProduct}" th:object="${product}" method="post" enctype="multipart/form-data">
         <table border="0" cellpadding="10">
             <tr>
-                <td>ID:</td>
-                <td><input type="number" th:field="*{id}" required/></td>
-            </tr>
-            <tr>
                 <td>SKU:</td>
                 <td><input type="text" th:field="*{SKU}" required/></td>
             </tr>

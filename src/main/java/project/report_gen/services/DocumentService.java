@@ -35,7 +35,6 @@ public class DocumentService {
         return documentList;
     }
 
-    // TODO request param ID + name, set document instance var + save
     @Transactional
     public Document saveDoc(Document doc, MultipartFile template, String name) {
         documentRepo.save(uploadFile(template, name));

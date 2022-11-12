@@ -8,17 +8,12 @@
 <div align="center">
     <h1>Create New Document</h1>
     <br />
-    <!-- form to update the Report object (created in @GetMapping("/new"))
-    on submit will hit save endpoint
-    TODO data validation on input fields
-    TODO update Report POJO, form and template content controls for productFamily
-    -->
+<!--    TODO update Report POJO, form and template content controls for productFamily-->
     <form action="#" th:action="@{/update}" th:object="${report}" method="post">
         <table border="0" cellpadding="10">
-            <!-- TODO remove id from form when DB connected -->
             <tr>
                 <td>ID:</td>
-                <td><input type="number" th:field="*{id}" required/></td>
+                <td><input type="number" th:field="*{id}" readonly/></td>
             </tr>
             <tr>
                 <td>Document Type:</td>
@@ -34,12 +29,6 @@
                 <td>
                 <a th:href="@{/newTemplate}">Add New Template</a>
                 </td>
-                <!-- TODO make conditional to select file if documentID = New -->
-                <!--<div th:if="${documentID} == New">
-                 1. when select happens trigger JS - event listener
-                 2. pick target...
-                 -->
-                <!-- TODO add new page to upload document template -->
             </tr>
             <tr>
                 <td>Product SKU#:</td>
