@@ -6,9 +6,8 @@
 </head>
 <body>
 <div align="center">
-    <h1>Create New Document</h1>
+    <h1>Create New Report</h1>
     <br />
-<!--    TODO update Report POJO, form and template content controls for productFamily-->
     <form action="#" th:action="@{/update}" th:object="${report}" method="post">
         <table border="0" cellpadding="10">
             <tr>
@@ -23,7 +22,6 @@
                         <option th:each="doc : ${docTypeList}"
                                 th:value="${doc.id}"
                                 th:text="${doc.name}">Wireframe</option>
-                        <option value="New">New</option>
                     </select>
                 </td>
                 <td>

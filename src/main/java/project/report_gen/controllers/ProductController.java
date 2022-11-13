@@ -31,7 +31,7 @@ public class ProductController {
     }
 
     @PostMapping(value = "/addProduct",consumes = MediaType.ALL_VALUE)
-    public String saveProduct(@RequestParam("id")Long id, @RequestPart("file") MultipartFile file, @RequestPart("image") MultipartFile image, @ModelAttribute("product") Product product) throws IOException, NoSuchProductException {
+    public String saveProduct(@RequestPart("file") MultipartFile file, @RequestPart("image") MultipartFile image, @ModelAttribute("product") Product product) throws IOException, NoSuchProductException {
 
         productService.saveProduct(product,file,image);
 

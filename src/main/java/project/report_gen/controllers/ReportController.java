@@ -23,7 +23,6 @@ import java.util.Objects;
 @RequiredArgsConstructor
 public class ReportController {
 
-    // auto wire service method
     @Autowired
     ReportService reportService;
     @Autowired
@@ -57,7 +56,7 @@ public class ReportController {
         final List<Document> docTypeList = documentService.getAllDocTypes();
         model.addAttribute("docTypeList",docTypeList);
 
-        return "new-document";
+        return "new-report";
     }
 
     @GetMapping("/newTemplate")

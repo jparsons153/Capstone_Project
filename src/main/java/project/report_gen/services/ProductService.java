@@ -48,6 +48,7 @@ public class ProductService {
 
     @Transactional
     public Product saveProduct(Product product,MultipartFile file,MultipartFile image) throws IOException {
+        productRepo.save(product);
         product.setDefectList(csvDefects(file));
         product.setProcessMap(uploadFile(image));
         productRepo.save(product);

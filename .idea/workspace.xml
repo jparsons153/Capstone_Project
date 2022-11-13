@@ -5,8 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="55ff9167-6213-418a-a81b-c1234b7cd0d5" name="Changes" comment="fix-- upload template as .docx and save to db">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/controllers/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/controllers/ReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/controllers/ReportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/models/Defect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/models/Defect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/models/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/models/Product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/services/DocumentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/services/DocumentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/new-document.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/new-document.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/services/GenerateDocument.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/services/GenerateDocument.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/services/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/download.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/image5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/input.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/process-map.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/ReportIndex.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/ReportIndex.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/new-document.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/new-report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/newTemplate.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/newTemplate.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/newVal.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/newVal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/validationReport-data.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,15 +136,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="fix-- upload template as .docx and save to db" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/project/report_gen/services/ProductService.java</url>
-          <line>50</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="report" />

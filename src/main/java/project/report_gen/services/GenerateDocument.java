@@ -140,7 +140,6 @@ public class GenerateDocument {
 
     public void addImage(WordprocessingMLPackage wordprocessingMLPackage, Image imageToInsert) throws Exception {
 
-        //String imageFilePath = "C:\\Users\\User\\OneDrive\\Documents\\CodingNomads\\projects\\Capstone_Project\\src\\main\\resources\\image5.png";
         String imageFilePath = imageToInsert.getFilePath();
         File file = new File(imageFilePath);
 
@@ -214,10 +213,8 @@ public class GenerateDocument {
             //Formats XML
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
-            // TODO write output xml to temporary file, need to save?
             //Store XML to File
-            File file = new File("C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/src/main/resources/inputXML.xml");
-            //File file = new File("C:/Users/User/AppData/Local/Temp");
+            File file = new File("inputXML.xml");
 
             //Writes XML file to file-system
             jaxbMarshaller.marshal(report, file);
@@ -236,10 +233,8 @@ public class GenerateDocument {
     // note template file MUST HAVE xml elements already mapped to content controls i.e. Xpath created
     public void xmlToDocx(File input_XML, HttpServletResponse response,Report report) throws Exception {
 
+        // TODO update for file object
         String input_DOCX = "C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/src/main/resources/TEMPLATE_DOCX.docx";
-
-        // resulting docx
-        // TODO pop-up display box when Document created
 
         XPathFactoryUtil.setxPathFactory(new net.sf.saxon.xpath.XPathFactoryImpl());
 

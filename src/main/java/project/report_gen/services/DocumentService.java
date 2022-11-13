@@ -51,11 +51,11 @@ public class DocumentService {
         return documentOptional.get();
     }
 
+    @Transactional
     public void deleteAllDocs() {
         documentRepo.deleteAll();
     }
 
-    // create interface to reduce method (image / document)
     private Document uploadFile(MultipartFile inputFile, String name) {
 
         String fileName;

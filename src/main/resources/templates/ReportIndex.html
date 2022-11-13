@@ -14,12 +14,9 @@
         <tr>
             <th>Report ID</th>
             <th>Document type</th>
-            <!--<th>Product Family</th>-->
             <th>Product SKU#</th>
             <th>Tool</th>
             <th>Production Cell</th>
-            <!--<th>Validation Strategy</th>-->
-            <!--<th>Batch Size</th>-->
             <th>Actions</th>
        </tr>
        </thead>
@@ -27,7 +24,6 @@
         <tr th:each="report : ${reportList}">
             <td th:text="${report.id}">Report ID</td>
             <td th:text="${report.documentType}">Document type</td>
-            <!--<td th:text="${report.productFamily}">Product Family</td>-->
             <td th:text="${report.productSKU}">Product SKU#</td>
             <td th:text="${report.tool}">Tool</td>
             <td th:text="${report.productionCell}">Production Cell</td>

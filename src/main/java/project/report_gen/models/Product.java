@@ -37,7 +37,7 @@ public class Product {
     @OneToOne(cascade = CascadeType.ALL)
     private Image processMap;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id")
     private List<Defect> defectList;
 
