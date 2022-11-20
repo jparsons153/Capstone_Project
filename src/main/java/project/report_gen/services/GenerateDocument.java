@@ -142,29 +142,6 @@ public class GenerateDocument {
 
     public void addImage(WordprocessingMLPackage wordprocessingMLPackage, Image imageToInsert) throws Exception {
 
-//        String imageFilePath = imageToInsert.getFilePath();
-//        File file = new File(imageFilePath);
-//
-//        InputStream is = new FileInputStream(file);
-//        long length = file.length();
-//        // create an array using int type
-//        if (length > Integer.MAX_VALUE) {
-//            System.out.println("File too large!!");
-//        }
-//
-//        byte[] bytes = new byte[(int)length];
-//        int offset = 0;
-//        int numRead = 0;
-//        while (offset < bytes.length
-//                && (numRead=is.read(bytes, offset, bytes.length-offset)) >= 0) {
-//            offset += numRead;
-//        }
-//        // Ensure all the bytes have been read in
-//        if (offset < bytes.length) {
-//            System.out.println("Could not completely read file "+imageFilePath);
-//        }
-//        is.close();
-
         String filenameHint = null;
         String altText = null;
         int id2 = 1;

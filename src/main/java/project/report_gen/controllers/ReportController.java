@@ -72,7 +72,7 @@ public class ReportController {
 
         documentService.saveDoc(document, template, name);
 
-        return "redirect:/reportIndex";
+        return "redirect:/new";
     }
 
     @PostMapping(value = "/save")
