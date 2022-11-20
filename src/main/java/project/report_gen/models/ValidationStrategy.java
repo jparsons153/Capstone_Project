@@ -43,7 +43,6 @@ public class ValidationStrategy {
     }
 
     @XmlElement
-    // TODO create custom method to return toString (e.g. 6 = GL2)
     public void setInspectionLevel(int inspectionLevel) {
         this.inspectionLevel = inspectionLevel;
     }
@@ -58,10 +57,11 @@ public class ValidationStrategy {
         this.sampleTable = sampleTable;
     }
 
-    public ValidationStrategy(String name, int inspectionLevel, String type, SampleTable sampleTable) {
+    public ValidationStrategy(String name, int inspectionLevel, String type) {
         this.name = name;
         this.inspectionLevel = inspectionLevel;
         this.type = type;
-        this.sampleTable = sampleTable;
     }
+
+
 }

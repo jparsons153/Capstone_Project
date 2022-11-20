@@ -18,6 +18,9 @@ public class ValidationService {
     @Autowired
     final ValidationRepo validationRepo;
 
+    @Autowired
+    final SampleTable sampleTable;
+
     @Transactional
     public List<ValidationStrategy> getAllVals() {
         ArrayList<ValidationStrategy> valList = new ArrayList<>(validationRepo.findAll());
@@ -31,6 +34,7 @@ public class ValidationService {
         return val;
     }
 
+
     @Transactional
     public ValidationStrategy getVal(Long id) throws NoSuchValidationException {
         Optional<ValidationStrategy> valOptional = validationRepo.findById(id);
@@ -40,6 +44,7 @@ public class ValidationService {
         }
 
         ValidationStrategy validation = valOptional.get();
+        validation.setSampleTable(sampleTable);
         return validation;
     }
 
