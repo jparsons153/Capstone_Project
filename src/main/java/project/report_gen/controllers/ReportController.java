@@ -36,7 +36,7 @@ public class ReportController {
 
     @GetMapping("/reportIndex")
     public String viewHomePage(Model model) {
-        List<Report> reportList = reportService.getAllReports();
+        final List<Report> reportList = reportService.getAllReports();
         model.addAttribute("reportList", reportList);
     return "reportIndex";
     }
@@ -75,7 +75,6 @@ public class ReportController {
         return "redirect:/reportIndex";
     }
 
-
     @PostMapping(value = "/save")
     // creates a Report in DB based on object collected from HTML page
     public String saveReport(@ModelAttribute("report") Report report) throws IOException, Docx4JException {
@@ -86,6 +85,7 @@ public class ReportController {
     // update template file with input from user form
     @PostMapping(value = "/update")
     public void update(@RequestParam("productID")Long productID, @RequestParam("documentID")Long documentID,@RequestParam("validationStrategyID")Long validationStrategyID,@ModelAttribute("report") Report report, HttpServletResponse response, Model model) throws Exception {
+       reportService.saveReport(report);
        reportService.assignDoc(report,documentID, productID, validationStrategyID);
        generateDocument.defectTable(report);
        generateDocument.updateReport(report, response);

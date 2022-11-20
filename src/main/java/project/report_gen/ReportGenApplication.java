@@ -61,9 +61,7 @@ public class ReportGenApplication implements CommandLineRunner {
 				.tableRows(normalGL2rows)
 				.build();
 
-		ValidationStrategy newTool = new ValidationStrategy(1L,"New Tool",6,"Normal",normalGeneralLevelIIsampleTable);
-		ValidationStrategy duplicateTool = new ValidationStrategy(2L,"Duplicate Tool",7,"Tightened",normalGeneralLevelIIsampleTable);
+		ValidationStrategy newTool = new ValidationStrategy("New Tool",6,"Normal",normalGeneralLevelIIsampleTable);
 		validationService.saveVal(newTool);
-		validationService.saveVal(duplicateTool);
 	}
 }

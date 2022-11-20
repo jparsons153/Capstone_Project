@@ -4,24 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55ff9167-6213-418a-a81b-c1234b7cd0d5" name="Changes" comment="fix-- upload template as .docx and save to db">
+    <list default="true" id="55ff9167-6213-418a-a81b-c1234b7cd0d5" name="Changes" comment="fix-- save product from input form">
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/exceptions/NoSuchReportException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/repos/ReportRepo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/controllers/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/ReportGenApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/ReportGenApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/controllers/ReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/controllers/ReportController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/models/Defect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/models/Defect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/models/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/models/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/services/DocumentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/services/DocumentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/models/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/models/Image.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/models/Report.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/models/Report.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/models/ValidationStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/models/ValidationStrategy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/services/GenerateDocument.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/services/GenerateDocument.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/services/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/download.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/image5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/input.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/process-map.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/ReportIndex.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/ReportIndex.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/new-document.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/new-report.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/newTemplate.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/newTemplate.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/newVal.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/newVal.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/validationReport-data.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/report_gen/services/ReportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/report_gen/services/ReportService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/inputXML.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/XML.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +34,14 @@
   <component name="Git.Settings">
     <option name="PREVIEW_PUSH_PROTECTED_ONLY" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
@@ -116,7 +118,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668246669235</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fix-- save product from input form">
+      <created>1668363127562</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1668363127562</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -133,14 +142,33 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fix-- upload template as .docx and save to db" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix-- upload template as .docx and save to db" />
+    <MESSAGE value="fix-- save product from input form" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix-- save product from input form" />
   </component>
   <component name="XDebuggerManager">
-    <watches-manager>
-      <configuration name="Application">
-        <watch expression="report" />
-        <watch expression="file.getResource()" language="JAVA" />
-      </configuration>
-    </watches-manager>
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/project/report_gen/controllers/ReportController.java</url>
+          <line>87</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/project/report_gen/services/GenerateDocument.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/project/report_gen/services/ValidationService.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/project/report_gen/ReportGenApplication.java</url>
+          <line>64</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

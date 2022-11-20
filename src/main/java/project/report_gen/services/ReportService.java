@@ -15,8 +15,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import project.report_gen.exceptions.NoSuchDocumentException;
 import project.report_gen.exceptions.NoSuchProductException;
+import project.report_gen.exceptions.NoSuchReportException;
 import project.report_gen.exceptions.NoSuchValidationException;
 import project.report_gen.models.*;
+import project.report_gen.repos.ReportRepo;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.JAXBContext;
@@ -39,28 +41,38 @@ public class ReportService {
     @Autowired
     private GenerateDocument generateDocument;
 
-    List<Report> reportList = new ArrayList<Report>();
+    @Autowired
+    final ReportRepo reportRepo;
 
-    // Update method to invoke and return repository.findAll
-    // create and save some report objects
+    @Transactional
     public List<Report> getAllReports() {
+        ArrayList<Report> reportList = new ArrayList<>(reportRepo.findAll());
         return reportList;
     }
 
-    public Report getReport(int id){
-        return reportList.get(id);
-    }
+    @Transactional
+    public Report getReport(Long id) throws NoSuchReportException {
+        Optional<Report> reportOptional = reportRepo.findById(id);
 
-    // Update method to invoke and return repository.save(report)
-    public Report saveReport(Report report) {
-        reportList.add(report);
+        if (reportOptional.isEmpty()){
+            throw new NoSuchReportException("No report with ID " + id + "could be found");
+        }
+
+        Report report = reportOptional.get();
         return report;
     }
 
-    public Boolean deleteAllReports(){return reportList.removeAll(reportList);}
+    @Transactional
+    public Report saveReport(Report report) {
+        reportRepo.save(report);
+        return report;
+    }
 
     @Transactional
-    public void assignDoc(Report reportAssigned, Long documentId, Long productID, long validationID) throws NoSuchValidationException, NoSuchProductException, NoSuchDocumentException {
+    public void deleteAllReports(){reportRepo.deleteAll();}
+
+    @Transactional
+    public void assignDoc(Report reportAssigned, Long documentId, Long productID, Long validationID) throws NoSuchValidationException, NoSuchProductException, NoSuchDocumentException {
         Document documentAssigned = documentService.getDoc(documentId);
         reportAssigned.setDocumentType(documentAssigned);
 
@@ -72,10 +84,4 @@ public class ReportService {
 
         saveReport(reportAssigned);
     }
-
-    // Update method to invoke and return repository.saveAll(reportList)
-    public List<Report> saveAllReports(List<Report> list) {
-        return list;
-    }
-
 }

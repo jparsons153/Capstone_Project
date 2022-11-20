@@ -34,7 +34,7 @@ public class Report {
     @OneToOne
     private ValidationStrategy validationStrategy;
 
-    @Column(nullable = false)
+    @Column
     private int valSampleSize;
 
     private LocalDateTime createdAt = LocalDateTime.now();

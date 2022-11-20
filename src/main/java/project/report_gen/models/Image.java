@@ -42,8 +42,8 @@ public class Image {
         this.fileType = fileType;
     }
 
-    @XmlTransient
-    public void setFilePath(String filePath) {
-        this.filePath = filePath;
-    }
+//    @XmlTransient
+//    public void setFilePath(String filePath) {
+//        this.filePath = filePath;
+//    }
 }

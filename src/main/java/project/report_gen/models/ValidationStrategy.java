@@ -29,9 +29,8 @@ public class ValidationStrategy {
     private String type;
 
     @Transient
-    @JsonIgnore
+    //@JsonIgnore
     private SampleTable sampleTable;
-    //Boolean featured;
 
     @XmlTransient
     public void setId(Long id) {
@@ -56,6 +55,13 @@ public class ValidationStrategy {
 
     @XmlElement
     public void setSampleTable(SampleTable sampleTable) {
+        this.sampleTable = sampleTable;
+    }
+
+    public ValidationStrategy(String name, int inspectionLevel, String type, SampleTable sampleTable) {
+        this.name = name;
+        this.inspectionLevel = inspectionLevel;
+        this.type = type;
         this.sampleTable = sampleTable;
     }
 }

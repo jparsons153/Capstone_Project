@@ -1,5 +1,6 @@
 package project.report_gen.services;
 
+import org.apache.commons.io.FileUtils;
 import org.docx4j.Docx4J;
 import org.docx4j.dml.wordprocessingDrawing.Inline;
 import org.docx4j.jaxb.Context;
@@ -24,6 +25,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import java.io.*;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -140,32 +142,34 @@ public class GenerateDocument {
 
     public void addImage(WordprocessingMLPackage wordprocessingMLPackage, Image imageToInsert) throws Exception {
 
-        String imageFilePath = imageToInsert.getFilePath();
-        File file = new File(imageFilePath);
-
-        InputStream is = new FileInputStream(file);
-        long length = file.length();
-        // create an array using int type
-        if (length > Integer.MAX_VALUE) {
-            System.out.println("File too large!!");
-        }
-
-        byte[] bytes = new byte[(int)length];
-        int offset = 0;
-        int numRead = 0;
-        while (offset < bytes.length
-                && (numRead=is.read(bytes, offset, bytes.length-offset)) >= 0) {
-            offset += numRead;
-        }
-        // Ensure all the bytes have been read in
-        if (offset < bytes.length) {
-            System.out.println("Could not completely read file "+imageFilePath);
-        }
-        is.close();
+//        String imageFilePath = imageToInsert.getFilePath();
+//        File file = new File(imageFilePath);
+//
+//        InputStream is = new FileInputStream(file);
+//        long length = file.length();
+//        // create an array using int type
+//        if (length > Integer.MAX_VALUE) {
+//            System.out.println("File too large!!");
+//        }
+//
+//        byte[] bytes = new byte[(int)length];
+//        int offset = 0;
+//        int numRead = 0;
+//        while (offset < bytes.length
+//                && (numRead=is.read(bytes, offset, bytes.length-offset)) >= 0) {
+//            offset += numRead;
+//        }
+//        // Ensure all the bytes have been read in
+//        if (offset < bytes.length) {
+//            System.out.println("Could not completely read file "+imageFilePath);
+//        }
+//        is.close();
 
         String filenameHint = null;
         String altText = null;
         int id2 = 1;
+
+        byte[] bytes = imageToInsert.getData();
 
         // Image 2: width 3000pixels
         org.docx4j.wml.P p2 = newImage(wordprocessingMLPackage, bytes,
@@ -233,13 +237,11 @@ public class GenerateDocument {
     // note template file MUST HAVE xml elements already mapped to content controls i.e. Xpath created
     public void xmlToDocx(File input_XML, HttpServletResponse response,Report report) throws Exception {
 
-        // TODO update for file object
-        String input_DOCX = "C:/Users/User/OneDrive/Documents/CodingNomads/projects/Capstone_Project/src/main/resources/TEMPLATE_DOCX.docx";
-
         XPathFactoryUtil.setxPathFactory(new net.sf.saxon.xpath.XPathFactoryImpl());
 
         // Load input_template.docx
-        WordprocessingMLPackage wordMLPackage = Docx4J.load(new File(input_DOCX));
+        //WordprocessingMLPackage wordMLPackage = Docx4J.load(new File(input_DOCX));
+        WordprocessingMLPackage wordMLPackage = Docx4J.load(new ByteArrayInputStream(report.getDocumentType().getData()));
 
         // set title as document property
         wordMLPackage.setTitle(report.getDocumentType().getName() + " " + report.getId() + " " + report.getProductSKU().getName() + " in " + report.getProductionCell());
@@ -249,7 +251,7 @@ public class GenerateDocument {
         documentPart.addParagraphOfText("Programmatic table added");
         addCustomTable(wordMLPackage,documentPart,report);
 
-        documentPart.addParagraphOfText("Added image from file location");
+        documentPart.addParagraphOfText("Image added");
         Image processMap = report.getProductSKU().getProcessMap();
         addImage(wordMLPackage, processMap);
 
